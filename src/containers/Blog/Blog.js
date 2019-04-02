@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-import Post from '../../components/Tile/Post/Post';
-import FullPost from '../../components/Tile/FullPost/FullPost';
-import NewPost from '../../components/Tile/NewPost/NewPost';
 import classes from './Blog.css';
 
 class Blog extends Component {
