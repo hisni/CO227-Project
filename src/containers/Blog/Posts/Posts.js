@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { Route } from 'react-router-dom';
+
 //import {Link} from 'react-router-dom';
 import Post from '../../../components/Tile/Post/Post';
+import FullPost from '../FullPost/FullPost'
 import Spinner from '../../../components/UI/Spinner/Spinner';
 import classes from './Posts.css';
+
 
 class Posts extends Component {
     state = {
@@ -49,9 +53,13 @@ class Posts extends Component {
         }
 
         return(
-            <section className={classes.Posts}>
-                {posts}
-            </section>
+            <div>
+                <section className={classes.Posts}>
+                    {posts}
+                </section>
+                <Route path={this.props.match.url + '/:id'} exact component={FullPost} />
+            </div>
+            
         );
         
     };
