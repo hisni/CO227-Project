@@ -12,7 +12,7 @@ class Blog extends Component {
             <div>
                 <Layout>
                     <Switch>
-                        <Route path="/posts" exact component={Posts} />
+                        <Route path="/" exact component={Posts} />
                         <Route path="/post-add" component={NewPosts} />
                         <Route path="/:id" exact component={FullPost} />
                     </Switch>
