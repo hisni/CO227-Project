@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { Redirect } from 'react-router-dom';
 import classes from './NewPost.css';
+import Button from '../../../components/UI/Button/Button';
 
 class NewPost extends Component {
     state = {
@@ -42,10 +43,10 @@ class NewPost extends Component {
                 <textarea rows="4" value={this.state.content} onChange={(event) => this.setState({content: event.target.value})} />
                 <label>Author</label>
                 <select value={this.state.author} onChange={(event) => this.setState({author: event.target.value})}>
-                    <option value="Max">Max</option>
-                    <option value="Manu">Manu</option>
+                    <option value="Max">Aslam</option>
+                    <option value="Manu">Hisni</option>
                 </select>
-                <button onClick={this.postDataHandler}>Add Post</button>
+                <Button onClick={this.postDataHandler}>Add Post</Button>
             </div>
         );
     }

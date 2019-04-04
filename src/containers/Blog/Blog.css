@@ -1,0 +1,8 @@
+.Blog {
+    background-color: rgb(175, 248, 214);
+    width: 100%;
+    height: 700px;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
