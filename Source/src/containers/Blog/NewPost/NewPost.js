@@ -7,63 +7,117 @@ import Input from '../../../components/UI/Input/Input';
 
 class NewPost extends Component {
     state = {
-        PostForm:{
+        PostForm: {
             Title: {
                 elementType: 'input',
                 elementConfig: {
                     type: 'text',
-                    placeholder: 'Title',
-                    value: ''
-                }
+                    placeholder: 'Title'
+                },
+                value: '',
+                validation: {
+                    required: true
+                },
+                valid: false,
+                touched: false
             },
             Content: {
                 elementType: 'textarea',
                 elementConfig: {
                     type: 'text',
-                    placeholder: 'Content',
-                    value: ''
-                }
+                    placeholder: 'Content'
+                },
+                value: '',
+                validation: {
+                    required: true
+                },
+                valid: false,
+                touched: false
             },
             Type: {
                 elementType: 'input',
                 elementConfig: {
                     type: 'text',
-                    placeholder: 'Type',
-                    value: ''
-                }
+                    placeholder: 'Type'
+                },
+                value: '',
+                validation: {
+                    required: true
+                },
+                valid: false,
+                touched: false
             },
             Address: {
                 elementType: 'textarea',
                 elementConfig: {
                     type: 'text',
-                    placeholder: 'Address',
-                    value: ''
-                }
+                    placeholder: 'Address'
+                },
+                value: '',
+                validation: {
+                    required: true
+                },
+                valid: false,
+                touched: false
             },
         },
-        postData: {
-            uid:null,
-            title: '',
-            content: '',
-            author: 'Max',
-        },
-        submitted:false
+        submitted: false,
+        formIsValid: false
     }
 
-    postDataHandler = () => {
+    checkValidity(value, rules) {
+        let isValid = true;
+        if (!rules) {
+            return true;
+        }
+        
+        if (rules.required) {
+            isValid = value.trim() !== '' && isValid;
+        }
+
+        return isValid;
+    }
+
+    inputChangedHandler = (event, PostIdentifier) =>{
+        const updatedPostForm = {
+            ...this.state.orderForm
+        };
+        const updatedFormElement = { 
+            ...updatedPostForm[PostIdentifier]
+        };
+        updatedFormElement.value = event.target.value;
+        updatedFormElement.valid = this.checkValidity(updatedFormElement.value, updatedFormElement.validation);
+        updatedFormElement.touched = true;
+        updatedPostForm[PostIdentifier] = updatedFormElement;
+        
+        let formIsValid = true;
+        for (let inputIdentifier in updatedPostForm) {
+            formIsValid = updatedPostForm[inputIdentifier].valid && formIsValid;
+        }
+        this.setState({PostForm: updatedPostForm, formIsValid: formIsValid});
+    }
+
+    postDataHandler = (event) => {
+        event.preventDefault();
+        const formData = {};
+        for(let formIdentifier in this.state.PostForm ){
+            formData[formIdentifier] = this.state.PostForm[formIdentifier].value;
+        }
+
         const data = {
-            title: this.state.title,
-            content: this.state.content,
-            author: this.state.author
+            UID: "Hisni",
+            postData : formData
         };
         
-        axios.post('/posts/',data)
+        axios.post('https://co227-project.firebaseio.com/Posts.json',data)
             .then( response => {
                 this.setState({submitted:true});
                 //console.log(this.state);
                 //this.props.history.push('/posts');
             });
+
     }
+
 
     render () {
         let redirect = null;
@@ -73,36 +127,35 @@ class NewPost extends Component {
         }
 
         const formElementsArray = [];
-        for ( let key in this.state.PostForm ) {
-            formElementsArray.push( {
+        for (let key in this.state.PostForm) {
+            formElementsArray.push({
                 id: key,
                 config: this.state.PostForm[key]
-            } );
+            });
         }
+        let form = (
+            formElementsArray.map(formElement => (
+                <Input 
+                    key={formElement.id}
+                    label={formElement.id}
+                    elementType={formElement.config.elementType}
+                    elementConfig={formElement.config.elementConfig}
+                    value={formElement.config.value}
+                    invalid={!formElement.config.valid}
+                    shouldValidate={formElement.config.validation}
+                    touched={formElement.config.touched}
+                    changed={(event) => this.inputChangedHandler(event, formElement.id)} />
+            ))
+        );
 
-        const form = formElementsArray.map( formElement => (
-            <Input
-                key={formElement.id}
-                elementType={formElement.config.elementType}
-                elementConfig={formElement.config.elementConfig}
-                value={formElement.config.value}
-                label={formElement.id}
-                // invalid={!formElement.config.valid}
-                // shouldValidate={formElement.config.validation}
-                // touched={formElement.config.touched}
-                // changed={( event ) => this.inputChangedHandler( event, formElement.id )}
-                 />
-        ) );
-
-        
         return (
             <div className={classes.NewPost}>
                 {redirect}
                 <h1>Add a new Post</h1>
-                <div>
+                <form onSubmit={this.postDataHandler} >
                     {form}
-                </div>
-                <Button clicked={this.postDataHandler}>Add Post</Button>
+                    <Button btnType="Success" >Add Post</Button>
+                </form>
             </div>
         );
     }
