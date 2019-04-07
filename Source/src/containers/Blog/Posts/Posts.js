@@ -12,16 +12,17 @@ class Posts extends Component {
     }
 
     componentDidMount () {
-        axios.get( '/posts' )
+        axios.get( 'https://co227-project.firebaseio.com/Posts.json' )
             .then( response => {
-                const posts = response.data.slice(0, 4);
-                const updatedPosts = posts.map(post => {
-                    return {
-                        ...post,
-                        author: 'Max'
-                    }
-                });
-                this.setState({posts: updatedPosts});
+                const fetchedPosts = [];
+                for(let key in response.data){
+                    fetchedPosts.push({
+                        ...response.data[key],
+                        id: key
+                    });
+                }
+                console.log(fetchedPosts);
+                this.setState({posts: fetchedPosts});
             } );
     }
 
@@ -40,11 +41,12 @@ class Posts extends Component {
                     // <Link to={'/'+post.id} >
                         <Post 
                             key={post.id} 
-                            title={post.title} 
-                            author={post.author}
-                            clicked={() => this.postSelectedHandler(post.id)} />
+                            title={post.postData.Title} 
+                            content={post.postData.Content}
+                            address={post.postData.Address}
+                            clicked={() => this.postSelectedHandler(post.id)}/>
                     // </Link>
-                    );
+                );
             });
         }
 

@@ -6,7 +6,9 @@ const post = (props) => (
     <article className={classes.Post} onClick={props.clicked}>
         <h1>{props.title}</h1>
         <div className={classes.Info}>
-            <div className={classes.Author}>{props.author}</div>
+            <div className={classes.Author}>{props.content}</div>
+            <div className={classes.Author}>{props.type}</div>
+            <div className={classes.Author}>{props.address}</div>
         </div>
     </article>
 );

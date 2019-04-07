@@ -75,26 +75,38 @@ class NewPost extends Component {
             isValid = value.trim() !== '' && isValid;
         }
 
+        // if (rules.minLength) {
+        //     isValid = value.length >= rules.minLength && isValid
+        // }
+
+        // if (rules.maxLength) {
+        //     isValid = value.length <= rules.maxLength && isValid
+        // }
+
+        // if (rules.isEmail) {
+        //     const pattern = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
+        //     isValid = pattern.test(value) && isValid
+        // }
+
+        // if (rules.isNumeric) {
+        //     const pattern = /^\d+$/;
+        //     isValid = pattern.test(value) && isValid
+        // }
+
         return isValid;
     }
 
     inputChangedHandler = (event, PostIdentifier) =>{
         const updatedPostForm = {
-            ...this.state.orderForm
+            ...this.state.PostForm,
+            [PostIdentifier]: {
+                ...this.state.PostForm[PostIdentifier],
+                value: event.target.value,
+                valid: this.checkValidity(event.target.value, this.state.PostForm[PostIdentifier].validation),
+                touched: true
+            }
         };
-        const updatedFormElement = { 
-            ...updatedPostForm[PostIdentifier]
-        };
-        updatedFormElement.value = event.target.value;
-        updatedFormElement.valid = this.checkValidity(updatedFormElement.value, updatedFormElement.validation);
-        updatedFormElement.touched = true;
-        updatedPostForm[PostIdentifier] = updatedFormElement;
-        
-        let formIsValid = true;
-        for (let inputIdentifier in updatedPostForm) {
-            formIsValid = updatedPostForm[inputIdentifier].valid && formIsValid;
-        }
-        this.setState({PostForm: updatedPostForm, formIsValid: formIsValid});
+        this.setState({PostForm: updatedPostForm});
     }
 
     postDataHandler = (event) => {
@@ -147,7 +159,7 @@ class NewPost extends Component {
                     changed={(event) => this.inputChangedHandler(event, formElement.id)} />
             ))
         );
-
+  
         return (
             <div className={classes.NewPost}>
                 {redirect}
