@@ -12,7 +12,7 @@ class Posts extends Component {
     }
 
     componentDidMount () {
-        axios.get( 'https://co227-project.firebaseio.com/Posts.json' )
+        axios.get( '/Posts.json' )
             .then( response => {
                 const fetchedPosts = [];
                 for(let key in response.data){

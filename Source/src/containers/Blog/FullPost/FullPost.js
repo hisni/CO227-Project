@@ -15,8 +15,9 @@ class FullPost extends Component {
     loadData () {
         if ( this.props.match.params.id ) {
             if ( !this.state.loadedPost || (this.state.loadedPost && this.state.loadedPost.id !== +this.props.match.params.id) ) {
-                axios.get( '/posts/' + this.props.match.params.id )
+                axios.get( '/Posts/' + this.props.match.params.id + '.json' )
                     .then( response => {
+                        console.log(response);
                         this.setState( { loadedPost: response.data } );
                     } );
             }
@@ -38,8 +39,9 @@ class FullPost extends Component {
         if ( this.state.loadedPost ) {
             post = (
                 <div className={classes.FullPost}>
-                    <h1>{this.state.loadedPost.title}</h1>
-                    <p>{this.state.loadedPost.body}</p>
+                    <h1>{this.state.loadedPost.postData.Title}</h1>
+                    <p>{this.state.loadedPost.postData.Content}</p>
+                    <p>{this.state.loadedPost.postData.Address}</p>
                     {/* <div className={classes.Edit}>
                         <button onClick={this.deletePostHandler} className={classes.Delete}>Delete</button>
                     </div> */}

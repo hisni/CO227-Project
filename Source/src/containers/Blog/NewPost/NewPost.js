@@ -106,7 +106,13 @@ class NewPost extends Component {
                 touched: true
             }
         };
-        this.setState({PostForm: updatedPostForm});
+
+        let formIsValid = true;
+        for (let inputIdentifier in updatedPostForm) {
+            formIsValid = updatedPostForm[inputIdentifier].valid && formIsValid;
+        }
+
+        this.setState({PostForm: updatedPostForm, formIsValid: formIsValid});
     }
 
     postDataHandler = (event) => {
@@ -121,7 +127,7 @@ class NewPost extends Component {
             postData : formData
         };
         
-        axios.post('https://co227-project.firebaseio.com/Posts.json',data)
+        axios.post('/Posts.json',data)
             .then( response => {
                 this.setState({submitted:true});
                 //console.log(this.state);
@@ -166,7 +172,7 @@ class NewPost extends Component {
                 <h1>Add a new Post</h1>
                 <form onSubmit={this.postDataHandler} >
                     {form}
-                    <Button btnType="Success" >Add Post</Button>
+                    <Button btnType="Success" disabled={!this.state.formIsValid} >Add Post</Button>
                 </form>
             </div>
         );
