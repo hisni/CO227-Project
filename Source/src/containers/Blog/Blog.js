@@ -7,7 +7,7 @@ import Posts from './Posts/Posts';
 import NewPost from './NewPost/NewPost';
 import FullPost from './FullPost/FullPost';
 import Auth from '../Auth/Auth';
-import SignUP from '../Auth/SignUp';
+// import SignUP from '../Auth/SignUp';
 
 // const AsyncNewPost = asyncComponent( () => {
 //     return import('./NewPost/NewPost');
