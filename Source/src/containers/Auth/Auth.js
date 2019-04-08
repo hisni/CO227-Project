@@ -6,7 +6,7 @@ import classes from './Auth.css';
 class Auth extends Component {
     state = {
         controls: {
-            email: {
+            Email: {
                 elementType: 'input',
                 elementConfig: {
                     type: 'email',
@@ -20,7 +20,7 @@ class Auth extends Component {
                 valid: false,
                 touched: false
             },
-            password: {
+            Password: {
                 elementType: 'input',
                 elementConfig: {
                     type: 'password',
@@ -94,6 +94,7 @@ class Auth extends Component {
         const form = formElementsArray.map( formElement => (
             <Input
                 key={formElement.id}
+                label={formElement.id}
                 elementType={formElement.config.elementType}
                 elementConfig={formElement.config.elementConfig}
                 value={formElement.config.value}
