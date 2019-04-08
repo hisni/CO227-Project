@@ -7,7 +7,7 @@ import Posts from './Posts/Posts';
 import NewPost from './NewPost/NewPost';
 import FullPost from './FullPost/FullPost';
 import Auth from '../Auth/Auth';
-// import SignUP from '../Auth/SignUp';
+import Signup from '../Auth/Signup';
 
 // const AsyncNewPost = asyncComponent( () => {
 //     return import('./NewPost/NewPost');
@@ -22,7 +22,7 @@ class Blog extends Component {
                         <Route path="/posts" exact component={Posts} />
                         <Route path="/post-add" component={NewPost} />
                         <Route path="/login" exact component={Auth} />                        
-                        {/* <Route path="/register" exact component={SignUP} />                                                 */}
+                        <Route path="/register" exact component={Signup} />                                                
                         <Route path="/posts/:id" exact component={FullPost} />
                         <Redirect from="/" to="/posts" />
                     </Switch>
