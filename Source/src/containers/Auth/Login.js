@@ -150,15 +150,15 @@ class Auth extends Component {
     }
 }
 
-// const mapStateToProps = state => {
-//     return {
-//         loading: state.auth.loading,
-//         error: state.auth.error,
-//         isAuthenticated: state.auth.token !== null,
-//         buildingBurger: state.burgerBuilder.building,
-//         authRedirectPath: state.auth.authRedirectPath
-//     };
-// };
+const mapStateToProps = state => {
+    return {
+        loading: state.auth.loading,
+        error: state.auth.error,
+        // isAuthenticated: state.auth.token !== null,
+        // buildingBurger: state.burgerBuilder.building,
+        // authRedirectPath: state.auth.authRedirectPath
+    };
+};
 
 const mapDispatchToProps = dispatch => {
     return {
@@ -167,4 +167,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default connect( null, mapDispatchToProps )( Auth );
+export default connect( mapStateToProps, mapDispatchToProps )( Auth );
