@@ -42,7 +42,8 @@ class Posts extends Component {
                         <Post 
                             key={post.id} 
                             title={post.postData.Title} 
-                            content={post.postData.Content}
+                            type={post.postData.Type}
+                            contect={post.postData.ContactNo}
                             address={post.postData.Address}
                             clicked={() => this.postSelectedHandler(post.id)}/>
                     // </Link>
