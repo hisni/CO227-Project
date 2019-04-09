@@ -21,11 +21,11 @@ class NewPost extends Component {
                 valid: false,
                 touched: false
             },
-            Content: {
-                elementType: 'textarea',
+            Type: {
+                elementType: 'input',
                 elementConfig: {
                     type: 'text',
-                    placeholder: 'Content'
+                    placeholder: 'Type'
                 },
                 value: '',
                 validation: {
@@ -34,11 +34,24 @@ class NewPost extends Component {
                 valid: false,
                 touched: false
             },
-            Type: {
+            Discription: {
+                elementType: 'textarea',
+                elementConfig: {
+                    type: 'text',
+                    placeholder: 'Discription'
+                },
+                value: '',
+                validation: {
+                    required: true
+                },
+                valid: false,
+                touched: false
+            },
+            ContactNo: {
                 elementType: 'input',
                 elementConfig: {
                     type: 'text',
-                    placeholder: 'Type'
+                    placeholder: 'Contact Number'
                 },
                 value: '',
                 validation: {
