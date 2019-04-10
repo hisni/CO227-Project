@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import Input from '../../components/UI/Input/Input';
 import Button from '../../components/UI/Button/Button';
-import Spinner from '../../components/UI/Spinner/Spinner';
+// import Spinner from '../../components/UI/Spinner/Spinner';
 import classes from './Auth.css';
 import * as actions from '../../store/actions/index';
 
@@ -120,9 +120,9 @@ class Auth extends Component {
                 changed={( event ) => this.inputChangedHandler( event, formElement.id )} />
         ) );
 
-        if (this.props.loading) {
-            form = <Spinner />
-        }
+        // if (this.props.loading) {
+        //     form = <Spinner />
+        // }
 
         let errorMessage = null;
 
@@ -143,7 +143,7 @@ class Auth extends Component {
                 {errorMessage}
                 <form onSubmit={this.submitHandler}>
                     {form}
-                    <Button btnType="Success">SUBMIT</Button>
+                    <Button btnType="Success">Login</Button>
                 </form>
             </div>
         );
@@ -152,7 +152,7 @@ class Auth extends Component {
 
 const mapStateToProps = state => {
     return {
-        loading: state.auth.loading,
+        //loading: state.auth.loading,
         error: state.auth.error,
         // isAuthenticated: state.auth.token !== null,
         // buildingBurger: state.burgerBuilder.building,
