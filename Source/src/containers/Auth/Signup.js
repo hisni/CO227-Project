@@ -11,7 +11,7 @@ import * as actions from '../../store/actions/index';
 class Auth extends Component {
     state = {
         controls: {
-            email: {
+            Email: {
                 elementType: 'input',
                 elementConfig: {
                     type: 'email',
@@ -25,7 +25,7 @@ class Auth extends Component {
                 valid: false,
                 touched: false
             },
-            password: {
+            Password: {
                 elementType: 'input',
                 elementConfig: {
                     type: 'password',
