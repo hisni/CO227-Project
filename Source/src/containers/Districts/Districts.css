@@ -4,7 +4,7 @@
   padding-top: 10%;
 }
 
-.dist{
+.districts{
     align-self: auto;
     background-color: rgba(232, 238, 238, 0.479);
     padding: 5px;
@@ -18,7 +18,7 @@
     color: rgb(71, 70, 70);
 }
 
-.dist:hover{
+.districts:hover{
     background-color:rgba(7, 180, 94, 0.849);
     box-shadow: 0 8px 16px 0 rgba(9, 212, 111, 0.19), 0 6px 20px 0 ;
     box-sizing: content-box;
@@ -61,7 +61,7 @@
 .dropdown:hover .dropdownContent {display: block;}
   
   /* Change the background color of the dropdown button when the dropdown content is shown */
-.dropdown:hover .dist {background-color: #3e8e41;} 
+.dropdown:hover .districts {background-color: #3e8e41;} 
 
 
 

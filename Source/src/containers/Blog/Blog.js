@@ -7,6 +7,7 @@ import NewPost from './NewPost/NewPost';
 import FullPost from './FullPost/FullPost';
 import Login from '../Auth/Login';
 import Signup from '../Auth/Signup';
+import HomePage from '../HomePage/HomePage'
 
 
 class Blog extends Component {
@@ -15,11 +16,12 @@ class Blog extends Component {
             <div className={classes.Blog}>
                 <Layout>
                     <Switch>
-                        <Route path="/posts" exact component={Posts} />
+                        <Route path="/" exact component={HomePage} />
+                        <Route path="/posts/:district" exact component={Posts} />
                         <Route path="/post-add" component={NewPost} />
                         <Route path="/login" exact component={Login} />                        
                         <Route path="/register" exact component={Signup} />                                                
-                        <Route path="/posts/:id" exact component={FullPost} />
+                        <Route path="/posts/:district/:id" exact component={FullPost} />
                         {/* <Redirect from="/" to="/posts" /> */}
                     </Switch>
                 </Layout>

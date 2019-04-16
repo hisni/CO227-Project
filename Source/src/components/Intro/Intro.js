@@ -9,7 +9,7 @@ const Intro = () => {
         Welcome to RECYC - the largest online waste managment system in Sri Lanka!
       </h2>
       <p>
-          Buy and sell plastic, solid wastes in Sri Lanka!
+        Buy and sell plastic, solid wastes in Sri Lanka!
       </p>
     </div>
   )
