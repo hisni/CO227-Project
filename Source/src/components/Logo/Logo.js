@@ -1,12 +1,12 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import burgerLogo from '../../assets/images/Logo.jpg';
+import Logo from '../../assets/images/Logo.jpg';
 import classes from './Logo.css';
 
 const logo = (props) => (
     <NavLink to="/" exact>
         <div className={classes.Logo} style={{height: props.height}}>
-            <img src={burgerLogo} alt="Project" />
+            <img src={Logo} alt="Project" />
         </div>
     </NavLink>
 );

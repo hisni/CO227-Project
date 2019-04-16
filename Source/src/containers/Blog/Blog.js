@@ -20,7 +20,7 @@ class Blog extends Component {
                         <Route path="/login" exact component={Login} />                        
                         <Route path="/register" exact component={Signup} />                                                
                         <Route path="/posts/:id" exact component={FullPost} />
-                        <Redirect from="/" to="/posts" />
+                        {/* <Redirect from="/" to="/posts" /> */}
                     </Switch>
                 </Layout>
             </div>
