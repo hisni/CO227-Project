@@ -17,6 +17,7 @@ class Blog extends Component {
                 <Layout>
                     <Switch>
                         <Route path="/" exact component={HomePage} />
+                        <Route path="/posts/all" exact component={Posts} />                        
                         <Route path="/posts/:district" exact component={Posts} />
                         <Route path="/post-add" component={NewPost} />
                         <Route path="/login" exact component={Login} />                        
