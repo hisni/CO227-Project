@@ -1,0 +1,107 @@
+.int{
+  position: relative;
+  padding: 2%;
+  padding-top: 10%;
+}
+
+.dist{
+    align-self: auto;
+    background-color: rgba(232, 238, 238, 0.479);
+    padding: 5px;
+    width: 55%;
+    margin: 3px;
+    border: 0;
+    border-bottom: 1px solid rgb(78, 82, 77);
+    transition: all 0.1s;
+    font-size: 95%;
+    font-weight: normal;
+    color: rgb(71, 70, 70);
+}
+
+.dist:hover{
+    background-color:rgba(7, 180, 94, 0.849);
+    box-shadow: 0 8px 16px 0 rgba(9, 212, 111, 0.19), 0 6px 20px 0 ;
+    box-sizing: content-box;
+    font-size-adjust: initial;
+    border-radius: 4px;
+    color: black;
+    width: 48%;
+}
+
+  /* The container <div> - needed to position the dropdown content */
+.dropdown {
+    position: relative;
+}
+  
+  /* Dropdown Content (Hidden by Default) */
+.dropdownContent {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+  
+  /* Links inside the dropdown */
+.dropdownContent a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  /* Change color of dropdown links on hover */
+.dropdownContent a:hover {
+    background-color: #ddd;
+    left: 0;
+}
+  
+  /* Show the dropdown menu on hover */
+.dropdown:hover .dropdownContent {display: block;}
+  
+  /* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dist {background-color: #3e8e41;} 
+
+
+
+/*rgba(0,0,0,0.2) rgba(0,0,0,0.19)*/
+
+
+/* Style the links inside the sidenav */
+#mySidenav a {
+    position: absolute; /* Position them relative to the browser window */
+    left: -80px; /* Position them outside of the screen */
+    transition: 0.3s; /* Add transition on hover */
+    padding: 15px; /* 15px padding */
+    width: 100px; /* Set a specific width */
+    text-decoration: none; /* Remove underline */
+    font-size: 20px; /* Increase font size */
+    color:black; /* White text color */
+    border-radius: 0 5px 5px 0; /* Rounded corners on the top right and bottom right side */
+  }
+  
+  #mySidenav a:hover {
+    left: 0; /* On mouse-over, make the elements appear as they should */
+  }
+  
+  /* The about link: 20px from the top with a green background */
+  #about {
+    top: 20px;
+    background-color: #4CAF50;
+  }
+  
+  #blog {
+    top: 80px;
+    background-color: #2196F3; /* Blue */
+  }
+  
+  #projects {
+    top: 140px;
+    background-color: #f44336; /* Red */
+  }
+  
+  #contact {
+    top: 200px;
+    background-color: #555 /* Light Black */
+  }

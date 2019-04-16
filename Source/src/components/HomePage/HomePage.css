@@ -1,0 +1,10 @@
+.ints{
+    width: 50%;
+    height: 2000px;
+    float: left;
+}
+
+.districts{
+    width: 50%;
+    float: right;
+}
