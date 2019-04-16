@@ -2,22 +2,24 @@ import React, { Component } from 'react';
 import classes from './App.css';
 import Blog from './containers/Blog/Blog';
 import HomePage from './components/HomePage/HomePage'
-//import Blog from './containers/Blog/Blog';
 
 class App extends Component {
   state = {
-    value : 'homepage'
+    district : 'none'
   }
 
   pageChange = e => {
-    this.setState({value: e});
+    this.setState({district: e});
   }
   
 
   render() {
     return (
         <div className={classes.App}>
-          {this.state.value==='homepage' ? <HomePage pageChange={this.pageChange}/> : <Blog dist={this.state.value}/>}
+          {this.state.district==='none' ? <HomePage pageChange={this.pageChange}/> : (
+            console.log(this.state.district),
+            <Blog district={this.state.district}/>
+          )}
         </div>
     );
   }
