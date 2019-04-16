@@ -4,7 +4,6 @@ import Districts from '../Districts/Districts';
 import classes from './HomePage.css'
 
 class HomePage extends Component {
-
     render() {
         return (
             <div className={classes.bg}>
@@ -17,7 +16,6 @@ class HomePage extends Component {
             </div>
         );
     }
-
 }
 
 export default HomePage
