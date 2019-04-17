@@ -4,7 +4,7 @@ import classes from './Intro.css'
 const Intro = () => {
 
   return (
-    <div className={classes.int}>
+    <div className={classes.intro}>
       <h2>
         Welcome to RECYC - the largest online waste managment system in Sri Lanka!
       </h2>
