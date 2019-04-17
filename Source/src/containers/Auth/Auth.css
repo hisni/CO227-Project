@@ -1,9 +1,10 @@
 .Auth {
-    margin: 100px auto;
+    margin: 190px auto;
     width: 80%;
     text-align: center;
     box-shadow: 0 2px 3px #ccc;
     border: 1px solid #eee;
+    border-radius: 10px;
     padding: 25px 10px;
     box-sizing: border-box;
     background-color: rgba(11, 197, 104, 0.726);

@@ -3,10 +3,12 @@
     box-sizing: border-box;
     display: block;
     width: 100%;
+    font-weight: bold;
+    font-size: 18px;
 }
 
 .NavigationItem a {
-    color: rgb(0, 0, 0);
+    color: rgb(142, 245, 190);
     text-decoration: none;
     width: 100%;
     box-sizing: border-box;
@@ -16,7 +18,7 @@
 .NavigationItem a:hover,
 .NavigationItem a:active,
 .NavigationItem a.active {
-    color: rgb(22, 129, 168);
+    color: rgb(2, 56, 38);
 }
 
 @media (min-width: 500px) {
@@ -29,16 +31,16 @@
     }
     
     .NavigationItem a {
-        color: rgb(0, 0, 0);
+        color: rgb(142, 245, 190);
         height: 100%;
-        padding: 16px 10px;
+        padding: 20px 10px;
         border-bottom: 4px solid transparent;
     }
     
     .NavigationItem a:hover,
     .NavigationItem a:active,
     .NavigationItem a.active {
-        background-color: rgb(215, 243, 215);
+        background-color: rgb(202, 224, 202);
         border-bottom: 4px solid rgb(65, 65, 65);
         color: rgb(138, 141, 128);
     }
