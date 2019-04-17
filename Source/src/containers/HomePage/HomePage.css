@@ -1,19 +1,19 @@
 .ints{
-    width: 50%;
+    width: 45%;
     float: left;
 }
 
 .districts{
-    width: 50%;
+    width: 55%;
     float: right;
 }
 
 .bg {
     background-image: url("../../assets/images/Map-min.png");
-    height : 450px;
+    height : 800px;
     width: 100%;
     background-repeat: no-repeat;
-    background-position: center; 
+    /* background-position: center;  */
     /* background-size: cover; */
 }
 

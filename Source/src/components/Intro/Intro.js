@@ -6,10 +6,10 @@ const Intro = () => {
   return (
     <div className={classes.intro}>
       <h2>
-        Welcome to RECYC - the largest online waste managment system in Sri Lanka!
+        Welcome to RECYC - Online solid waste managment system in Sri Lanka!
       </h2>
       <p>
-        Buy and sell plastic, solid wastes in Sri Lanka!
+        Buy and sell Solid wastes in Sri Lanka!
       </p>
     </div>
   )

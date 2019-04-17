@@ -4,7 +4,7 @@ import classes from './Districts.css';
 class Districts extends Component {
 
   state = {
-    selectedDistrict: null,
+    // selectedDistrict: null,
     districts : [
       ['Matale', 'Dambulla', 'Galewela', 'Naula'],
       ['Kandy', 'Katugastota'],
@@ -31,14 +31,14 @@ class Districts extends Component {
   }
 
   districtSelectedHandler = (district) => {
-    this.setState({selectedDistrict: district});
+    // this.setState({selectedDistrict: district});
     this.props.history.push({pathname: '/posts/' + district});
   }
     
   render() {
     return (
       <div>
-        <h3> Districts </h3>
+        <h3 className={classes.text}> Districts </h3>
         {this.state.districts.map((district)=>{
           return <button 
             key={district[0]} 
