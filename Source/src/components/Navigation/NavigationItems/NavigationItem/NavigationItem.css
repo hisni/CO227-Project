@@ -8,7 +8,7 @@
 }
 
 .NavigationItem a {
-    color: rgb(142, 245, 190);
+    color: rgb(205, 241, 223);
     text-decoration: none;
     width: 100%;
     box-sizing: border-box;
@@ -31,7 +31,7 @@
     }
     
     .NavigationItem a {
-        color: rgb(142, 245, 190);
+        color: rgb(205, 241, 223);
         height: 100%;
         padding: 20px 10px;
         border-bottom: 4px solid transparent;
@@ -42,6 +42,6 @@
     .NavigationItem a.active {
         background-color: rgb(202, 224, 202);
         border-bottom: 4px solid rgb(65, 65, 65);
-        color: rgb(138, 141, 128);
+        color: rgb(6, 156, 81);
     }
 }
