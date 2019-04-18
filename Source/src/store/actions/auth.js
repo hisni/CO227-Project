@@ -23,6 +23,13 @@ export const authFail = (error) => {
     };
 };
 
+export const signUpSuccess = () => {
+    return {
+        type: actionTypes.SIGNUP_SUCCESS,
+    };
+}
+
+
 export const logout = () => {
     localStorage.removeItem('token');
     localStorage.removeItem('expirationDate');
@@ -48,11 +55,10 @@ export const auth = (email, password, isSignup) => {
             password: password,
             returnSecureToken: true
         };
-        let url = 'https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key=AIzaSyD_U3qQekQqULtlVCv7A2GsysPnH2X96TI';
+        
+        let url = 'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=AIzaSyD_U3qQekQqULtlVCv7A2GsysPnH2X96TI';
         if (!isSignup) {
-            url = 'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=AIzaSyD_U3qQekQqULtlVCv7A2GsysPnH2X96TI';
-        }
-        axios.post(url, authData)
+            axios.post(url, authData)
             .then(response => {
                 console.log(response);
                 const expirationDate = new Date(new Date().getTime() + response.data.expiresIn * 1000);
@@ -65,6 +71,18 @@ export const auth = (email, password, isSignup) => {
             .catch(err => {
                 dispatch(authFail(err.response.data.error));
             });
+        }else{
+            url = 'https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key=AIzaSyD_U3qQekQqULtlVCv7A2GsysPnH2X96TI';
+            axios.post(url, authData)
+            .then(response => {
+                console.log(response);
+                dispatch(signUpSuccess());
+            })
+            .catch(err => {
+                dispatch(authFail(err.response.data.error));
+            });
+        }
+        
     };
 };
 

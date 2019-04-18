@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Route, Switch, Redirect } from 'react-router-dom';
+// import { Route, Switch, Redirect } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import classes from './Blog.css';
 import Layout from '../../hoc/Layout/Layout';
 import Posts from './Posts/Posts';
@@ -18,7 +19,7 @@ class Blog extends Component {
                 <Layout>
                     <Switch>
                         <Route path="/" exact component={HomePage} />
-                        <Route path="/post-add" component={NewPost} />
+                        <Route path="/post-add" exact component={NewPost} />
                         <Route path="/login" exact component={Login} />                        
                         <Route path="/register" exact component={Signup} />                                                
                         <Route path="/logout" exact component={Logout} />
