@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { connect } from 'react-redux';
+
 import { Redirect } from 'react-router-dom';
 import classes from './NewPost.css';
 import Button from '../../../components/UI/Button/Button';
@@ -75,7 +77,8 @@ class NewPost extends Component {
             },
         },
         submitted: false,
-        formIsValid: false
+        formIsValid: false,
+        postID: null
     }
 
     checkValidity(value, rules) {
@@ -140,9 +143,11 @@ class NewPost extends Component {
             postData : formData
         };
         
-        axios.post('/Posts.json',data)
-            .then( response => {
-                this.setState({submitted:true});
+       const token = this.props.tokenID;
+
+        axios.post('/Posts.json?auth=' + token ,data)
+            .then( response => {                
+                this.setState({submitted:true, postID:response.data.name});
                 //console.log(this.state);
                 //this.props.history.push('/posts');
             });
@@ -154,7 +159,7 @@ class NewPost extends Component {
         let redirect = null;
         
         if( this.state.submitted ){
-            redirect = <Redirect to="posts"/>
+            redirect = <Redirect to={"posts/user/" + this.state.postID}/>
         }
 
         const formElementsArray = [];
@@ -192,4 +197,10 @@ class NewPost extends Component {
     }
 }
 
-export default NewPost;
+const mapStateToProps = state => {
+    return {
+        tokenID: state.auth.token
+    }
+}
+
+export default connect(mapStateToProps)(NewPost);

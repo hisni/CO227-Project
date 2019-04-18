@@ -22,6 +22,7 @@ class Blog extends Component {
                         <Route path="/post-add" component={NewPost} />
                         <Route path="/login" exact component={Login} />                        
                         <Route path="/register" exact component={Signup} />                                                
+                        <Route path="/posts/user/:id" exact component={FullPost} />                        
                         <Route path="/posts/:district/:id" exact component={FullPost} />
                         {/* <Redirect from="/" to="/posts" /> */}
                     </Switch>
