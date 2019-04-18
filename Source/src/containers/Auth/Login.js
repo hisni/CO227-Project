@@ -40,7 +40,8 @@ class Auth extends Component {
                 touched: false
             }
         },
-        isSignup: false
+        isSignup: false,
+        formIsValid: false
     }
 
     // componentDidMount() {
@@ -90,7 +91,13 @@ class Auth extends Component {
                 touched: true
             }
         };
-        this.setState( { controls: updatedControls } );
+
+        let formIsValid = true;
+        for (let inputIdentifier in updatedControls) {
+            formIsValid = updatedControls[inputIdentifier].valid && formIsValid;
+        }
+
+        this.setState( { controls: updatedControls, formIsValid: formIsValid } );
     }
 
     submitHandler = ( event ) => {
@@ -144,7 +151,7 @@ class Auth extends Component {
                 {/* {authRedirect} */}
                 <form onSubmit={this.submitHandler}>
                     {form}
-                    <Button btnType="Success">Login</Button>
+                    <Button btnType="Success" disabled={!this.state.formIsValid} >Login</Button>
                     <div className={classes.Extras}>
                         {loadSpinner}
                         {errorMessage}
