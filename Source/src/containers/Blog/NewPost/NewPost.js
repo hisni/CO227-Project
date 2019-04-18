@@ -138,13 +138,14 @@ class NewPost extends Component {
             formData[formIdentifier] = this.state.PostForm[formIdentifier].value;
         }
 
+        const token = this.props.tokenID;
+        const ID = this.props.userID
+
         const data = {
-            UID: "Hisni",
+            UID: ID,
             postData : formData
         };
         
-       const token = this.props.tokenID;
-
         axios.post('/Posts.json?auth=' + token ,data)
             .then( response => {                
                 this.setState({submitted:true, postID:response.data.name});
@@ -199,7 +200,8 @@ class NewPost extends Component {
 
 const mapStateToProps = state => {
     return {
-        tokenID: state.auth.token
+        tokenID: state.auth.token,
+        userID: state.auth.userId
     }
 }
 
