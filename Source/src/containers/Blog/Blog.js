@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 // import { Route, Switch, Redirect } from 'react-router-dom';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
+
 import classes from './Blog.css';
 import Layout from '../../hoc/Layout/Layout';
 import Posts from './Posts/Posts';
@@ -10,9 +12,15 @@ import Login from '../Auth/Login';
 import Signup from '../Auth/Signup';
 import HomePage from '../HomePage/HomePage';
 import Logout from '../Auth/Logout';
+import * as actions from '../../store/actions/index';
 
 
 class Blog extends Component {
+
+    componentDidMount(){
+        this.props.onTryAutoSignup();
+    }
+
     render () {
         return (
             <div className={classes.Blog}>
@@ -36,4 +44,10 @@ class Blog extends Component {
     }
 }
 
-export default Blog;
+const mapDispatchToProps = dispatch => {
+    return {
+        onTryAutoSignup: () => dispatch( actions.authCheckState() )
+    };
+};
+
+export default withRouter(connect(null, mapDispatchToProps)(Blog));
