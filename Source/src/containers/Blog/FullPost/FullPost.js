@@ -33,9 +33,6 @@ class FullPost extends Component {
 
     render () {
         let post = <Spinner/>;
-        // if ( this.props.match.params.id ) {
-        //     post = <p style={{ textAlign: 'center' }}>Loading...!</p>;
-        // }
         if ( this.state.loadedPost ) {
             post = (
                 <div className={classes.FullPost}>
@@ -43,9 +40,6 @@ class FullPost extends Component {
                     <p>{this.state.loadedPost.postData.Discription}</p>
                     <p>{this.state.loadedPost.postData.ContactNo}</p>
                     <p>{this.state.loadedPost.postData.Address}</p>
-                    {/* <div className={classes.Edit}>
-                        <button onClick={this.deletePostHandler} className={classes.Delete}>Delete</button>
-                    </div> */}
                 </div>
             );
         }

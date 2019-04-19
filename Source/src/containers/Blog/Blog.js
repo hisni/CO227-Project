@@ -11,6 +11,7 @@ import Login from '../Auth/Login';
 import Signup from '../Auth/Signup';
 import HomePage from '../HomePage/HomePage';
 import Logout from '../Auth/Logout';
+import UserPosts from './Posts/UserPosts';
 import * as actions from '../../store/actions/index';
 
 
@@ -42,6 +43,7 @@ class Blog extends Component {
                     <Route path="/post-add" exact component={NewPost} />
                     <Route path="/logout" exact component={Logout} />
                     <Route path="/posts/all" exact component={Posts} />                        
+                    <Route path="/posts/user" exact component={UserPosts} />                    
                     <Route path="/posts/:district" exact component={Posts} />                        
                     <Route path="/posts/user/:id" exact component={FullPost} />                        
                     <Route path="/posts/all/:id" exact component={FullPost} />                                                
