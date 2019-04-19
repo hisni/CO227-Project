@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-// import { Route, Switch, Redirect } from 'react-router-dom';
-import { Route, Switch, withRouter } from 'react-router-dom';
+import { Route, Switch, Redirect, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import classes from './Blog.css';
@@ -22,27 +21,51 @@ class Blog extends Component {
     }
 
     render () {
+
+        let routes = (
+            <Switch>
+                <Route path="/" exact component={HomePage} />
+                <Route path="/login" exact component={Login} />                        
+                <Route path="/register" exact component={Signup} />                                                
+                <Route path="/posts/all" exact component={Posts} />                        
+                <Route path="/posts/:district" exact component={Posts} />                        
+                <Route path="/posts/all/:id" exact component={FullPost} />                                                
+                <Route path="/posts/:district/:id" exact component={FullPost} />
+                <Redirect to="/" />
+            </Switch>
+        );
+      
+        if ( this.props.isAuthenticated ) {
+            routes = (
+                <Switch>
+                    <Route path="/" exact component={HomePage} />
+                    <Route path="/post-add" exact component={NewPost} />
+                    <Route path="/logout" exact component={Logout} />
+                    <Route path="/posts/all" exact component={Posts} />                        
+                    <Route path="/posts/:district" exact component={Posts} />                        
+                    <Route path="/posts/user/:id" exact component={FullPost} />                        
+                    <Route path="/posts/all/:id" exact component={FullPost} />                                                
+                    <Route path="/posts/:district/:id" exact component={FullPost} />   
+                    <Redirect to="/" />
+                </Switch>
+            );
+        }
+
         return (
             <div className={classes.Blog}>
                 <Layout>
-                    <Switch>
-                        <Route path="/" exact component={HomePage} />
-                        <Route path="/post-add" exact component={NewPost} />
-                        <Route path="/login" exact component={Login} />                        
-                        <Route path="/register" exact component={Signup} />                                                
-                        <Route path="/logout" exact component={Logout} />
-                        <Route path="/posts/all" exact component={Posts} />                        
-                        <Route path="/posts/:district" exact component={Posts} />                        
-                        <Route path="/posts/user/:id" exact component={FullPost} />                        
-                        <Route path="/posts/all/:id" exact component={FullPost} />                                                
-                        <Route path="/posts/:district/:id" exact component={FullPost} />
-                        {/* <Redirect from="/" to="/posts" /> */}
-                    </Switch>
+                    {routes}
                 </Layout>
             </div>
         );
     }
 }
+
+const mapStateToProps = state => {
+    return {
+      isAuthenticated: state.auth.token !== null
+    };
+  };
 
 const mapDispatchToProps = dispatch => {
     return {
@@ -50,4 +73,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default withRouter(connect(null, mapDispatchToProps)(Blog));
+export default withRouter( connect( mapStateToProps, mapDispatchToProps )( Blog ));
