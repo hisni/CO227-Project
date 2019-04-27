@@ -15,6 +15,23 @@
     color: rgb(119, 8, 8);
 }
 
+.Signup {
+    margin: 190px auto;
+    width: 37%;
+    height: 280px;
+    text-align: center;
+    box-shadow: 0 2px 3px #ccc;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 25px 10px;
+    box-sizing: border-box;
+    background-color: rgba(11, 197, 104, 0.726);
+}
+
+.Signup p {
+    color: rgb(119, 8, 8);
+}
+
 .Extras{
     margin-top: -27px;
     margin-left: -15px;

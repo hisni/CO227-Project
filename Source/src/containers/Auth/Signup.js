@@ -11,6 +11,20 @@ import * as actions from '../../store/actions/index';
 class Auth extends Component {
     state = {
         controls: {
+            Username: {
+                elementType: 'input',
+                elementConfig: {
+                    type: 'username',
+                    placeholder: 'Username'
+                },
+                value: '',
+                validation: {
+                    required: true,
+                    minLength: 6
+                },
+                valid: false,
+                touched: false
+            },
             Email: {
                 elementType: 'input',
                 elementConfig: {
@@ -38,7 +52,7 @@ class Auth extends Component {
                 },
                 valid: false,
                 touched: false
-            }
+            },
         },
         isSignup: true,
         formIsValid: false
@@ -105,6 +119,7 @@ class Auth extends Component {
         const data = {
             Email: this.state.controls.Email.value,
             Password: this.state.controls.Password.value,
+            Username: this.state.controls.Username.value,
         }
         this.props.onAuth( data, this.state.isSignup );
     }
@@ -151,7 +166,7 @@ class Auth extends Component {
         }
 
         return (
-            <div className={classes.Auth}>
+            <div className={classes.Signup}>
                 {signUP}
                 <form onSubmit={this.submitHandler}>
                     {form}

@@ -76,24 +76,44 @@ export const authSignIn = (email, password, isSignup) => {
 export const authSignUp = ( data ) => {
     return dispatch => {
         dispatch(authStart());
-        console.log(data);
         const authData = {
             email: data.Email,
             password: data.Password,
             returnSecureToken: true
         };
+
+        const dbData = {
+            Username: data.Username
+        };
         
-        const url = 'https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key=AIzaSyD_U3qQekQqULtlVCv7A2GsysPnH2X96TI';
-        axios.post(url, authData)
+        const URL = 'https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key=AIzaSyD_U3qQekQqULtlVCv7A2GsysPnH2X96TI';
+        var dbURL = '';
+
+        axios.post(URL, authData)
         .then(response => {
             console.log(response);
+            dbURL = 'https://co227-project.firebaseio.com/Users/'+response.data.localId+'.json'; 
+            dispatch(storeSignupData( dbURL, dbData ));
+    
+        })
+        .catch(err => {
+            console.log(err);
+            dispatch(authFail(err.response.data.error));
+        });
+    };
+};
+
+export const storeSignupData = ( dbURL, dbData ) => {
+    return dispatch => {
+        axios.post(dbURL, dbData)
+        .then(response => {
             dispatch(signUpSuccess());
         })
         .catch(err => {
             dispatch(authFail(err.response.data.error));
         });
-    };
-};
+    }
+}
 
 export const setAuthRedirectPath = (path) => {
     return {

@@ -3,5 +3,6 @@ export {
     logout,
     setAuthRedirectPath,
     authCheckState,
-    authSignUp
+    authSignUp,
+    storeSignupData
 } from './auth';
