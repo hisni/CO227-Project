@@ -29,7 +29,6 @@ export const signUpSuccess = () => {
     };
 }
 
-
 export const logout = () => {
     localStorage.removeItem('token');
     localStorage.removeItem('expirationDate');

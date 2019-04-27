@@ -149,8 +149,6 @@ class NewPost extends Component {
         axios.post('/Posts.json?auth=' + token ,data)
             .then( response => {                
                 this.setState({submitted:true, postID:response.data.name});
-                //console.log(this.state);
-                //this.props.history.push('/posts');
             });
 
     }

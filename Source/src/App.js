@@ -40,9 +40,10 @@ class App extends Component {
             routes = (
                 <Switch>
                     <Route path="/" exact component={HomePage} />
+                    <Route path="/login" exact component={Login} />                                            
                     <Route path="/post-add" exact component={NewPost} />
-                    <Route path="/logout" exact component={Logout} />
                     <Route path="/profile" exact component={Profile} />                    
+                    <Route path="/logout" exact component={Logout} />
                     <Route path="/posts/all" exact component={Posts} />                        
                     <Route path="/user/posts" exact component={UserPosts} />                    
                     <Route path="/user/posts/:id" exact component={FullPost} />                        
