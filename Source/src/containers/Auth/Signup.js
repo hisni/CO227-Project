@@ -8,7 +8,7 @@ import Spinner from '../../components/UI/Spinner/smallSpinner';
 import classes from './Auth.css';
 import * as actions from '../../store/actions/index';
 
-class Auth extends Component {
+class Signup extends Component {
     state = {
         controls: {
             Username: {
@@ -196,4 +196,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default connect( mapStateToProps, mapDispatchToProps )( Auth );
+export default connect( mapStateToProps, mapDispatchToProps )( Signup );
