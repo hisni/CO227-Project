@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 //import {Link} from 'react-router-dom';
-import Post from '../../../components/Tile/Post/Post';
+import Post from '../../../components/Post/Post';
 import Spinner from '../../../components/UI/Spinner/Spinner';
 import classes from './Posts.css';
 

@@ -59,8 +59,8 @@ class Auth extends Component {
     }
 
     componentDidMount() {
-        if ( this.state.isSignup && this.props.authRedirectPath !== '/login') {
-            this.props.onSetAuthRedirectPath();
+        if ( this.props.signUpSuccess ) {
+            this.props.setSignup();
         }
     }
 
@@ -160,14 +160,14 @@ class Auth extends Component {
             );
         }
 
-        let signUP = null;
+        let redirect = null;
         if (this.props.signUpSuccess) {
-            signUP = <Redirect to={this.props.authRedirectPath}/>
+            redirect = <Redirect to={'/login'}/>
         }
 
         return (
             <div className={classes.Signup}>
-                {signUP}
+                {redirect}
                 <form onSubmit={this.submitHandler}>
                     {form}
                     <Button btnType="Success" disabled={!this.state.formIsValid} >Signup</Button>
@@ -185,7 +185,6 @@ const mapStateToProps = state => {
     return {
         loading: state.auth.loading,
         error: state.auth.error,
-        authRedirectPath: state.auth.authRedirectPath,
         signUpSuccess: state.auth.signUpSuccess
     };
 };
@@ -193,7 +192,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         onAuth: ( data, isSignup ) => dispatch( actions.authSignUp( data, isSignup ) ),
-        onSetAuthRedirectPath: () => dispatch(actions.setAuthRedirectPath('/login'))
+        setSignup: () => dispatch(actions.setSignup()),        
     };
 };
 

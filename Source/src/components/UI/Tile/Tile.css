@@ -1,0 +1,23 @@
+.Tile {
+    width: 200px;
+    height: 200px;
+    padding: 45px 0;
+    text-align: center;
+    border: 1px solid #eee;
+    box-shadow: 0 2px 3px #ccc;
+    margin: 30px;
+    box-sizing: border-box;
+    cursor: pointer;
+    background-color: rgb(63, 216, 114);
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.Tile h1{
+    color: rgb(82, 82, 82);
+}
+
+.Tile:hover,
+.Tile:active {
+    background-color: rgb(143, 235, 204);
+};

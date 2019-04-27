@@ -1,8 +1,8 @@
 export {
     authSignIn,
     logout,
-    setAuthRedirectPath,
     authCheckState,
     authSignUp,
-    storeSignupData
+    storeSignupData,
+    setSignup
 } from './auth';

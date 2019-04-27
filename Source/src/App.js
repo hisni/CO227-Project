@@ -12,6 +12,7 @@ import Signup from './containers/Auth/Signup';
 import HomePage from './containers/HomePage/HomePage';
 import Logout from './containers/Auth/Logout';
 import UserPosts from './containers/PostSection/Posts/UserPosts';
+import Profile from './containers/Profile/Profile';
 import * as actions from './store/actions/index';
 
 class App extends Component {
@@ -41,10 +42,11 @@ class App extends Component {
                     <Route path="/" exact component={HomePage} />
                     <Route path="/post-add" exact component={NewPost} />
                     <Route path="/logout" exact component={Logout} />
+                    <Route path="/profile" exact component={Profile} />                    
                     <Route path="/posts/all" exact component={Posts} />                        
-                    <Route path="/posts/user" exact component={UserPosts} />                    
+                    <Route path="/user/posts" exact component={UserPosts} />                    
+                    <Route path="/user/posts/:id" exact component={FullPost} />                        
                     <Route path="/posts/:district" exact component={Posts} />                        
-                    <Route path="/posts/user/:id" exact component={FullPost} />                        
                     <Route path="/posts/all/:id" exact component={FullPost} />                                                
                     <Route path="/posts/:district/:id" exact component={FullPost} />   
                     <Redirect to="/" />

@@ -44,12 +44,6 @@ class Auth extends Component {
         formIsValid: false
     }
 
-    componentDidMount() {
-        if ( !this.state.isSignup && this.props.authRedirectPath !== '/profile') {
-            this.props.onSetAuthRedirectPath();
-        }
-    }
-
     checkValidity ( value, rules ) {
         let isValid = true;
         if ( !rules ) {
@@ -102,7 +96,7 @@ class Auth extends Component {
 
     submitHandler = ( event ) => {
         event.preventDefault();
-        this.props.onAuth( this.state.controls.Email.value, this.state.controls.Password.value, this.state.isSignup );
+        this.props.onAuth( this.state.controls.Email.value, this.state.controls.Password.value );
     }
 
     render () {
@@ -143,7 +137,7 @@ class Auth extends Component {
 
         let authRedirect = null;
         if (this.props.isAuthenticated) {
-            authRedirect = <Redirect to={this.props.authRedirectPath}/>
+            authRedirect = <Redirect to={'/profile'}/>
         }
 
         return (
@@ -167,14 +161,12 @@ const mapStateToProps = state => {
         loading: state.auth.loading,
         error: state.auth.error,
         isAuthenticated: state.auth.token !== null,
-        authRedirectPath: state.auth.authRedirectPath
     };
 };
 
 const mapDispatchToProps = dispatch => {
     return {
-        onAuth: ( email, password, isSignup ) => dispatch( actions.authSignIn( email, password, isSignup ) ),
-        onSetAuthRedirectPath: () => dispatch(actions.setAuthRedirectPath('/profile'))
+        onAuth: ( email, password ) => dispatch( actions.authSignIn( email, password ) ),
     };
 };
 

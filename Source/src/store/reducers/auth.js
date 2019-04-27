@@ -6,7 +6,6 @@ const initialState = {
     userId: null,
     error: null,
     loading: false,
-    authRedirectPath: '/profile',
     signUpSuccess: false
 };
 
@@ -42,9 +41,12 @@ const signUpSuccess = (state, action) => {
         loading: false });
 };
 
-const setAuthRedirectPath = (state, action) => {
-    return updateObject(state, { authRedirectPath: action.path })
-}
+const setSignup = (state, action) => {
+    return updateObject(state, { 
+        signUpSuccess: false,
+        error: null,
+        loading: false });
+};
 
 const reducer = ( state = initialState, action ) => {
     switch ( action.type ) {
@@ -52,8 +54,9 @@ const reducer = ( state = initialState, action ) => {
         case actionTypes.AUTH_SUCCESS: return authSuccess(state, action);
         case actionTypes.AUTH_FAIL: return authFail(state, action);
         case actionTypes.AUTH_LOGOUT: return authLogout(state, action);
-        case actionTypes.SET_AUTH_REDIRECT_PATH: return setAuthRedirectPath(state,action);
+        case actionTypes.SET_SIGNUP: return setSignup(state,action);
         case actionTypes.SIGNUP_SUCCESS: return signUpSuccess(state,action);
+
         default:
             return state;
     }
