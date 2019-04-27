@@ -4,14 +4,14 @@ import { connect } from 'react-redux';
 
 import classes from './App.css';
 import Layout from './hoc/Layout/Layout';
-import Posts from './containers/Blog/Posts/Posts';
-import NewPost from './containers/Blog/NewPost/NewPost';
-import FullPost from './containers/Blog/FullPost/FullPost';
+import Posts from './containers/PostSection/Posts/Posts';
+import NewPost from './containers/PostSection/NewPost/NewPost';
+import FullPost from './containers/PostSection/FullPost/FullPost';
 import Login from './containers/Auth/Login';
 import Signup from './containers/Auth/Signup';
 import HomePage from './containers/HomePage/HomePage';
 import Logout from './containers/Auth/Logout';
-import UserPosts from './containers/Blog/Posts/UserPosts';
+import UserPosts from './containers/PostSection/Posts/UserPosts';
 import * as actions from './store/actions/index';
 
 class App extends Component {
