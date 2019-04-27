@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import classes from './App.css';
 import Layout from './hoc/Layout/Layout';
 import Posts from './containers/PostSection/Posts/Posts';
+import DistrictPosts from './containers/PostSection/Posts/DistrictPosts';
 import NewPost from './containers/PostSection/NewPost/NewPost';
 import FullPost from './containers/PostSection/FullPost/FullPost';
 import Login from './containers/Auth/Login';
@@ -29,7 +30,7 @@ class App extends Component {
                 <Route path="/login" exact component={Login} />                        
                 <Route path="/register" exact component={Signup} />                                                
                 <Route path="/posts/all" exact component={Posts} />                        
-                <Route path="/posts/:district" exact component={Posts} />                        
+                <Route path="/posts/:district" exact component={DistrictPosts} />                        
                 <Route path="/posts/all/:id" exact component={FullPost} />                                                
                 <Route path="/posts/:district/:id" exact component={FullPost} />
                 <Redirect to="/" />
@@ -47,7 +48,7 @@ class App extends Component {
                     <Route path="/posts/all" exact component={Posts} />                        
                     <Route path="/user/posts" exact component={UserPosts} />                    
                     <Route path="/user/posts/:id" exact component={FullPost} />                        
-                    <Route path="/posts/:district" exact component={Posts} />                        
+                    <Route path="/posts/:district" exact component={DistrictPosts} />                        
                     <Route path="/posts/all/:id" exact component={FullPost} />                                                
                     <Route path="/posts/:district/:id" exact component={FullPost} />   
                     <Redirect to="/" />

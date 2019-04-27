@@ -5,13 +5,14 @@ import Post from '../../../components/Post/Post';
 import Spinner from '../../../components/UI/Spinner/Spinner';
 import classes from './Posts.css';
 
-class Posts extends Component {
+class DistrictPosts extends Component {
     state = {
         posts: null
     }
 
     componentDidMount () {
-        axios.get( '/Posts.json' )
+        const District = this.props.match.params.district;
+        axios.get( '/Posts.json?orderBy="District"&equalTo="' + District + '"')
         .then( response => {
             const fetchedPosts = [];
             for(let key in response.data){
@@ -26,7 +27,7 @@ class Posts extends Component {
     }
 
     postSelectedHandler = (id) => {
-        this.props.history.push({pathname: '/posts/all/' + id});
+        this.props.history.push({pathname: '/posts/' + this.props.match.params.district + '/' + id});
     }
 
     render() {
@@ -56,4 +57,4 @@ class Posts extends Component {
     };
 }
 
-export default Posts;
+export default DistrictPosts;
