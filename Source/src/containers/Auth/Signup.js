@@ -59,8 +59,9 @@ class Signup extends Component {
     }
 
     componentDidMount() {
-        if ( this.props.signUpSuccess ) {
-            this.props.setSignup();
+        if ( this.props.signUpSuccess || this.props.error ) {
+            console.log('didmount');
+            this.props.setAuth();
         }
     }
 
@@ -154,7 +155,7 @@ class Signup extends Component {
 
         let errorMessage = null;
 
-        if (this.props.error) {
+        if ( this.props.error ) {
             errorMessage = (
                 <p>{this.props.error.message}</p>
             );
@@ -170,7 +171,7 @@ class Signup extends Component {
                 {redirect}
                 <form onSubmit={this.submitHandler}>
                     {form}
-                    <Button btnType="Success" disabled={!this.state.formIsValid} >Signup</Button>
+                    <Button btnType="SuccessRe" disabled={!this.state.formIsValid} >Signup</Button>
                     <div className={classes.Extras}>
                         {loadSpinner}
                         {errorMessage}
@@ -192,7 +193,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         onAuth: ( data, isSignup ) => dispatch( actions.authSignUp( data, isSignup ) ),
-        setSignup: () => dispatch(actions.setSignup()),        
+        setAuth: () => dispatch(actions.setAuth()),        
     };
 };
 

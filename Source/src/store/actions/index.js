@@ -4,5 +4,5 @@ export {
     authCheckState,
     authSignUp,
     storeSignupData,
-    setSignup
+    setAuth
 } from './auth';

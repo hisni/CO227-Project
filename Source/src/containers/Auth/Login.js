@@ -75,6 +75,12 @@ class Login extends Component {
         return isValid;
     }
 
+    componentDidMount() {
+        if ( this.props.error ) {
+            this.props.setAuth();
+        }
+    }
+
     inputChangedHandler = ( event, controlName ) => {
         const updatedControls = {
             ...this.state.controls,
@@ -145,7 +151,7 @@ class Login extends Component {
                 {authRedirect}
                 <form onSubmit={this.submitHandler}>
                     {form}
-                    <Button btnType="Success" disabled={!this.state.formIsValid} >Login</Button>
+                    <Button btnType="SuccessRe" disabled={!this.state.formIsValid} >Login</Button>
                     <div className={classes.Extras}>
                         {loadSpinner}
                         {errorMessage}
@@ -167,6 +173,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         onAuth: ( email, password ) => dispatch( actions.authSignIn( email, password ) ),
+        setAuth: () => dispatch(actions.setAuth()),
     };
 };
 

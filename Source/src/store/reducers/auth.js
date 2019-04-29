@@ -41,7 +41,7 @@ const signUpSuccess = (state, action) => {
         loading: false });
 };
 
-const setSignup = (state, action) => {
+const setAuth = (state, action) => {
     return updateObject(state, { 
         signUpSuccess: false,
         error: null,
@@ -54,7 +54,7 @@ const reducer = ( state = initialState, action ) => {
         case actionTypes.AUTH_SUCCESS: return authSuccess(state, action);
         case actionTypes.AUTH_FAIL: return authFail(state, action);
         case actionTypes.AUTH_LOGOUT: return authLogout(state, action);
-        case actionTypes.SET_SIGNUP: return setSignup(state,action);
+        case actionTypes.SET_AUTH: return setAuth(state,action);
         case actionTypes.SIGNUP_SUCCESS: return signUpSuccess(state,action);
 
         default:

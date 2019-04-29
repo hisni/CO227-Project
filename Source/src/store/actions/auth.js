@@ -114,9 +114,9 @@ export const storeSignupData = ( dbURL, dbData ) => {
     }
 }
 
-export const setSignup = () => {
+export const setAuth = () => {
     return {
-        type: actionTypes.SET_SIGNUP,
+        type: actionTypes.SET_AUTH,
     };
 };
 
