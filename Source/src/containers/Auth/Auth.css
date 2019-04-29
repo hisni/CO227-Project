@@ -1,12 +1,12 @@
 .Auth {
-    margin: 190px auto;
+    margin: 100px auto;
     width: 80%;
-    height: 220px;
+    height: 255px;
     text-align: center;
     box-shadow: 0 2px 3px #ccc;
     border: 1px solid #eee;
     border-radius: 10px;
-    padding: 25px 10px;
+    padding: 20px 10px;
     box-sizing: border-box;
     background-color: rgba(11, 197, 104, 0.726);
 }
@@ -16,14 +16,14 @@
 }
 
 .Signup {
-    margin: 190px auto;
-    width: 37%;
-    height: 280px;
+    margin: 80px auto;
+    width: 80%;
+    height: 330px;
     text-align: center;
     box-shadow: 0 2px 3px #ccc;
     border: 1px solid #eee;
     border-radius: 10px;
-    padding: 25px 10px;
+    padding: 20px 10px;
     box-sizing: border-box;
     background-color: rgba(11, 197, 104, 0.726);
 }
@@ -33,12 +33,28 @@
 }
 
 .Extras{
-    margin-top: -27px;
+    margin-top: -24px;
     margin-left: -15px;
 }
 
 @media (min-width: 600px) {
+
     .Auth {
+        margin: 190px auto;
         width: 500px;
+        height: 200px;
+        padding: 25px 10px;
+    }
+    
+    .Signup {
+        margin: 190px auto;
+        width: 500px;
+        height: 260px;
+        padding: 25px 10px;
+    }
+    
+    .Extras{
+        margin-top: -29px;
+        margin-left: -15px;
     }
 }

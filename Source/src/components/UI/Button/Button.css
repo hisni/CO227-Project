@@ -24,6 +24,11 @@
     color: rgb(6, 145, 87);
 }
 
+.SuccessRe {
+    margin-top: -5px;
+    color: rgb(6, 145, 87);
+}
+
 .Danger {
     color: #944317;
 }

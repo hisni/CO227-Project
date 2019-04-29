@@ -5,7 +5,7 @@ import NavigationItem from './NavigationItem/NavigationItem';
 
 const navigationItems = (props) => (
     <ul className={classes.NavigationItems}>
-        <NavigationItem link="/posts/all">Posts</NavigationItem>
+        <NavigationItem link="/posts/all" Type="Reset">Collection Centers</NavigationItem>
         { props.isAuthenticated 
             ? <NavigationItem link="/post-add">New Post</NavigationItem>
             : null

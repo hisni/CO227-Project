@@ -34,7 +34,16 @@
         color: rgb(205, 241, 223);
         height: 100%;
         padding: 20px 10px;
+        vertical-align: middle;
         border-bottom: 4px solid transparent;
+    }
+
+    .NavigationItem.Reset {
+        width: 100px;
+    }
+
+    .NavigationItem.Reset a {
+        padding: 10px 10px;
     }
     
     .NavigationItem a:hover,
