@@ -20,7 +20,6 @@ class Posts extends Component {
                     id: key
                 });
             }
-            console.log(fetchedPosts);
             this.setState({posts: fetchedPosts});
         } );
     }
