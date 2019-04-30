@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { Route, Switch, Redirect, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
+import asyncComponent from './hoc/asyncComponent/asyncComponent';
 import classes from './App.css';
 import Layout from './hoc/Layout/Layout';
-import Posts from './containers/PostSection/Posts/Posts';
 import DistrictPosts from './containers/PostSection/Posts/DistrictPosts';
 import NewPost from './containers/PostSection/NewPost/NewPost';
 import FullPost from './containers/PostSection/FullPost/FullPost';
@@ -15,6 +15,10 @@ import Logout from './containers/Auth/Logout';
 import UserPosts from './containers/PostSection/Posts/UserPosts';
 import Profile from './containers/Profile/Profile';
 import * as actions from './store/actions/index';
+
+const asyncPosts = asyncComponent(() => {
+    return import('./containers/PostSection/Posts/Posts');
+  });
 
 class App extends Component {
 
@@ -29,7 +33,7 @@ class App extends Component {
                 <Route path="/" exact component={HomePage} />
                 <Route path="/login" exact component={Login} />                        
                 <Route path="/register" exact component={Signup} />                                                
-                <Route path="/posts/all" exact component={Posts} />                        
+                <Route path="/posts/all" exact component={asyncPosts} />                        
                 <Route path="/posts/:district" exact component={DistrictPosts} />                        
                 <Route path="/posts/all/:id" exact component={FullPost} />                                                
                 <Route path="/posts/:district/:id" exact component={FullPost} />
@@ -45,7 +49,7 @@ class App extends Component {
                     <Route path="/post-add" exact component={NewPost} />
                     <Route path="/profile" exact component={Profile} />                    
                     <Route path="/logout" exact component={Logout} />
-                    <Route path="/posts/all" exact component={Posts} />                        
+                    <Route path="/posts/all" exact component={asyncPosts} />                        
                     <Route path="/user/posts" exact component={UserPosts} />                    
                     <Route path="/user/posts/:id" exact component={FullPost} />                        
                     <Route path="/posts/:district" exact component={DistrictPosts} />                        
