@@ -58,7 +58,6 @@ export const authSignIn = (email, password) => {
         let url = 'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=AIzaSyD_U3qQekQqULtlVCv7A2GsysPnH2X96TI';
         axios.post(url, authData)
         .then(response => {
-            console.log(response);
             const expirationDate = new Date(new Date().getTime() + response.data.expiresIn * 1000);
             localStorage.setItem('token', response.data.idToken);
             localStorage.setItem('expirationDate', expirationDate);
@@ -90,13 +89,11 @@ export const authSignUp = ( data ) => {
 
         axios.post(URL, authData)
         .then(response => {
-            console.log(response);
             dbURL = 'https://co227-project.firebaseio.com/Users/'+response.data.localId+'.json'; 
             dispatch(storeSignupData( dbURL, dbData ));
     
         })
         .catch(err => {
-            console.log(err);
             dispatch(authFail(err.response.data.error));
         });
     };
