@@ -7,9 +7,15 @@ class Profile extends Component {
 
     postSelectedHandler = (id) => {
         switch ( id ) {
-            case Posts: this.props.history.push({pathname: '/user/posts'});
-            case New: this.props.history.push({pathname: '/post-add'});
-            case Contact: this.props.history.push({pathname: '/contact'});
+            case "Posts":
+                this.props.history.push({pathname: '/user/posts'});
+                break;
+            case "New":
+                this.props.history.push({pathname: '/post-add'});
+                break;
+            case "Contact":
+                this.props.history.push({pathname: '/contact'});
+                break;
             default: ;
         }
         
