@@ -6,8 +6,13 @@ import Tile from '../../components/UI/Tile/Tile';
 class Profile extends Component {
 
     postSelectedHandler = (id) => {
-        console.log(id);
-        this.props.history.push({pathname: '/user/posts/'});
+        switch ( id ) {
+            case Posts: this.props.history.push({pathname: '/user/posts'});
+            case New: this.props.history.push({pathname: '/post-add'});
+            case Contact: this.props.history.push({pathname: '/contact'});
+            default: ;
+        }
+        
     }
 
     render() {
