@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+
 import classes from './FullPost.css';
-import Spinner from '../../../components/UI/Spinner/Spinner'
+import Spinner from '../../../components/UI/Spinner/Spinner';
 
 class FullPost extends Component {
     state = {
-        loadedPost: null
+        loadedPost: null,
     }
 
     componentDidMount () {
@@ -30,18 +31,24 @@ class FullPost extends Component {
     //         });
     // }
 
+    postSelectedHandler = () =>{
+        // this.setState( { selected: true } );
+        this.props.history.push({pathname: '/post/user/'+ this.props.match.params.id});
+    }
+
     render () {
         let post = <Spinner/>;
         if ( this.state.loadedPost ) {
             post = (
                 <div className={classes.FullPost}>
-                    <h1>{this.state.loadedPost.postData.Title}</h1>
+                    <h1 onClick={() => this.postSelectedHandler()}>{this.state.loadedPost.postData.Title}</h1>
                     <p>{this.state.loadedPost.postData.Discription}</p>
                     <p>{this.state.loadedPost.postData.ContactNo}</p>
                     <p>{this.state.loadedPost.postData.Address}</p>
                 </div>
             );
         }
+        
         return post;
     }
 }

@@ -14,6 +14,7 @@ import HomePage from './containers/HomePage/HomePage';
 import Logout from './containers/Auth/Logout';
 import UserPosts from './containers/PostSection/Posts/UserPosts';
 import Profile from './containers/Profile/Profile';
+import User from './containers/Profile/User';
 import * as actions from './store/actions/index';
 
 const asyncPosts = asyncComponent(() => {
@@ -35,6 +36,7 @@ class App extends Component {
                 <Route path="/register" exact component={Signup} />                                                
                 <Route path="/posts/all" exact component={asyncPosts} />                        
                 <Route path="/posts/:district" exact component={DistrictPosts} />                        
+                <Route path="/post/user/:pid" exact component={User} />                                                
                 <Route path="/posts/all/:id" exact component={FullPost} />                                                
                 <Route path="/posts/:district/:id" exact component={FullPost} />
                 <Redirect to="/" />
@@ -50,7 +52,8 @@ class App extends Component {
                     <Route path="/profile" exact component={Profile} />                    
                     <Route path="/logout" exact component={Logout} />
                     <Route path="/posts/all" exact component={asyncPosts} />                        
-                    <Route path="/user/posts" exact component={UserPosts} />                    
+                    <Route path="/user/posts" exact component={UserPosts} />      
+                    <Route path="/post/user/:pid" exact component={User} />
                     <Route path="/user/posts/:id" exact component={FullPost} />                        
                     <Route path="/posts/:district" exact component={DistrictPosts} />                        
                     <Route path="/posts/all/:id" exact component={FullPost} />                                                
