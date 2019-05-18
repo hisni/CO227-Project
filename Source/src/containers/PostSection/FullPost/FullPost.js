@@ -32,7 +32,6 @@ class FullPost extends Component {
     // }
 
     postSelectedHandler = () =>{
-        // this.setState( { selected: true } );
         this.props.history.push({pathname: '/post/user/'+ this.props.match.params.id});
     }
 
