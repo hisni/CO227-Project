@@ -31,7 +31,7 @@ class App extends Component {
                 <Route path="/login" exact component={Login} />                        
                 <Route path="/register" exact component={Signup} />                                                
                 <Route path="/posts/:district" exact component={Posts} />                        
-                <Route path="/post/user/:pid" exact component={User} />                                                
+                <Route path="/post/user/:pid" exact component={User} />                                               
                 <Route path="/posts/all/:id" exact component={FullPost} />                                                
                 <Route path="/posts/:district/:id" exact component={FullPost} />
                 <Redirect to="/" />
