@@ -8,17 +8,6 @@
 
 }
 
-
-/* .Left{
-    width: 15%;
-    float: left;
-}
-
-.Right{
-    width: 85%;
-    float: right;
-} */
-
 @media (min-width: 500px) {
     .Posts {
         display: flex;
@@ -36,6 +25,9 @@
     .Right{
         width: 85%;
         float: right;
+        box-sizing: border-box;
+        min-height: 85vh;
+        border-left: 4px solid rgb(65, 65, 65);
     }
     
 }

@@ -153,7 +153,6 @@ class Posts extends Component {
             ))
         );
 
-
         return(
             <Aux>
                 <div className={classes.bg}>
