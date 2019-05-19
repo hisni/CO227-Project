@@ -9,6 +9,7 @@
 
 .FullPost h1:hover {
     color: #521751;
+    cursor: pointer;
 }
 
 .Edit label {

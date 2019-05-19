@@ -57,7 +57,6 @@ class DistrictPosts extends Component {
                     id: key
                 });
             }
-            console.log(fetchedPosts);
             this.setState({posts: fetchedPosts});
         } );
     }

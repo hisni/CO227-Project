@@ -47,7 +47,6 @@ class Posts extends Component {
     }
 
     componentDidMount () {
-        console.log("Hello");
         if( this.props.match.params.district ){
             this.stateDistrictHandler( this.props.match.params.district );
         }
