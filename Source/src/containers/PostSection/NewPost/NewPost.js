@@ -67,7 +67,7 @@ class NewPost extends Component {
                 elementType: 'select',
                 elementConfig: {
                     options: [
-                        {value: 'Matale', displayValue: '   '},
+                        {value: 'Matale', displayValue: 'Matale'},
                         {value: 'Kandy', displayValue: 'Kandy'},
                         {value: 'Nuwara Eliya', displayValue: 'Nuwara Eliya'},
                         {value: 'Kurunegala', displayValue: 'Kurunegala'},

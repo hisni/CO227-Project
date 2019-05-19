@@ -52,7 +52,7 @@
     .InputElement {
         outline: none;
         border: 1px solid #ccc;
-        background-color: white;
+        background-color: rgb(205, 204, 248);
         font: inherit;
         padding: 6px 10px;
         /* display: block;*/
