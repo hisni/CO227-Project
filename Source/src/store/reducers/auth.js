@@ -4,6 +4,7 @@ import { updateObject } from '../../shared/utility';
 const initialState = {
     token: null,
     userId: null,
+    username: null,
     error: null,
     loading: false,
     signUpSuccess: false
@@ -15,8 +16,10 @@ const authStart = ( state, action ) => {
 
 const authSuccess = (state, action) => {
     return updateObject( state, { 
+        
         token: action.idToken,
         userId: action.userId,
+        username: action.name,
         error: null,
         loading: false,
         signUpSuccess: false
@@ -31,7 +34,7 @@ const authFail = (state, action) => {
 };
 
 const authLogout = (state, action) => {
-    return updateObject(state, { token: null, userId: null });
+    return updateObject(state, { token: null, userId: null, username: null });
 };
 
 const signUpSuccess = (state, action) => {

@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
 import classes from './Profile.css';
 import Tile from '../../components/UI/Tile/Tile';
 
@@ -13,8 +15,8 @@ class Profile extends Component {
             case "New":
                 this.props.history.push({pathname: '/post-add'});
                 break;
-            case "Contact":
-                this.props.history.push({pathname: '/contact'});
+            case "Messages":
+                this.props.history.push({pathname: '/messages'});
                 break;
             default: ;
         }
@@ -23,20 +25,33 @@ class Profile extends Component {
 
     render() {
         return (
-            <section className={classes.Posts}>
-                <Tile 
-                    title={'Posts'}
-                    clicked={() => this.postSelectedHandler('Posts')}/>                
-                <Tile 
-                    title={'New'}
-                    clicked={() => this.postSelectedHandler('New')}/>                
-                <Tile 
-                    title={'Contact'}
-                    clicked={() => this.postSelectedHandler('Contact')}/>                
-
-            </section>
+            <div>
+                <div>
+                    {this.props.Name}
+                </div>
+                <section className={classes.Posts}>
+                    <Tile 
+                        title={'Posts'}
+                        clicked={() => this.postSelectedHandler('Posts')}/>                
+                    <Tile 
+                        title={'New'}
+                        clicked={() => this.postSelectedHandler('New')}/>                
+                    <Tile 
+                        title={'Messages'}
+                        clicked={() => this.postSelectedHandler('Messages')}/>                
+                </section>
+            </div>
         );
     }
 }
 
-export default Profile;
+const mapStateToProps = state => {
+    return {
+        isAuthenticated: state.auth.token !== null,
+        UID: state.auth.userId,
+        Name: state.auth.username
+    }
+}
+
+
+export default connect(mapStateToProps)(Profile);

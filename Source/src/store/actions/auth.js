@@ -8,11 +8,12 @@ export const authStart = () => {
     };
 };
 
-export const authSuccess = (token, userId) => {
+export const authSuccess = (token, userId, username) => {
     return {
         type: actionTypes.AUTH_SUCCESS,
         idToken: token,
-        userId: userId
+        userId: userId,
+        name:username
     };
 };
 
@@ -33,6 +34,7 @@ export const logout = () => {
     localStorage.removeItem('token');
     localStorage.removeItem('expirationDate');
     localStorage.removeItem('userId');
+    localStorage.removeItem('username');
     return {
         type: actionTypes.AUTH_LOGOUT
     };
@@ -56,13 +58,16 @@ export const authSignIn = (email, password) => {
         };
         
         let url = 'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=AIzaSyD_U3qQekQqULtlVCv7A2GsysPnH2X96TI';
+        var dbURL = '';
+
         axios.post(url, authData)
         .then(response => {
             const expirationDate = new Date(new Date().getTime() + response.data.expiresIn * 1000);
             localStorage.setItem('token', response.data.idToken);
             localStorage.setItem('expirationDate', expirationDate);
             localStorage.setItem('userId', response.data.localId);
-            dispatch(authSuccess(response.data.idToken, response.data.localId));
+            dbURL = 'https://co227-project.firebaseio.com/Users/'+response.data.localId+'.json?auth=' + response.data.idToken; 
+            dispatch(loadSigninData( dbURL, response.data.idToken, response.data.localId ));
             dispatch(checkAuthTimeout(response.data.expiresIn));
         })
         .catch(err => {
@@ -70,6 +75,7 @@ export const authSignIn = (email, password) => {
         });
     };
 };
+
 
 export const authSignUp = ( data ) => {
     return dispatch => {
@@ -111,6 +117,24 @@ export const storeSignupData = ( dbURL, dbData ) => {
     }
 }
 
+export const loadSigninData = ( dbURL, idToken, localId ) => {
+    
+    return dispatch => {
+        var username = '';
+        axios.get(dbURL)
+        .then(response => {
+            for(let key in response.data){
+                username = response.data[key].Username;
+            }
+            localStorage.setItem('username', username);
+            dispatch(authSuccess(idToken, localId, username));
+        })
+        .catch(err => {
+            dispatch(authFail(err.response.data.error));
+        });
+    }
+}
+
 export const setAuth = () => {
     return {
         type: actionTypes.SET_AUTH,
@@ -128,7 +152,9 @@ export const authCheckState = () => {
                 dispatch(logout());
             } else {
                 const userId = localStorage.getItem('userId');
-                dispatch(authSuccess(token, userId));
+                const username = localStorage.getItem('username');
+                
+                dispatch(authSuccess(token, userId, username));
                 dispatch(checkAuthTimeout((expirationDate.getTime() - new Date().getTime()) / 1000 ));
             }   
         }
