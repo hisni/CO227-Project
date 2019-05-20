@@ -5,3 +5,9 @@
     width: 90%;
     margin: auto;
 }
+
+.Title {
+    height: 50px;
+    text-align: left;
+    padding: 0 25px;
+}

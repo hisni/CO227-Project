@@ -5,8 +5,14 @@
     justify-content: center;
     width: 90%;
     margin: auto;
-
 }
+
+.Left{
+    display: block;
+    margin: 0 10px;
+    float: clear;
+}
+
 
 @media (min-width: 500px) {
     .Posts {

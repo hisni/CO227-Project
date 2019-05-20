@@ -1,10 +1,10 @@
 .FullPost {
-    width: 80%;
+    width: 60%;
     margin: 20px auto;
     border: 1px solid #eee;
     box-shadow: 0 2px 3px #ccc;
     text-align: center;
-    /* background-color: rgb(212, 213, 214); */
+    background-color: rgb(90, 241, 158);
 }
 
 .FullPost h1:hover {
