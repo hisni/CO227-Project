@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import Post from '../../../components/Post/Post';
 import Spinner from '../../../components/UI/Spinner/Spinner';
-import classes from './Posts.css';
+import classes from './UserPosts.css';
 
 class UserPosts extends Component {
     state = {
@@ -55,11 +55,13 @@ class UserPosts extends Component {
         }
 
         return(
-            <section className={classes.Posts}>
-                {posts}
-            </section>
-        );
-        
+            <div className={classes.UserPosts}>
+                <div className={classes.Title}>Your Posts</div>
+                <section className={classes.Posts}>
+                    {posts}
+                </section>   
+            </div>
+        )             
     };
 }
 

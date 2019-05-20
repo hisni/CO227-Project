@@ -76,8 +76,12 @@ class Profile extends Component {
         }
 
         return(
-            <div>
-                {post}
+            <div className={classes.User}>
+                <div className={classes.Post}>
+                    {post}
+                    
+                </div>
+                <div className={classes.Title}>Posts By Same User</div>
                 <section className={classes.Posts}>
                     {posts}
                 </section>

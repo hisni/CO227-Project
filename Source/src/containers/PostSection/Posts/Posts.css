@@ -16,6 +16,7 @@
 }
 
 .bg{
+    display: block;
     flex-flow: row;
 }
 

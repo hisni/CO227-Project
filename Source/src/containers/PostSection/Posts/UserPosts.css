@@ -1,0 +1,23 @@
+.UserPosts {
+    display: block;
+    flex-flow: row;
+    justify-content: center;
+    width: 100%;
+    margin: auto;
+}
+
+.Title{
+    margin: 0 0 25px 0;
+    font-weight: bold;
+    font-size: 24px;
+    color: #085034;
+}
+
+
+.Posts {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    width: 90%;
+    margin: auto;
+}
