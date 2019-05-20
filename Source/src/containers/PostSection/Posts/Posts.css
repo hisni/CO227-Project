@@ -9,12 +9,42 @@
 
 .Left{
     display: block;
-    margin: 0 10px;
+    flex-flow: row;
+    justify-content: center;
+    margin: 0 25px;
     float: clear;
 }
 
+.bg{
+    flex-flow: row;
+}
 
-@media (min-width: 500px) {
+@media (min-width: 520px) {
+    .Posts {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        width: 95%;
+        margin: auto;
+    }
+    
+    .Left{
+        width: 25%;
+        margin: 0 2px;
+        float: left;
+    }
+    
+    .Right{
+        width: 75%;
+        float: right;
+        box-sizing: border-box;
+        min-height: 85vh;
+        border-left: 3px solid rgb(65, 65, 65);
+    }
+    
+}
+
+@media (min-width: 800px) {
     .Posts {
         display: flex;
         flex-flow: row wrap;
@@ -25,6 +55,7 @@
     
     .Left{
         width: 15%;
+        margin: 0 2px;
         float: left;
     }
     

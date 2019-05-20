@@ -142,6 +142,7 @@ class Posts extends Component {
                 <Input 
                     key={filterElement.id}
                     // label={filterElement.id}
+                    class={"Clear"}
                     elementType={filterElement.config.elementType}
                     elementConfig={filterElement.config.elementConfig}
                     value={filterElement.config.value}

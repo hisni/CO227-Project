@@ -3,7 +3,14 @@ import classes from './Input.css';
 
 const input = ( props ) => {
     let inputElement = null;
-    const inputClasses = [classes.InputElement];
+
+    let InputClass = classes.Input;
+    let inputClasses = [classes.InputElement];
+
+    if( props.class ){
+        InputClass = classes.ClearFlex;
+        inputClasses = [classes.ClearWidth];
+    }
 
     if (props.invalid && props.shouldValidate && props.touched) {
         inputClasses.push(classes.Invalid);
@@ -47,7 +54,7 @@ const input = ( props ) => {
     }
 
     return (
-        <div className={classes.Input}>
+        <div className={InputClass}>
             <label className={classes.Label}>{props.label}</label>
             {inputElement}
         </div>

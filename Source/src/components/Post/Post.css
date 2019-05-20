@@ -20,7 +20,7 @@
     color: rgb(82, 82, 82);
 }
 
-@media (min-width: 500px) {
+@media (min-width: 520px) {
     .Post {
         width: 250px;
         padding: 16px;

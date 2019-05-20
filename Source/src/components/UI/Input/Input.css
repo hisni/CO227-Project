@@ -4,6 +4,12 @@
     box-sizing: border-box;
 }
 
+.ClearFlex {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
 .Label {
     font-weight: bold;
     display: block;
@@ -13,7 +19,7 @@
 .InputElement {
     outline: none;
     border: 1px solid #ccc;
-    background-color: white;
+    background-color: rgb(205, 204, 248);
     font: inherit;
     padding: 6px 10px;
     display: block;
@@ -26,17 +32,42 @@
     background-color: #ccc;
 }
 
+.ClearWidth {
+    outline: none;
+    border: 1px solid #ccc;
+    background-color: rgb(205, 204, 248);
+    font: inherit;
+    padding: 6px 10px;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.ClearWidth:focus {
+    outline: none;
+    background-color: #ccc;
+}
+
 .Invalid {
     border: 1px solid red;
     background-color: #FDA49A;
 }
 
-@media (min-width: 500px) {
+@media (min-width: 520px) {
     .Input {
         width: 100%;
         padding: 10px;
         box-sizing: border-box;
         display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+    }
+
+    .ClearFlex {
+        width: 100%;
+        padding: 0px 10px;
+        box-sizing: border-box;
+        display: block;
         flex-flow: row wrap;
         justify-content: center;
     }
@@ -61,6 +92,22 @@
     }
     
     .InputElement:focus {
+        outline: none;
+        background-color: #ccc;
+    }
+
+    
+    .ClearWidth {
+        outline: none;
+        border: 1px solid #ccc;
+        background-color: rgb(205, 204, 248);
+        font: inherit;
+        padding: 6px 10px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .ClearWidth:focus {
         outline: none;
         background-color: #ccc;
     }
