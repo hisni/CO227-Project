@@ -25,12 +25,12 @@ class FullPost extends Component {
         }
     }
 
-    // deletePostHandler = () => {
-    //     axios.delete( 'https://jsonplaceholder.typicode.com/posts/' + this.props.match.params.id )
-    //         .then( response => {
-    //             console.log(response);
-    //         });
-    // }
+    deletePostHandler = () => {
+        // axios.delete( 'https://jsonplaceholder.typicode.com/posts/' + this.props.match.params.id )
+        //     .then( response => {
+        //         console.log(response);
+        //     });
+    }
 
     postSelectedHandler = () =>{
         this.props.history.push({pathname: '/post/user/'+ this.props.match.params.id});
@@ -52,12 +52,22 @@ class FullPost extends Component {
                 )
             }
 
+            let deleteButton = null;
+            if( this.props.isAuthenticated && this.props.UID === this.state.loadedPost.UID ){
+                deleteButton = (
+                    <div className={classes.Delete}>
+                        <h3 onClick={() => this.postSelectedHandler()}>Delete</h3>
+                    </div> 
+                )
+            }
+
             post = (
                 <div className={classes.FullPost}>
                     {linkUser}
                     <p>{this.state.loadedPost.postData.Discription}</p>
                     <p>{this.state.loadedPost.postData.ContactNo}</p>
                     <p>{this.state.loadedPost.postData.Address}</p>
+                    {deleteButton}
                 </div>
             );
         }
@@ -69,6 +79,7 @@ class FullPost extends Component {
 const mapStateToProps = state => {
     return {
         isAuthenticated: state.auth.token !== null,
+        UID: state.auth.userId
     }
 }
 

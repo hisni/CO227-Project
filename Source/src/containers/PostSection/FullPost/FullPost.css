@@ -17,6 +17,18 @@
     cursor: default;
 }
 
+.Delete{
+    color: #ff0000;
+    /* width: 100px; */
+    /* justify-content: right; */
+    /* margin: 100px; */
+}
+
+.Delete h3:hover{
+    color: #ff0000;
+    cursor: pointer;
+}
+
 .Edit label {
     display: block;
     color: grey;
