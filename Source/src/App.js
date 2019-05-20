@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Route, Switch, Redirect, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-// import asyncComponent from './hoc/asyncComponent/asyncComponent';
 import classes from './App.css';
 import Layout from './hoc/Layout/Layout';
 import Posts from './containers/PostSection/Posts/Posts';
