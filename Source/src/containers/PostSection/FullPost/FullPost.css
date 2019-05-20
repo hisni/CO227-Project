@@ -12,6 +12,11 @@
     cursor: pointer;
 }
 
+.Clear h1:hover{
+    color: #000000;
+    cursor: default;
+}
+
 .Edit label {
     display: block;
     color: grey;

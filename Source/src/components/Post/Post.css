@@ -6,6 +6,7 @@
     box-shadow: 0 2px 3px #ccc;
     margin: 5px 2px;
     box-sizing: border-box;
+    border-radius: 4px;
     cursor: pointer;
     background-color: rgb(63, 216, 114);
 }
@@ -29,6 +30,7 @@
         box-shadow: 0 2px 3px #ccc;
         margin: 10px 10px;
         box-sizing: border-box;
+        border-radius: 4px;
         cursor: pointer;
         background-color: rgb(63, 216, 114);
     }

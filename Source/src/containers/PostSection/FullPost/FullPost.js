@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { connect } from 'react-redux';
 
 import classes from './FullPost.css';
 import Spinner from '../../../components/UI/Spinner/Spinner';
@@ -37,10 +38,23 @@ class FullPost extends Component {
 
     render () {
         let post = <Spinner/>;
+
         if ( this.state.loadedPost ) {
+            let linkUser = (
+                <h1 onClick={() => this.postSelectedHandler()}>{this.state.loadedPost.postData.Title}</h1>
+            ) 
+
+            if( this.props.isAuthenticated ){
+                linkUser = (
+                    <div className={classes.Clear}>
+                        <h1>{this.state.loadedPost.postData.Title}</h1>
+                    </div>    
+                )
+            }
+
             post = (
                 <div className={classes.FullPost}>
-                    <h1 onClick={() => this.postSelectedHandler()}>{this.state.loadedPost.postData.Title}</h1>
+                    {linkUser}
                     <p>{this.state.loadedPost.postData.Discription}</p>
                     <p>{this.state.loadedPost.postData.ContactNo}</p>
                     <p>{this.state.loadedPost.postData.Address}</p>
@@ -52,4 +66,10 @@ class FullPost extends Component {
     }
 }
 
-export default FullPost;
+const mapStateToProps = state => {
+    return {
+        isAuthenticated: state.auth.token !== null,
+    }
+}
+
+export default connect(mapStateToProps)(FullPost);
