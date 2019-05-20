@@ -37,6 +37,7 @@
     .Right{
         width: 75%;
         float: right;
+        margin-top: -100px;
         box-sizing: border-box;
         min-height: 85vh;
         border-left: 3px solid rgb(65, 65, 65);
@@ -44,27 +45,13 @@
     
 }
 
-@media (min-width: 800px) {
-    .Posts {
-        display: flex;
-        flex-flow: row wrap;
-        justify-content: center;
-        width: 95%;
-        margin: auto;
-    }
-    
+@media (min-width: 800px) {    
     .Left{
         width: 15%;
-        margin: 0 2px;
-        float: left;
     }
     
     .Right{
         width: 85%;
-        float: right;
-        box-sizing: border-box;
-        min-height: 85vh;
-        border-left: 3px solid rgb(65, 65, 65);
     }
     
 }

@@ -76,8 +76,8 @@ class Posts extends Component {
         this.setState({Controls: updatedControls});
     }
 
-    postSelectedHandler = (id) => {
-        this.props.history.push({pathname: '/posts/all/' + id});
+    postSelectedHandler = (id,district) => {
+        this.props.history.push({pathname: '/posts/' + district + '/' + id});
     }
 
     inputChangedHandler = (event, PostIdentifier) =>{
@@ -107,7 +107,7 @@ class Posts extends Component {
                             type={post.postData.Type}
                             contect={post.postData.ContactNo}
                             address={post.postData.Address}
-                            clicked={() => this.postSelectedHandler(post.id)}/>
+                            clicked={() => this.postSelectedHandler(post.id,post.District)}/>
                     );
                 }
                 else{
@@ -119,7 +119,7 @@ class Posts extends Component {
                                 type={post.postData.Type}
                                 contect={post.postData.ContactNo}
                                 address={post.postData.Address}
-                                clicked={() => this.postSelectedHandler(post.id)}/>
+                                clicked={() => this.postSelectedHandler(post.id,post.District)}/>
                         );
                     }
                     else{

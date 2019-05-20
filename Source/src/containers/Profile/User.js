@@ -44,15 +44,14 @@ class Profile extends Component {
         }
     }
 
-    postSelectedHandler = (id) => {
-        this.props.history.push({pathname: '/user/posts/' + id});
+    postSelectedHandler = (id,district) => {
+        this.props.history.push({pathname: '/posts/' + district + '/' + id});
     }
 
     render() {
         let post = <Spinner/>;
         if ( this.state.loadedPost ) {
             post = (
-                // <h1>Hello</h1>
                 <div>
                     <h1>{this.state.loadedPost.postData.Title}</h1>
                     <p>{this.state.loadedPost.postData.ContactNo}</p>
@@ -71,7 +70,7 @@ class Profile extends Component {
                         type={post.postData.Type}
                         contect={post.postData.ContactNo}
                         address={post.postData.Address}
-                        clicked={() => this.postSelectedHandler(post.id)}/>
+                        clicked={() => this.postSelectedHandler(post.id,post.District)}/>
                 );
             });
         }

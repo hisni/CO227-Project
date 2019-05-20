@@ -25,7 +25,7 @@ class Profile extends Component {
 
     render() {
         return (
-            <div>
+            <div className={classes.Profile}>
                 <div className={classes.Title}>
                     <h3>@{this.props.Name}</h3>
                 </div>
