@@ -26,20 +26,23 @@ class Profile extends Component {
     render() {
         return (
             <div>
-                <div>
-                    {this.props.Name}
+                <div className={classes.Title}>
+                    <h3>@{this.props.Name}</h3>
                 </div>
-                <section className={classes.Posts}>
-                    <Tile 
-                        title={'Posts'}
-                        clicked={() => this.postSelectedHandler('Posts')}/>                
-                    <Tile 
-                        title={'New'}
-                        clicked={() => this.postSelectedHandler('New')}/>                
-                    <Tile 
-                        title={'Messages'}
-                        clicked={() => this.postSelectedHandler('Messages')}/>                
-                </section>
+                <div>
+                    <section className={classes.Posts}>
+                        <Tile 
+                            title={'Posts'}
+                            clicked={() => this.postSelectedHandler('Posts')}/>                
+                        <Tile 
+                            title={'New'}
+                            clicked={() => this.postSelectedHandler('New')}/>                
+                        <Tile 
+                            title={'Messages'}
+                            clicked={() => this.postSelectedHandler('Messages')}/>                
+                    </section>
+                </div>
+                
             </div>
         );
     }
