@@ -32,3 +32,9 @@
 .Danger {
     color: #944317;
 }
+
+.DangerRe {
+    color: #944317;
+    margin: -5px -11px 0 0;
+    font-size: 16px;
+}
