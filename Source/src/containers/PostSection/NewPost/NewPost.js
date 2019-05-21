@@ -6,7 +6,7 @@ import { Redirect } from 'react-router-dom';
 import classes from './NewPost.css';
 import Button from '../../../components/UI/Button/Button';
 import Input from '../../../components/UI/Input/Input';
-import { checkValidity } from '../../../shared/utility';
+import { updateObject, checkValidity } from '../../../shared/utility';
 
 class NewPost extends Component {
     state = {
@@ -19,7 +19,8 @@ class NewPost extends Component {
                 },
                 value: '',
                 validation: {
-                    required: true
+                    required: true,
+                    minLength: 1
                 },
                 valid: false,
                 touched: false
@@ -32,7 +33,8 @@ class NewPost extends Component {
                 },
                 value: '',
                 validation: {
-                    required: true
+                    required: true,
+                    minLength: 1
                 },
                 valid: false,
                 touched: false
@@ -45,7 +47,8 @@ class NewPost extends Component {
                 },
                 value: '',
                 validation: {
-                    required: true
+                    required: true,
+                    minLength: 1
                 },
                 valid: false,
                 touched: false
@@ -58,7 +61,10 @@ class NewPost extends Component {
                 },
                 value: '',
                 validation: {
-                    required: true
+                    required: true,
+                    isNumeric: true,
+                    minLength: 9,
+                    maxLength: 10
                 },
                 valid: false,
                 touched: false
@@ -114,15 +120,13 @@ class NewPost extends Component {
     }
 
     inputChangedHandler = (event, PostIdentifier) =>{
-        const updatedPostForm = {
-            ...this.state.PostForm,
-            [PostIdentifier]: {
-                ...this.state.PostForm[PostIdentifier],
+        const updatedPostForm = updateObject( this.state.PostForm, {
+            [PostIdentifier]: updateObject( this.state.PostForm[PostIdentifier], {
                 value: event.target.value,
-                valid: checkValidity(event.target.value, this.state.PostForm[PostIdentifier].validation),
+                valid: checkValidity( event.target.value, this.state.PostForm[PostIdentifier].validation ),
                 touched: true
-            }
-        };
+            } )
+        } );
 
         let formIsValid = true;
         for (let inputIdentifier in updatedPostForm) {
