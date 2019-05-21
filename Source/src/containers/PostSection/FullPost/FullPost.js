@@ -4,10 +4,14 @@ import { connect } from 'react-redux';
 
 import classes from './FullPost.css';
 import Spinner from '../../../components/UI/Spinner/Spinner';
+import Modal from '../../../components/UI/Modal/Modal';
+import Aux from '../../../hoc/Auxiliary/Auxiliary';
+import Button from '../../../components/UI/Button/Button';
 
 class FullPost extends Component {
     state = {
         loadedPost: null,
+        delete: false
     }
 
     componentDidMount () {
@@ -26,10 +30,19 @@ class FullPost extends Component {
     }
 
     deletePostHandler = () => {
-        // axios.delete( 'https://jsonplaceholder.typicode.com/posts/' + this.props.match.params.id )
-        //     .then( response => {
-        //         console.log(response);
-        //     });
+        this.setState( { delete: true } );
+    }
+
+    deleteCancelHandler = () => {
+        this.setState( { delete: false } );
+    }
+
+    deleteConfirmHandler = () => {
+        const token = this.props.tokenID;
+        axios.delete( '/Posts/' + this.props.match.params.id + '.json?auth=' + token )
+            .then( response => {
+                console.log(response);
+            });
     }
 
     postSelectedHandler = () =>{
@@ -55,9 +68,7 @@ class FullPost extends Component {
             let deleteButton = null;
             if( this.props.isAuthenticated && this.props.UID === this.state.loadedPost.UID ){
                 deleteButton = (
-                    <div className={classes.Delete}>
-                        <h3 onClick={() => this.postSelectedHandler()}>Delete</h3>
-                    </div> 
+                    <Button btnType={"DangerRe"} clicked={this.deletePostHandler} >Delete</Button>
                 )
             }
 
@@ -72,13 +83,23 @@ class FullPost extends Component {
             );
         }
         
-        return post;
+        return(
+            <Aux >
+                <Modal show={this.state.delete} modalClosed={this.deleteCancelHandler}>
+                    <p>Are you sure you want to delete this post?</p>
+                    <Button btnType={"Danger"} clicked={this.deleteConfirmHandler} >Delete</Button>
+                    <Button btnType={"Success"} clicked={this.deleteCancelHandler} >Cancel</Button>
+                </Modal>
+                {post}
+            </Aux>
+        );
     }
 }
 
 const mapStateToProps = state => {
     return {
         isAuthenticated: state.auth.token !== null,
+        tokenID: state.auth.token,
         UID: state.auth.userId
     }
 }

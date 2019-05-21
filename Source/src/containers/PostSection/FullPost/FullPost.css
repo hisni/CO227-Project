@@ -5,6 +5,7 @@
     box-shadow: 0 2px 3px #ccc;
     text-align: center;
     background-color: rgb(90, 241, 158);
+    justify-content: center;
 }
 
 .FullPost h1:hover {
@@ -17,41 +18,3 @@
     cursor: default;
 }
 
-.Delete{
-    color: #ff0000;
-    /* width: 100px; */
-    /* justify-content: right; */
-    /* margin: 100px; */
-}
-
-.Delete h3:hover{
-    color: #ff0000;
-    cursor: pointer;
-}
-
-.Edit label {
-    display: block;
-    color: grey;
-}
-
-.Edit button {
-    border: none;
-    background-color: transparent;
-    cursor: pointer;
-    outline: none;
-    color: #fa923f;
-}
-
-.Edit button:hover,
-.Edit button:active {
-    color: #521751;
-}
-
-.Edit button.Delete {
-    color: red;
-}
-
-.Edit button.Delete:hover,
-.Edit button.Delete:active {
-    color: darkred;
-}
