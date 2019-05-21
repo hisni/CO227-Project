@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 
 import classes from './FullPost.css';
 import Spinner from '../../../components/UI/Spinner/Spinner';
@@ -11,7 +12,8 @@ import Button from '../../../components/UI/Button/Button';
 class FullPost extends Component {
     state = {
         loadedPost: null,
-        delete: false
+        delete: false,
+        deleteSuccess:false
     }
 
     componentDidMount () {
@@ -43,6 +45,7 @@ class FullPost extends Component {
             .then( response => {
                 console.log(response);
             });
+        this.setState( { deleteSuccess: true } );
     }
 
     postSelectedHandler = () =>{
@@ -82,9 +85,15 @@ class FullPost extends Component {
                 </div>
             );
         }
+
+        let authRedirect = null;
+        if (this.state.deleteSuccess) {
+            authRedirect = <Redirect to={'/user/posts'}/>
+        }
         
         return(
             <Aux >
+                {authRedirect}
                 <Modal show={this.state.delete} modalClosed={this.deleteCancelHandler}>
                     <p>Are you sure you want to delete this post?</p>
                     <Button btnType={"Danger"} clicked={this.deleteConfirmHandler} >Delete</Button>
