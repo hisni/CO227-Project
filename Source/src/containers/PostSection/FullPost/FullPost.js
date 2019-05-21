@@ -59,17 +59,14 @@ class FullPost extends Component {
             let linkUser = (
                 <h1 onClick={() => this.postSelectedHandler()}>{this.state.loadedPost.postData.Title}</h1>
             ) 
+            let deleteButton = null;
 
-            if( this.props.isAuthenticated ){
+            if( this.props.isAuthenticated && this.props.UID === this.state.loadedPost.UID ){
                 linkUser = (
                     <div className={classes.Clear}>
                         <h1>{this.state.loadedPost.postData.Title}</h1>
                     </div>    
                 )
-            }
-
-            let deleteButton = null;
-            if( this.props.isAuthenticated && this.props.UID === this.state.loadedPost.UID ){
                 deleteButton = (
                     <Button btnType={"DangerRe"} clicked={this.deletePostHandler} >Delete</Button>
                 )
