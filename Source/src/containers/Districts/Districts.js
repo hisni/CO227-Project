@@ -4,29 +4,32 @@ import classes from './Districts.css';
 class Districts extends Component {
 
   state = {
-    // selectedDistrict: null,
     districts : [
-      ['Matale', 'Dambulla', 'Galewela', 'Naula'],
-      ['Kandy', 'Katugastota'],
-      ['Nuwara Eliya'],
-      ['Kurunegala'],
-      ['Puttalam'],
-      ['Colombo'],
-      ['Kaluthara'],
-      ['Gampaha'],
-      ['Badulla'],
-      ['Ampara'],
-      ['Batticaloa'],
-      ['Jaffna'],
-      ['Kegalle'],
-      ['Mannar'],
-      ['Monaragala'],
-      ['Mullaitivu'],
-      ['Trincomalee'],
-      ['Vavuniya'],
-      ['Galle'],
-      ['Matara'],
-      ['Hambantota'],
+        ['Colombo', 'lk-11'],
+        ['Gampaha', 'lk-12'],
+        ['Kaluthara', 'lk-13'],
+        ['Kandy', 'lk-21'],
+        ['Matale', 'lk-22'],
+        ['Nuwara Eliya', 'lk-23'],        
+        ['Galle', 'lk-31'],
+        ['Matara', 'lk-32'],
+        ['Hambantota', 'lk-33'],
+        ['Jaffna', 'lk-41'],
+        ['Kilinochchi', 'lk-42'],
+        ['Mannar', 'lk-43'],
+        ['Vavuniya', 'lk-44'],
+        ['Mullaitivu', 'lk-45'],
+        ['Batticaloa', 'lk-51'],
+        ['Ampara', 'lk-52'],
+        ['Trincomalee', 'lk-53'],
+        ['Kurunegala', 'lk-61'],
+        ['Puttalam', 'lk-62'],
+        ['Anuradhapura', 'lk-71'],
+        ['Polonnaruwa', 'lk-72'],
+        ['Badulla', 'lk-81'],
+        ['Monaragala', 'lk-82'],
+        ['Ratnapura', 'lk-91'],
+        ['Kegalle', 'lk-92'],
     ]
   }
 
@@ -35,13 +38,16 @@ class Districts extends Component {
   }
     
   render() {
+
     return (
       <div>
         <h3 className={classes.text}> Districts </h3>
         {this.state.districts.map((district)=>{
           return <button 
             key={district[0]} 
-            className={classes.districts}  
+            className={classes.districts}
+            onMouseEnter={() => this.props.set(district[1])}
+            onMouseLeave={() => this.props.clear()}
             onClick={() => this.districtSelectedHandler(district[0])} > {district[0]}  </button>
         })}
       </div>
