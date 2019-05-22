@@ -26,3 +26,23 @@
   color: black;
   width: 55%;
 }
+
+.districtsHover{
+  align-self: auto;
+  padding: 5px;
+  width: 60%;
+  margin: 3px;
+  border: 0;
+  border-bottom: 1px solid rgb(78, 82, 77);
+  transition: all 0.1s;
+  font-size: 95%;
+  font-weight: normal;
+  color: rgb(71, 70, 70);
+  background-color:rgba(6, 156, 81, 0.849);
+  box-shadow: 0 8px 16px 0 rgba(9, 212, 111, 0.19), 0 6px 20px 0 ;
+  box-sizing: content-box;
+  font-size-adjust: initial;
+  border-radius: 12px;
+  color: black;
+  width: 55%;
+}

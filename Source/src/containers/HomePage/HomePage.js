@@ -8,31 +8,35 @@ class HomePage extends Component {
 
     state = {
         current: null,
+        hovered: null
     };
 
     onClick = (e) => {
-        const name = e.target.attributes.name.value;
-        console.log(name);
-        // window.open(`https://www.google.com/search?q=${name}%20nz`);
+        const district = e.target.attributes.name.value;
+        this.props.history.push({pathname: '/posts/' + district});
     };
-
     setCurrent = id => this.setState({ current: [id] });
-
     clearCurrent = () => this.setState({ current: null });
+    onMouseEnter = e => this.setState({ hovered: e.target.attributes.name.value });
+    onMouseLeave = () => this.setState({ hovered: null });
 
 
     render() {
 
         const { current } = this.state;
         const layerProps = {
+            onMouseEnter: this.onMouseEnter,
+            onMouseLeave: this.onMouseLeave,
             onClick: this.onClick,
         };
 
         return (
             <div className={classes.bg}>
-                
                 <div className={classes.ints}>
-                    {/* <Intro/> */}
+                    <Intro/>
+                    
+                </div>
+                <div className={classes.Map}>
                     <Map 
                         cr={current}
                         layerProps={layerProps}
@@ -43,6 +47,7 @@ class HomePage extends Component {
                         {...this.props}
                         set={this.setCurrent}
                         clear={this.clearCurrent}
+                        hover={this.state.hovered}
                     />
                 </div>
             </div>

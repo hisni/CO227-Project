@@ -19,7 +19,7 @@ class Districts extends Component {
         ['Mannar', 'lk-43'],
         ['Vavuniya', 'lk-44'],
         ['Mullaitivu', 'lk-45'],
-        ['Batticaloa', 'lk-51'],
+        ['Batticalo', 'lk-51'],
         ['Ampara', 'lk-52'],
         ['Trincomalee', 'lk-53'],
         ['Kurunegala', 'lk-61'],
@@ -30,7 +30,8 @@ class Districts extends Component {
         ['Monaragala', 'lk-82'],
         ['Ratnapura', 'lk-91'],
         ['Kegalle', 'lk-92'],
-    ]
+    ],
+    selected: null
   }
 
   districtSelectedHandler = (district) => {
@@ -43,9 +44,15 @@ class Districts extends Component {
       <div>
         <h3 className={classes.text}> Districts </h3>
         {this.state.districts.map((district)=>{
+
+            let buttonClass = classes.districts
+            if( this.props.hover === district[0] ){
+                buttonClass = classes.districtsHover;
+            }
+            
           return <button 
             key={district[0]} 
-            className={classes.districts}
+            className={buttonClass}
             onMouseEnter={() => this.props.set(district[1])}
             onMouseLeave={() => this.props.clear()}
             onClick={() => this.districtSelectedHandler(district[0])} > {district[0]}  </button>
