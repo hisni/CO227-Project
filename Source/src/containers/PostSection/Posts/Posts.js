@@ -141,7 +141,7 @@ class Posts extends Component {
             filterArray.map(filterElement => (
                 <Input 
                     key={filterElement.id}
-                    // label={filterElement.id}
+                    label={filterElement.id}
                     class={"Clear"}
                     elementType={filterElement.config.elementType}
                     elementConfig={filterElement.config.elementConfig}
@@ -157,7 +157,7 @@ class Posts extends Component {
             <Aux>
                 <div className={classes.bg}>
                     <div className={classes.Left} >
-                        <h3>District</h3>
+                        {/* <h3>District</h3> */}
                         {filter}
                     </div>
                     <div className={classes.Right} >

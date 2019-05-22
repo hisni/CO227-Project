@@ -10,21 +10,22 @@
     border-radius: 4px;
     cursor: pointer;
     background-color: rgb(63, 216, 114);
+    color: rgb(4, 75, 31)
 }
 
 .Post:hover,
 .Post:active {
-    background-color: rgb(143, 235, 204);
+    opacity: 0.6;
 }
 
 .Info {
     margin: 16px 0;
-    color: rgb(82, 82, 82);
+    color: rgb(22, 82, 57);
 }
 
 @media (min-width: 520px) {
     .Post {
-        width: 250px;
+        width: 197px;
         height: 200px;
         padding: 16px;
         text-align: center;
@@ -35,15 +36,16 @@
         border-radius: 4px;
         cursor: pointer;
         background-color: rgb(63, 216, 114);
+        color: rgb(4, 75, 31)
     }
     
     .Post:hover,
     .Post:active {
-        background-color: rgb(143, 235, 204);
+        opacity: 0.6;
     }
     
     .Info {
         margin: 16px 0;
-        color: rgb(82, 82, 82);
+        color: rgb(22, 82, 57);
     }   
 }

@@ -6,10 +6,12 @@ const input = ( props ) => {
 
     let InputClass = classes.Input;
     let inputClasses = [classes.InputElement];
+    let labelClass = classes.Label;
 
     if( props.class ){
         InputClass = classes.ClearFlex;
         inputClasses = [classes.ClearWidth];
+        labelClass = classes.ClearMargrin;
     }
 
     if (props.invalid && props.shouldValidate && props.touched) {
@@ -55,7 +57,7 @@ const input = ( props ) => {
 
     return (
         <div className={InputClass}>
-            <label className={classes.Label}>{props.label}</label>
+            <label className={labelClass}>{props.label}</label>
             {inputElement}
         </div>
     );

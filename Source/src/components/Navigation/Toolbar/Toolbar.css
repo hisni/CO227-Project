@@ -4,7 +4,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    background-color: rgb(6, 156, 81);
+    background: linear-gradient(90deg,rgb(45, 196, 123) 0%, rgb(3, 78, 41) 100%);
     display: flex;
     justify-content: space-between;
     align-items: center;
