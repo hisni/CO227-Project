@@ -31,7 +31,6 @@ class Districts extends Component {
   }
 
   districtSelectedHandler = (district) => {
-    // this.setState({selectedDistrict: district});
     this.props.history.push({pathname: '/posts/' + district});
   }
     

@@ -1,7 +1,7 @@
 .Button {
     background-color: transparent;
     border: none;
-    color: rgb(1, 134, 72);
+    color: rgb(2, 61, 32);
     outline: none;
     cursor: pointer;
     font: inherit;
@@ -16,7 +16,8 @@
 }
 
 .Button:disabled {
-    color: rgb(37, 241, 146);
+    /* color: rgb(37, 241, 146); */
+    opacity: .3;
     cursor: not-allowed;
 }
 
@@ -26,7 +27,7 @@
 
 .SuccessRe {
     margin-top: -5px;
-    color: rgb(6, 145, 87);
+    color: rgb(2, 61, 32);
 }
 
 .Danger {
