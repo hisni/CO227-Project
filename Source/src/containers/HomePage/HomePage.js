@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Intro from '../../components/Intro/Intro'
 import Districts from '../Districts/Districts';
 import classes from './HomePage.css';
-import Map from '../../components/VectorMap/Map';
+import Map from '../VectorMap/Map';
 
 class HomePage extends Component {
 

@@ -41,8 +41,9 @@ class Districts extends Component {
   render() {
 
     return (
-      <div>
+      <div className={classes.DistSection} >
         <h3 className={classes.text}> Districts </h3>
+        
         {this.state.districts.map((district)=>{
 
             let buttonClass = classes.districts
@@ -57,6 +58,7 @@ class Districts extends Component {
             onMouseLeave={() => this.props.clear()}
             onClick={() => this.districtSelectedHandler(district[0])} > {district[0]}  </button>
         })}
+
       </div>
     )
   }

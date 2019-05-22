@@ -1,3 +1,7 @@
+.DistSection{
+  margin-top: -15px;
+}
+
 .text {
   color: rgb(4, 75, 31);
 }
@@ -6,7 +10,7 @@
   align-self: auto;
   background-color: rgba(232, 238, 238, 0.479);
   padding: 5px;
-  width: 60%;
+  width: 40%;
   margin: 3px;
   border: 0;
   border-bottom: 1px solid rgb(78, 82, 77);
@@ -24,7 +28,7 @@
   font-size-adjust: initial;
   border-radius: 12px;
   color: black;
-  width: 55%;
+  width: 35%;
 }
 
 .districtsHover{
@@ -44,5 +48,5 @@
   font-size-adjust: initial;
   border-radius: 12px;
   color: black;
-  width: 55%;
+  width: 35%;
 }
