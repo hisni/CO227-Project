@@ -7,23 +7,23 @@ import { MapWrapper } from '../../shared/styled';
 const StyledMap = styled(MapWrapper)`
   svg {
     path{
-      fill: #07A749;
+      fill: #07974f;
       cursor: pointer;
       &:hover {
-        fill: #023A19;
+        fill: #2dc47b;
       }
       &[aria-current='true'] {
-        fill: #023A19;
+        fill: #2dc47b;
       }
     }
   }
 `;
 
-class Map extends Component {
 
+class Map extends Component {
     render() {
         return(
-        <StyledMap style={{ width: '100%', margin: '30px auto', maxWidth: '280px' }}>
+        <StyledMap style={{ width: '100%', margin: '10px auto', maxWidth: '300px' }}>
             <VectorMap {...SL} layerProps={this.props.layerProps} currentLayers={this.props.cr} />
         </StyledMap>
         );

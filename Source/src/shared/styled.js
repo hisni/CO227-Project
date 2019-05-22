@@ -27,8 +27,6 @@ export const Output = styled.div`
 export const MapWrapper = styled.div`
   padding-left: 1rem;
   flex: 1 1 auto;
-  height:50rem;
-  width:50rem;
   @media (max-width: 600px) {
     padding-left: 0;
     padding-top: 1rem;
