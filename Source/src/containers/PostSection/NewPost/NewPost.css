@@ -1,7 +1,15 @@
 .NewPost {
-    width: 60%;
+    width: 80%;
     margin: 20px auto;
+    padding: 0 15px;
     border: 1px solid #eee;
     box-shadow: 0 2px 3px #ccc;
+    background-color: rgba(88, 187, 138, 0.726);
     text-align: center;
+}
+
+@media (min-width: 520px) {
+    .NewPost {
+        width: 60%;
+    }
 }

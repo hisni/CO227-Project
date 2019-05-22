@@ -65,77 +65,32 @@
 
 @media (min-width: 520px) {
     .Input {
-        width: 100%;
-        padding: 10px;
-        box-sizing: border-box;
         display: flex;
         flex-flow: row wrap;
         justify-content: center;
     }
 
     .ClearFlex {
-        width: 100%;
-        padding: 0px 10px;
-        box-sizing: border-box;
         display: block;
         flex-flow: row wrap;
         justify-content: center;
     }
     
     .Label {
-        font-weight: bold;
-        /* display: block; */
         width: 25%;
-        margin-bottom: 8px;
         text-align: left;
-        color: rgb(2, 61, 32)
     }
 
     .ClearMargrin {
-        font-weight: bold;
-        /* display: block; */
         width: 25%;
-        margin-bottom: 8px;
         margin-left: 30%;
-        color: rgb(2, 61, 32);
     }
     
     .InputElement {
-        outline: none;
-        border: 1px solid #ccc;
-        background-color: rgb(135, 245, 221);
-        font: inherit;
-        padding: 6px 10px;
-        /* display: block;*/
         width: 75%;
-        box-sizing: border-box;
-        color: rgb(2, 61, 32)
-    }
-    
-    .InputElement:focus {
-        outline: none;
-        background-color: #ccc;
     }
 
-    
     .ClearWidth {
-        outline: none;
-        border: 1px solid #ccc;
-        background-color: rgb(0, 255, 200);
-        font: inherit;
-        padding: 6px 10px;
         width: 100%;
-        box-sizing: border-box;
-        color: rgb(2, 61, 32)
-    }
-
-    .ClearWidth:focus {
-        outline: none;
-        background-color: #ccc;
-    }
-    
-    .Invalid {
-        border: 1px solid red;
-        background-color: #FDA49A;
-    }    
+    } 
 }
