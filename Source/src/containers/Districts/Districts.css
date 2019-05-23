@@ -9,14 +9,14 @@
 .districts{
   align-self: auto;
   background-color: rgba(232, 238, 238, 0.479);
-  padding: 5px;
-  width: 40%;
-  margin: 3px;
+  padding: 4px;
+  width: 80%;
+  margin: 2px;
   border: 0;
   border-bottom: 1px solid rgb(78, 82, 77);
-  border-radius: 12px;
+  border-radius: 7px;
   transition: all 0.1s;
-  font-size: 95%;
+  font-size: 60%;
   font-weight: normal;
   color: rgb(71, 70, 70);
 }
@@ -26,27 +26,48 @@
   box-shadow: 0 8px 16px 0 rgba(9, 212, 111, 0.19), 0 6px 20px 0 ;
   box-sizing: content-box;
   font-size-adjust: initial;
-  border-radius: 12px;
+  border-radius: 7px;
   color: black;
-  width: 35%;
+  width: 75%;
 }
 
-.districtsHover{
-  align-self: auto;
-  padding: 5px;
-  width: 60%;
-  margin: 3px;
-  border: 0;
-  border-bottom: 1px solid rgb(78, 82, 77);
-  transition: all 0.1s;
-  font-size: 95%;
-  font-weight: normal;
-  color: rgb(71, 70, 70);
-  background-color:rgba(6, 156, 81, 0.849);
-  box-shadow: 0 8px 16px 0 rgba(9, 212, 111, 0.19), 0 6px 20px 0 ;
-  box-sizing: content-box;
-  font-size-adjust: initial;
-  border-radius: 12px;
-  color: black;
-  width: 35%;
+@media (min-width: 520px) {
+  .districts{
+    align-self: auto;
+    background-color: rgba(232, 238, 238, 0.479);
+    padding: 5px;
+    width: 40%;
+    margin: 3px;
+    border: 0;
+    border-bottom: 1px solid rgb(78, 82, 77);
+    border-radius: 12px;
+    transition: all 0.1s;
+    font-size: 95%;
+    font-weight: normal;
+    color: rgb(71, 70, 70);
+  }
+
+  .districts:hover{
+    width: 35%;
+  }
+
+  .districtsHover{
+    align-self: auto;
+    padding: 5px;
+    width: 60%;
+    margin: 3px;
+    border: 0;
+    border-bottom: 1px solid rgb(78, 82, 77);
+    transition: all 0.1s;
+    font-size: 95%;
+    font-weight: normal;
+    color: rgb(71, 70, 70);
+    background-color:rgba(6, 156, 81, 0.849);
+    box-shadow: 0 8px 16px 0 rgba(9, 212, 111, 0.19), 0 6px 20px 0 ;
+    box-sizing: content-box;
+    font-size-adjust: initial;
+    border-radius: 12px;
+    color: black;
+    width: 35%;
+  }
 }
