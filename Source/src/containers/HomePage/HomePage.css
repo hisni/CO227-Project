@@ -8,6 +8,14 @@
     float: left;
 }
 
+.bg {
+    background-image: url("../../assets/images/Map-min.png");
+    height: 450px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; 
+}
+
 .bg::after {
     display: block;
 }
@@ -33,6 +41,10 @@
     .districts{
         width: 30%;
         float: left;
+    }
+
+    .bg {
+        background-image: none;
     }
 
     .bg::after {
