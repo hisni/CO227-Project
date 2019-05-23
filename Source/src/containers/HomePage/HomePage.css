@@ -3,12 +3,6 @@
     float: left;
 }
 
-/* .Map{
-    display: none;
-    width: 40%;
-    float: left;
-} */
-
 .districts{
     width: 55%;
     float: left;
@@ -46,5 +40,4 @@
         clear: both;
         display: table;
     }
-    
 }
