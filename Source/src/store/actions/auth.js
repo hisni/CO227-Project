@@ -67,6 +67,7 @@ export const authSignIn = (email, password) => {
             localStorage.setItem('token', response.data.idToken);
             localStorage.setItem('expirationDate', expirationDate);
             localStorage.setItem('userId', response.data.localId);
+            localStorage.setItem('username', username);
             dbURL = 'https://co227-project.firebaseio.com/Users/'+response.data.localId+'.json?auth=' + response.data.idToken; 
             dispatch(loadSigninData( dbURL, response.data.idToken, response.data.localId ));
             dispatch(checkAuthTimeout(response.data.expiresIn));
