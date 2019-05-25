@@ -67,7 +67,7 @@ export const authSignIn = (email, password) => {
             localStorage.setItem('token', response.data.idToken);
             localStorage.setItem('expirationDate', expirationDate);
             localStorage.setItem('userId', response.data.localId);
-            localStorage.setItem('username', username);
+            localStorage.setItem('username', response.data.displayName);
             dbURL = 'https://co227-project.firebaseio.com/Users/'+response.data.localId+'.json?auth=' + response.data.idToken; 
             dispatch(loadSigninData( dbURL, response.data.idToken, response.data.localId ));
             dispatch(checkAuthTimeout(response.data.expiresIn));
@@ -129,7 +129,7 @@ export const loadSigninData = ( dbURL, idToken, localId ) => {
             for(let key in response.data){
                 username = response.data[key].Username;
             }
-            localStorage.setItem('username', username);
+            // localStorage.setItem('username', username);
             dispatch(authSuccess(idToken, localId, username));
         })
         .catch(err => {
