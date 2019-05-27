@@ -105,7 +105,9 @@ class Login extends Component {
 
         if (this.props.error) {
             errorMessage = (
-                <p>{this.props.error.message}</p>
+                // <p>{this.props.error.message}</p>
+                <p>Invalid email or password. Please try again.</p>
+
             );
         }
 
