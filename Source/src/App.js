@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import { Route, Switch, Redirect, withRouter } from 'react-router-dom';
+// import { Route, Switch, Redirect, withRouter } from 'react-router-dom';
+import { Route, Switch, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import classes from './App.css';
 import AdminLogin from './containers/Auth/AdminLogin';
 import Main from './containers/Main/Main';
 import * as actions from './store/actions/index';
-
 
 class App extends Component {
 
