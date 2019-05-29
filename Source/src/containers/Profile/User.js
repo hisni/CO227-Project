@@ -5,6 +5,8 @@ import Spinner from '../../components/UI/Spinner/Spinner';
 import Post from '../../components/Post/Post';
 import classes from './User.css';
 
+import { FaMapMarkerAlt, FaPhone } from 'react-icons/fa';
+
 class Profile extends Component {
     state = {
         loadedPost: null,
@@ -54,8 +56,8 @@ class Profile extends Component {
             post = (
                 <div>
                     <h1>{this.state.loadedPost.postData.Title}</h1>
-                    <p>{this.state.loadedPost.postData.ContactNo}</p>
-                    <p>{this.state.loadedPost.postData.Address}</p>
+                    <p><FaPhone/> {this.state.loadedPost.postData.ContactNo}</p>
+                    <p><FaMapMarkerAlt/> {this.state.loadedPost.postData.Address}</p>
                 </div>
             );
         }

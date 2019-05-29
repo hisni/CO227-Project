@@ -8,6 +8,7 @@ import Spinner from '../../../components/UI/Spinner/Spinner';
 import Modal from '../../../components/UI/Modal/Modal';
 import Aux from '../../../hoc/Auxiliary/Auxiliary';
 import Button from '../../../components/UI/Button/Button';
+import { FaMapMarkerAlt, FaPhone } from 'react-icons/fa';
 
 class FullPost extends Component {
     state = {
@@ -76,8 +77,8 @@ class FullPost extends Component {
                 <div className={classes.FullPost}>
                     {linkUser}
                     <p>{this.state.loadedPost.postData.Discription}</p>
-                    <p>{this.state.loadedPost.postData.ContactNo}</p>
-                    <p>{this.state.loadedPost.postData.Address}</p>
+                    <p><FaPhone/> {this.state.loadedPost.postData.ContactNo}</p>
+                    <p><FaMapMarkerAlt/> {this.state.loadedPost.postData.Address}</p>
                     {deleteButton}
                 </div>
             );
