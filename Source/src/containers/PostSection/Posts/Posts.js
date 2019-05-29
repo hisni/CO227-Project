@@ -43,14 +43,16 @@ class Posts extends Component {
                 validation: {},
                 valid: true
             }
-        }
+        },
+        Count:0,
+        Update:false
     }
 
     componentDidMount () {
         if( this.props.match.params.district ){
-            this.stateDistrictHandler( this.props.match.params.district );
+            this.setDistrictHandler( this.props.match.params.district );
         }
-
+        
         axios.get( '/Posts.json' )
         .then( response => {
             const fetchedPosts = [];
@@ -64,7 +66,14 @@ class Posts extends Component {
         } );
     }
 
-    stateDistrictHandler = ( initDistrict ) => {
+    componentDidUpdate() {
+        if( this.props.match.params.district === 'all' && !this.state.Update ){
+            this.setDistrictHandler( 'all' );
+            this.setState({Update:true});
+        };
+    }
+
+    setDistrictHandler = ( initDistrict ) => {
         const updatedControls = {
             ...this.state.Controls,
             District: {
@@ -81,6 +90,7 @@ class Posts extends Component {
     }
 
     inputChangedHandler = (event, PostIdentifier) =>{
+        this.resetCount();
         const updatedControls = {
             ...this.state.Controls,
             [PostIdentifier]: {
@@ -89,17 +99,22 @@ class Posts extends Component {
                 touched: true
             }
         };
-
         this.setState({Controls: updatedControls});
+    }
+
+    resetCount = () =>{
+        this.setState({Count: 0});
     }
 
     render() {
         
         let posts = <Spinner />;
+        let count = this.state.Count;
         
         if( this.state.posts ){
             posts = this.state.posts.map(post => {
                 if( this.state.Controls.District.value === 'all' ){
+                    count = count+1;
                     return (
                         <Post 
                             key={post.id} 
@@ -112,6 +127,7 @@ class Posts extends Component {
                 }
                 else{
                     if( post.District === this.state.Controls.District.value ){
+                        count = count+1;                        
                         return (
                             <Post 
                                 key={post.id} 
@@ -127,6 +143,10 @@ class Posts extends Component {
                     }
                 }
             });
+
+            if( count === 0){
+                posts = <h3 style={{color: "rgb(2, 61, 32)"}}>No Posts Found</h3>
+            }
         }
 
         const filterArray = [];
@@ -157,7 +177,6 @@ class Posts extends Component {
             <Aux>
                 <div className={classes.bg}>
                     <div className={classes.Left} >
-                        {/* <h3>District</h3> */}
                         {filter}
                     </div>
                     <div className={classes.Right} >
