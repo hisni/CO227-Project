@@ -9,9 +9,9 @@ class HomePage extends Component {
     state = {
         current: null,
         hovered: null,
-        isTooltipVisible: false,
-        tooltipY: 0,
-        tooltipX: 0,
+        // isTooltipVisible: false,
+        // tooltipY: 0,
+        // tooltipX: 0,
     };
 
     onClick = (e) => {
@@ -22,14 +22,14 @@ class HomePage extends Component {
     clearCurrent = () => this.setState({ current: null });
     onMouseEnter = e => this.setState({ hovered: e.target.attributes.name.value });
     onMouseLeave = () => this.setState({ hovered: null });
-    onMouseOver = e => this.setState({ current: e.target.attributes.name.value });
-    onMouseMove = e =>
-        this.setState({
-            isTooltipVisible: true,
-            tooltipY: e.clientY + 10,
-            tooltipX: e.clientX + 10,
-    });
-    onMouseOut = () => this.setState({ current: null, isTooltipVisible: false });
+    // onMouseOver = e => this.setState({ current: e.target.attributes.name.value });
+    // onMouseMove = e =>
+    //     this.setState({
+    //         isTooltipVisible: true,
+    //         tooltipY: e.clientY + 10,
+    //         tooltipX: e.clientX + 10,
+    // });
+    // onMouseOut = () => this.setState({ current: null, isTooltipVisible: false });
 
 
     render() {
@@ -43,11 +43,11 @@ class HomePage extends Component {
             onMouseMove: this.onMouseMove,
             onMouseOut: this.onMouseOut,
         };
-        const tooltipStyle = {
-            display: this.state.isTooltipVisible ? 'block' : 'none',
-            top: this.state.tooltipY,
-            left: this.state.tooltipX,
-        };
+        // const tooltipStyle = {
+        //     display: this.state.isTooltipVisible ? 'block' : 'none',
+        //     top: this.state.tooltipY,
+        //     left: this.state.tooltipX,
+        // };
 
         return (
             <div className={classes.bg}>
@@ -58,7 +58,7 @@ class HomePage extends Component {
                     <Map 
                         cr={current}
                         layerProps={layerProps}
-                        style={tooltipStyle}
+                        // style={tooltipStyle}
                     />
                 </div>
                 <div className={classes.districts}>

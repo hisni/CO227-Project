@@ -13,18 +13,18 @@ const StyledMap = styled(MapWrapper)`
         fill: #046736;
       }
       &[aria-current='true'] {
-        fill: #2dc47b;
+        fill: #046736;
       }
     }
   }
 `;
 
-const Tooltip = styled.div`
-  position: absolute;
-  padding: 0.25rem;
-  background: #c1fcdf;
-  border: 0.2rem solid #ccc;
-`;
+// const Tooltip = styled.div`
+//   position: absolute;
+//   padding: 0.25rem;
+//   background: #c1fcdf;
+//   border: 0.2rem solid #ccc;
+// `;
 
 class Map extends Component {
 
@@ -32,7 +32,7 @@ class Map extends Component {
         return(
         <StyledMap style={{ width: '100%', margin: '10px auto', maxWidth: '300px' }}>
             <VectorMap {...SL} layerProps={this.props.layerProps} currentLayers={this.props.cr} />
-            <Tooltip style={this.props.style}>{this.props.cr}</Tooltip>
+            {/* <Tooltip style={this.props.style}>{this.props.cr}</Tooltip> */}
         </StyledMap>
         );
   }
