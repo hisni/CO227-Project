@@ -3,6 +3,7 @@ import Intro from '../../components/Intro/Intro'
 import Districts from '../Districts/Districts';
 import classes from './HomePage.css';
 import Map from '../VectorMap/Map';
+import SolidWaste from '../../components/Intro/SolidWaste';
 
 class HomePage extends Component {
 
@@ -50,6 +51,7 @@ class HomePage extends Component {
         // };
 
         return (
+            <div>
             <div className={classes.bg}>
                 <div className={classes.ints}>
                     <Intro/>
@@ -69,6 +71,8 @@ class HomePage extends Component {
                         hover={this.state.hovered}
                     />
                 </div>
+            </div>
+            <SolidWaste/>
             </div>
         );
     }

@@ -42,7 +42,7 @@ class Districts extends Component {
 
     return (
       <div className={classes.DistSection} >
-        <h3 className={classes.text}> Districts </h3>
+        <h2 className={classes.text}> Districts </h2>
         
         {this.state.districts.map((district)=>{
 
