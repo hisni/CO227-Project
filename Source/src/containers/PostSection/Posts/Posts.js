@@ -100,6 +100,9 @@ class Posts extends Component {
             }
         };
         this.setState({Controls: updatedControls});
+        if( PostIdentifier === "District"){
+            this.props.history.push({pathname: '/posts/' + event.target.value});
+        }
     }
 
     resetCount = () =>{
