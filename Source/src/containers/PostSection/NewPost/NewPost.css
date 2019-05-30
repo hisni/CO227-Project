@@ -12,4 +12,8 @@
     .NewPost {
         width: 60%;
     }
+
+    .Page{
+        min-height: 100vh;
+    }
 }

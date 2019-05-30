@@ -43,6 +43,10 @@
         min-height: 85vh;
         border-left: 3px solid rgb(65, 65, 65);
     }
+
+    .Page{
+        min-height: 90vh;
+    }
     
 }
 
@@ -53,6 +57,10 @@
     
     .Right{
         width: 85%;
+    }
+
+    .Page{
+        min-height: 90vh;
     }
     
 }

@@ -178,14 +178,16 @@ class Posts extends Component {
 
         return(
             <Aux>
-                <div className={classes.bg}>
-                    <div className={classes.Left} >
-                        {filter}
-                    </div>
-                    <div className={classes.Right} >
-                        <section className={classes.Posts}>
-                            {posts}
-                        </section>
+                <div className={classes.Page}>
+                    <div className={classes.bg}>
+                        <div className={classes.Left} >
+                            {filter}
+                        </div>
+                        <div className={classes.Right} >
+                            <section className={classes.Posts}>
+                                {posts}
+                            </section>
+                        </div>
                     </div>
                 </div>
             </Aux>

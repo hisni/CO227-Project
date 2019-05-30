@@ -8,7 +8,7 @@ import Paper from '../../assets/images/paper.png';
 import Metal from '../../assets/images/metal.png';
 import Ewaste from '../../assets/images/e-waste.png';
 
-const Intro = () => {
+const SolidWaste = () => {
   return (
     <Aux>
         <div className={classes.Text}>
@@ -40,4 +40,4 @@ const Intro = () => {
   )
 }
 
-export default Intro
+export default SolidWaste;
