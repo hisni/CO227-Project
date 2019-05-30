@@ -8,7 +8,8 @@ class Vendor extends React.Component {
 
   state={
     vendor: null,
-    isProfileReady: false
+    isProfileReady: false,
+    loading: true
   }
   componentDidMount() {
     fetch('https://co227-project.firebaseio.com/Posts/'+this.props.itemId+'.json')
@@ -20,7 +21,12 @@ class Vendor extends React.Component {
       })
       console.log(parsedRes);
     })
-    .catch(err => console.log(err));
+    .catch(err => {
+      console.log(err)
+      this.setState({
+        loading: false
+      })
+    });
   };
 
   call = (num) => {
@@ -32,13 +38,26 @@ class Vendor extends React.Component {
     call(args).catch(console.error);
   };
 
+  reloadHandler=()=>{
+    this.componentDidMount();
+    this.setState({
+      loading: true
+    })
+  }
+
   render(){
     let show=<View>
                 <Text></Text>
                 <Text></Text>
                 <BarIndicator/>
               </View>
-    if(this.state.isProfileReady){
+
+    if (!this.state.loading){
+      show=<View style={{marginTop: '40%', alignItems: 'center', alignContent: 'space-around'}}>
+                  <Text style={{marginBottom: '5%'}}>Ooops! Something went wrong</Text>
+                  <Button color="#ff5c5c" title="try again" onPress={this.reloadHandler}></Button>
+            </View>
+    } else if(this.state.isProfileReady){
       show=<ScrollView>
         <View style={styles.container}>
             <View style={styles.header}>
@@ -62,6 +81,7 @@ class Vendor extends React.Component {
           </View>
         </ScrollView>
     }
+
 
     return(
       <View>

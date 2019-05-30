@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, ScrollView } from 'react-native';
+import { View, Text, ScrollView, Button } from 'react-native';
 import DropdownMenu from 'react-native-dropdown-menu';
 import {BarIndicator} from 'react-native-indicators';
 import Post from '../../../../components/common/post/Post'
@@ -18,7 +18,8 @@ export default class Demo extends Component {
     selectedDist: 'District',
     selectedType : 'Type',
     selectedId: null,
-    postReady: false
+    postReady: false,
+    loading: true
   };
 
   componentDidMount() {
@@ -52,7 +53,12 @@ export default class Demo extends Component {
         postReady: true
       });
     })
-    .catch(err => console.log(err));
+    .catch(err => {
+      console.log(err)
+      this.setState({
+        loading: false
+      })
+    });
   };
 
   postClicked=(id)=>{
@@ -61,12 +67,23 @@ export default class Demo extends Component {
     })
   }
 
+  reloadHandler=()=>{
+    this.componentDidMount();
+    this.setState({
+      loading: true
+    })
+  }
+
   render() {
     const data = [this.state.districts, this.state.types];
 
     let posts=<BarIndicator/>
-
-    if(this.state.postReady){
+    if (!this.state.loading){
+      posts=<View style={{marginTop: '40%', alignItems: 'center', alignContent: 'space-around'}}>
+                  <Text style={{marginBottom: '5%'}}>Ooops! Something went wrong</Text>
+                  <Button color="#ff5c5c" title="try again" onPress={this.reloadHandler}></Button>
+            </View>
+    } else if(this.state.postReady){
       posts=this.state.posts.map(item => {
         if((item.district===this.state.selectedDist || this.state.selectedDist=='District')
             && (item.type.toLowerCase()===this.state.selectedType.toLowerCase() || this.state.selectedType=='Type')){
@@ -80,6 +97,8 @@ export default class Demo extends Component {
         }
       });
     }
+
+
 
     return (
       <View style={{flex: 1}}>

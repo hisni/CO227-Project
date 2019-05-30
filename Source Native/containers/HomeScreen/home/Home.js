@@ -24,6 +24,7 @@ export default class HomeScreen extends React.Component {
   }
 
   componentDidMount() {
+    console.log('component did mount called');
     fetch('https://co227-project.firebaseio.com/Posts.json')
     .then(res => res.json())
     .then(parsedRes => {
@@ -56,8 +57,11 @@ export default class HomeScreen extends React.Component {
     })
   }
 
-  reloadBundleHandler=()=>{
-    RNRestart.Restart();
+  reloadHandler=()=>{
+    this.componentDidMount();
+    this.setState({
+      loading: true
+    })
   }
 
   render(){
@@ -68,14 +72,11 @@ export default class HomeScreen extends React.Component {
               </View>
 
     if (!this.state.loading){
-      posts=<View>
-                  <Text></Text>
-                  <Text>Ooops! Something went wrong</Text>
-                  <Text>Try again</Text>
-                  <Button title="reload" onPress={this.reloadBundleHandler}></Button>
-              </View>
-    }
-    if(this.state.postReady){
+      posts=<View style={{marginTop: '40%', alignItems: 'center', alignContent: 'space-around'}}>
+                  <Text style={{marginBottom: '5%'}}>Ooops! Something went wrong</Text>
+                  <Button color="#ff5c5c" title="try again" onPress={this.reloadHandler}></Button>
+            </View>
+    } else if(this.state.postReady){
       posts=this.state.posts.map(item => (
         <Post key={item.id}
               postClicked={()=>this.postClicked(item.id)}
@@ -84,6 +85,7 @@ export default class HomeScreen extends React.Component {
         />
       ));
     }
+
 
     return(
       <ScrollView>
