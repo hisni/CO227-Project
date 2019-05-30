@@ -18,3 +18,7 @@
     cursor: default;
 }
 
+.Page{
+    min-height: 83vh;
+}
+

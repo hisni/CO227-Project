@@ -135,16 +135,18 @@ class Signup extends Component {
         }
 
         return (
-            <div className={classes.Signup}>
-                {redirect}
-                <form onSubmit={this.submitHandler}>
-                    {form}
-                    <Button btnType="SuccessRe" disabled={!this.state.formIsValid} >Signup</Button>
-                    <div className={classes.Extras}>
-                        {loadSpinner}
-                        {errorMessage}
-                    </div>
-                </form>
+            <div className={classes.Page}>
+                <div className={classes.Signup}>
+                    {redirect}
+                    <form onSubmit={this.submitHandler}>
+                        {form}
+                        <Button btnType="SuccessRe" disabled={!this.state.formIsValid} >Signup</Button>
+                        <div className={classes.Extras}>
+                            {loadSpinner}
+                            {errorMessage}
+                        </div>
+                    </form>
+                </div>
             </div>
         );
     }

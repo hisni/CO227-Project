@@ -117,16 +117,18 @@ class Login extends Component {
         }
 
         return (
-            <div className={classes.Auth}>
-                {authRedirect}
-                <form onSubmit={this.submitHandler}>
-                    {form}
-                    <Button btnType="SuccessRe" disabled={!this.state.formIsValid} >Login</Button>
-                    <div className={classes.Extras}>
-                        {loadSpinner}
-                        {errorMessage}
-                    </div>
-                </form>
+            <div className={classes.Page} >
+                <div className={classes.Auth}>
+                    {authRedirect}
+                    <form onSubmit={this.submitHandler}>
+                        {form}
+                        <Button btnType="SuccessRe" disabled={!this.state.formIsValid} >Login</Button>
+                        <div className={classes.Extras}>
+                            {loadSpinner}
+                            {errorMessage}
+                        </div>
+                    </form>
+                </div>
             </div>
         );
     }

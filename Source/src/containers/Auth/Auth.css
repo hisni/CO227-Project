@@ -56,4 +56,8 @@
         margin-top: -29px;
         margin-left: -15px;
     }
+
+    .Page{
+        min-height: 65vh;
+    }
 }

@@ -91,13 +91,15 @@ class FullPost extends Component {
         
         return(
             <Aux >
-                {authRedirect}
-                <Modal show={this.state.delete} modalClosed={this.deleteCancelHandler}>
-                    <p>Are you sure you want to delete this post?</p>
-                    <Button btnType={"Danger"} clicked={this.deleteConfirmHandler} >Delete</Button>
-                    <Button btnType={"Success"} clicked={this.deleteCancelHandler} >Cancel</Button>
-                </Modal>
-                {post}
+                <div className={classes.Page}>
+                    {authRedirect}
+                    <Modal show={this.state.delete} modalClosed={this.deleteCancelHandler}>
+                        <p>Are you sure you want to delete this post?</p>
+                        <Button btnType={"Danger"} clicked={this.deleteConfirmHandler} >Delete</Button>
+                        <Button btnType={"Success"} clicked={this.deleteCancelHandler} >Cancel</Button>
+                    </Modal>
+                    {post}
+                </div>
             </Aux>
         );
     }

@@ -189,13 +189,15 @@ class NewPost extends Component {
         );
   
         return (
-            <div className={classes.NewPost}>
-                {redirect}
-                <h1>Add a new Post</h1>
-                <form onSubmit={this.postDataHandler} >
-                    {form}
-                    <Button btnType="Success" disabled={!this.state.formIsValid} >Add Post</Button>
-                </form>
+            <div className={classes.Page}>
+                <div className={classes.NewPost}>
+                    {redirect}
+                    <h1>Add a new Post</h1>
+                    <form onSubmit={this.postDataHandler} >
+                        {form}
+                        <Button btnType="Success" disabled={!this.state.formIsValid} >Add Post</Button>
+                    </form>
+                </div>
             </div>
         );
     }

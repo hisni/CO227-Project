@@ -16,8 +16,6 @@ import Profile from '../../containers/Profile/Profile';
 import User from '../../containers/Profile/User';
 import * as actions from '../../store/actions/index';
 
-import { IconContext } from "react-icons";
-
 class Main extends Component {
 
     componentDidMount(){
@@ -59,9 +57,7 @@ class Main extends Component {
         return (
             <div className={classes.App}>
                 <Layout>
-                    <IconContext.Provider value={{ color: "rgb(3, 78, 41)",style: { verticalAlign: 'middle' } , className: "global-class-name" }}>
-                        {routes}
-                    </IconContext.Provider>
+                    {routes}
                 </Layout>
             </div>
         );
