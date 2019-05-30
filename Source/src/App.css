@@ -3,7 +3,7 @@
   background: linear-gradient(80deg,rgb(193, 252, 223) 0%, #44ca8b 100%);
   /* background-color: rgb(175, 248, 214); */
   width: 100%;
-  min-height: 100vh;
+  min-height: 80vh;
   display:block;
   overflow:auto;
   height: 100%;

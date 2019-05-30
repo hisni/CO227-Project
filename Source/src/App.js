@@ -8,6 +8,8 @@ import AdminLogin from './containers/Auth/AdminLogin';
 import Main from './containers/Main/Main';
 import * as actions from './store/actions/index';
 
+import { IconContext } from "react-icons";
+
 class App extends Component {
 
     // componentDidMount(){
@@ -17,12 +19,14 @@ class App extends Component {
     render() {
 
         return (
-            <div className={classes.App}>
-                <Switch>
-                    <Route path="/admin" exact component={AdminLogin} />
-                    <Route path="/" component={Main} />
-                </Switch>
-            </div>
+            <IconContext.Provider value={{ color: "rgb(3, 78, 41)",style: { verticalAlign: 'middle' } , className: "global-class-name" }}>
+                <div className={classes.App}>
+                    <Switch>
+                        <Route path="/admin" exact component={AdminLogin} />
+                        <Route path="/" component={Main} />
+                    </Switch>
+                </div>
+            </IconContext.Provider>
         );
     }
 }
