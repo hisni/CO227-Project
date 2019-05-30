@@ -42,7 +42,6 @@ class Profile extends Component {
                             clicked={() => this.postSelectedHandler('Messages')}/>                
                     </section>
                 </div>
-                
             </div>
         );
     }
