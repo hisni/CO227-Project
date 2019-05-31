@@ -50,10 +50,7 @@
         display: flex;
         flex-flow: row;
         margin-bottom: 50px;
-        /* background-color: black; */
-        /* height: auto; */
     }
-
 }
 
 @media (min-width: 800px) {    
