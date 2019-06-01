@@ -17,7 +17,8 @@ axios.defaults.headers.common['Authorization'] = 'AUTH TOKEN';
 axios.defaults.headers.post['Content-Type'] = 'application/json'
 
 const rootReducer = combineReducers({
-    auth: authReducer
+    auth: authReducer,
+    adminAuth: adminAuthReducer
 });
 
 const store = createStore(rootReducer, applyMiddleware(thunk));
