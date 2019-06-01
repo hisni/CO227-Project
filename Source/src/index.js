@@ -10,6 +10,7 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import axios from 'axios';
 import authReducer from './store/reducers/auth';
+import adminAuthReducer from './store/reducers/adminAuth';
 
 axios.defaults.baseURL = 'https://co227-project.firebaseio.com';
 axios.defaults.headers.common['Authorization'] = 'AUTH TOKEN';
