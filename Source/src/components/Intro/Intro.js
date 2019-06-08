@@ -15,7 +15,7 @@ const Intro = () => {
         Connect to solid wastes buyers in Sri Lanka!
       </p>
       <h2>
-        Be the change you want to see in the world: Reduce, Reuse, Recycle.
+        "Be the change you want to see in the world: Reduce, Reuse, Recycle."
       </h2>
     </div>
   )
