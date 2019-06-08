@@ -16,8 +16,8 @@
 }
 
 .Images div{
-    width: 16%;
-    margin:2%;
+    width: 40%;
+    margin:4%;
 }
 
 .Images img{
@@ -50,4 +50,11 @@
 
 .Metal {
     color: #8100cc;
+}
+
+@media (min-width: 520px) {
+    .Images div{
+        width: 16%;
+        margin:2%;
+    }       
 }

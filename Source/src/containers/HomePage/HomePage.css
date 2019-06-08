@@ -28,13 +28,13 @@
 
 @media (min-width: 520px) {
     .ints{
-        width: 25%;
+        width: 30%;
         margin: 10% 0;
         float: left;
     }
 
     .Map{
-        width: 45%;
+        width: 40%;
         float: left;
     }
 
@@ -45,6 +45,7 @@
 
     .bg {
         background-image: none;
+        margin-top: -25px;
     }
 
     .bg::after {

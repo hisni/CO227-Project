@@ -52,27 +52,27 @@ class HomePage extends Component {
 
         return (
             <div>
-            <div className={classes.bg}>
-                <div className={classes.ints}>
-                    <Intro/>
+                <div className={classes.bg}>
+                    <div className={classes.ints}>
+                        <Intro/>
+                    </div>
+                    <div className={classes.Map}>
+                        <Map 
+                            cr={current}
+                            layerProps={layerProps}
+                            // style={tooltipStyle}
+                        />
+                    </div>
+                    <div className={classes.districts}>
+                        <Districts 
+                            {...this.props}
+                            set={this.setCurrent}
+                            clear={this.clearCurrent}
+                            hover={this.state.hovered}
+                        />
+                    </div>
                 </div>
-                <div className={classes.Map}>
-                    <Map 
-                        cr={current}
-                        layerProps={layerProps}
-                        // style={tooltipStyle}
-                    />
-                </div>
-                <div className={classes.districts}>
-                    <Districts 
-                        {...this.props}
-                        set={this.setCurrent}
-                        clear={this.clearCurrent}
-                        hover={this.state.hovered}
-                    />
-                </div>
-            </div>
-            <SolidWaste/>
+                <SolidWaste/>
             </div>
         );
     }
