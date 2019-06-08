@@ -111,7 +111,7 @@ class Login extends Component {
 
         let authRedirect = null;
         if (this.props.isAuthenticated) {
-            authRedirect = <Redirect to={'/profile'}/>
+            authRedirect = <Redirect to={'/adminProfile'}/>
         }
 
         return (
@@ -132,16 +132,16 @@ class Login extends Component {
 
 const mapStateToProps = state => {
     return {
-        loading: state.auth.loading,
-        error: state.auth.error,
-        isAuthenticated: state.auth.token !== null,
+        loading: state.adminAuth.loading,
+        error: state.adminAuth.error,
+        isAuthenticated: state.adminAuth.token !== null,
     };
 };
 
 const mapDispatchToProps = dispatch => {
     return {
-        onAuth: ( email, password ) => dispatch( actions.authSignIn( email, password ) ),
-        setAuth: () => dispatch(actions.setAuth()),
+        onAuth: ( email, password ) => dispatch( actions.adminAuthSignIn( email, password ) ),
+        setAuth: () => dispatch(actions.setAdminAuth()),
     };
 };
 

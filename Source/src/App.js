@@ -5,26 +5,44 @@ import { connect } from 'react-redux';
 
 import classes from './App.css';
 import AdminLogin from './containers/Auth/AdminLogin';
+import AdminProfile from './containers/Profile/AdminProfile';
 import Main from './containers/Main/Main';
+import AdminLogout from './containers/Auth/AdminLogout';
+
 import * as actions from './store/actions/index';
 
 import { IconContext } from "react-icons";
 
 class App extends Component {
 
-    // componentDidMount(){
-    //     this.props.onTryAutoSignup();
-    // }
+    componentDidMount(){
+        this.props.onTryAutoSignup();
+    }
 
     render() {
+
+        let routes = (
+            <Switch>
+                <Route path="/admin" exact component={AdminLogin} />
+                <Route path="/" component={Main} />
+            </Switch>
+        );
+
+        if ( this.props.isAuthenticated ) {
+            routes = (
+                <Switch>
+                    <Route path="/admin" exact component={AdminLogin} />
+                    <Route path="/adminProfile" exact component={AdminProfile} />
+                    <Route path="/adminLogout" exact component={AdminLogout} />
+                    <Route path="/" component={Main} />
+                </Switch>
+            );
+        }
 
         return (
             <IconContext.Provider value={{ color: "rgb(3, 78, 41)",style: { verticalAlign: 'middle' } , className: "global-class-name" }}>
                 <div className={classes.App}>
-                    <Switch>
-                        <Route path="/admin" exact component={AdminLogin} />
-                        <Route path="/" component={Main} />
-                    </Switch>
+                    {routes}
                 </div>
             </IconContext.Provider>
         );
@@ -33,13 +51,13 @@ class App extends Component {
 
 const mapStateToProps = state => {
     return {
-        isAuthenticated: state.auth.token !== null
+        isAuthenticated: state.adminAuth.token !== null
     };
 };
 
 const mapDispatchToProps = dispatch => {
     return {
-        onTryAutoSignup: () => dispatch( actions.authCheckState() )
+        onTryAutoSignup: () => dispatch( actions.adminAuthCheckState() )
     };
 };
 

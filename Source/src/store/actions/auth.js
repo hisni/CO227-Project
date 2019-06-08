@@ -18,6 +18,10 @@ export const authSuccess = (token, userId, username) => {
 };
 
 export const authFail = (error) => {
+    localStorage.removeItem('token');
+    localStorage.removeItem('expirationDate');
+    localStorage.removeItem('userId');
+    localStorage.removeItem('username');
     return {
         type: actionTypes.AUTH_FAIL,
         error: error
@@ -124,13 +128,19 @@ export const loadSigninData = ( dbURL, idToken, localId ) => {
     
     return dispatch => {
         var username = '';
+        var authority = '';
         axios.get(dbURL)
         .then(response => {
             for(let key in response.data){
                 username = response.data[key].Username;
+                authority = response.data[key].Authority;
             }
-            // localStorage.setItem('username', username);
-            dispatch(authSuccess(idToken, localId, username));
+            console.log(response);
+            if( authority === "admin" ){
+                dispatch(authFail("Login Error"));
+            }else{
+                dispatch(authSuccess(idToken, localId, username));
+            }
         })
         .catch(err => {
             dispatch(authFail(err.response.data.error));

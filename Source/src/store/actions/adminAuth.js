@@ -2,33 +2,40 @@ import axios from 'axios';
 
 import * as actionTypes from './actionTypes';
 
-export const authStart = () => {
+export const adminAuthStart = () => {
     return {
         type: actionTypes.AUTH_START
     };
 };
 
-export const authSuccess = (token, userId, username) => {
+export const adminAuthSuccess = (token, userId, username, authority) => {
     return {
         type: actionTypes.AUTH_SUCCESS,
         idToken: token,
         userId: userId,
-        name:username
+        name:username,
+        Authority: authority
     };
 };
 
-export const authFail = (error) => {
+export const adminAuthFail = (error) => {
+    localStorage.removeItem('adminToken');
+    localStorage.removeItem('adminExpirationDate');
+    localStorage.removeItem('adminUserId');
+    localStorage.removeItem('adminUsername');
+    localStorage.removeItem('authority');
     return {
         type: actionTypes.AUTH_FAIL,
         error: error
     };
 };
 
-export const logout = () => {
-    localStorage.removeItem('token');
-    localStorage.removeItem('expirationDate');
-    localStorage.removeItem('userId');
-    localStorage.removeItem('username');
+export const adminLogout = () => {
+    localStorage.removeItem('adminToken');
+    localStorage.removeItem('adminExpirationDate');
+    localStorage.removeItem('adminUserId');
+    localStorage.removeItem('adminUsername');
+    localStorage.removeItem('authority');
     return {
         type: actionTypes.AUTH_LOGOUT
     };
@@ -37,14 +44,14 @@ export const logout = () => {
 export const checkAuthTimeout = (expirationTime) => {
     return dispatch => {
         setTimeout(() => {
-            dispatch(logout());
+            dispatch(adminLogout());
         }, expirationTime * 1000);
     };
 };
 
-export const authSignIn = (email, password) => {
+export const adminAuthSignIn = (email, password) => {
     return dispatch => {
-        dispatch(authStart());
+        dispatch(adminAuthStart());
         const authData = {
             email: email,
             password: password,
@@ -56,72 +63,66 @@ export const authSignIn = (email, password) => {
 
         axios.post(url, authData)
         .then(response => {
-            console.log(response);
             const expirationDate = new Date(new Date().getTime() + response.data.expiresIn * 1000);
-            localStorage.setItem('token', response.data.idToken);
-            localStorage.setItem('expirationDate', expirationDate);
-            localStorage.setItem('userId', response.data.localId);
-            localStorage.setItem('username', response.data.displayName);
+            localStorage.setItem('adminToken', response.data.idToken);
+            localStorage.setItem('adminExpirationDate', expirationDate);
+            localStorage.setItem('adminUserId', response.data.localId);
+            localStorage.setItem('adminUsername', response.data.displayName);
             dbURL = 'https://co227-project.firebaseio.com/Users/'+response.data.localId+'.json?auth=' + response.data.idToken; 
-            dispatch(loadSigninData( dbURL, response.data.idToken, response.data.localId ));
+            dispatch(loadAdminSigninData( dbURL, response.data.idToken, response.data.localId ));
             dispatch(checkAuthTimeout(response.data.expiresIn));
         })
         .catch(err => {
-            dispatch(authFail(err.response.data.error));
+            dispatch(adminAuthFail(err.response.data.error));
         });
     };
 };
 
-export const storeSignupData = ( dbURL, dbData ) => {
-    return dispatch => {
-        axios.post(dbURL, dbData)
-        .then(response => {
-            dispatch(signUpSuccess());
-        })
-        .catch(err => {
-            dispatch(authFail(err.response.data.error));
-        });
-    }
-}
-
-export const loadSigninData = ( dbURL, idToken, localId ) => {
+export const loadAdminSigninData = ( dbURL, idToken, localId ) => {
     
     return dispatch => {
         var username = '';
+        var authority = '';
         axios.get(dbURL)
         .then(response => {
             for(let key in response.data){
                 username = response.data[key].Username;
+                authority = response.data[key].Authority;
             }
-            // localStorage.setItem('username', username);
-            dispatch(authSuccess(idToken, localId, username));
+            if( authority === "admin" ){
+                localStorage.setItem('authority', "admin");
+                dispatch(adminAuthSuccess(idToken, localId, username, authority));
+            }else{
+                dispatch(adminAuthFail("Login Error"));
+            }
         })
         .catch(err => {
-            dispatch(authFail(err.response.data.error));
+            dispatch(adminAuthFail(err.response.data.error));
         });
     }
 }
 
-export const setAuth = () => {
+export const setAdminAuth = () => {
     return {
         type: actionTypes.SET_AUTH,
     };
 };
 
-export const authCheckState = () => {
+export const adminAuthCheckState = () => {
     return dispatch => {
-        const token = localStorage.getItem('token');
+        const token = localStorage.getItem('adminToken');
         if (!token) {
-            dispatch(logout());
+            dispatch(adminLogout());
         } else {
-            const expirationDate = new Date(localStorage.getItem('expirationDate'));
+            const expirationDate = new Date(localStorage.getItem('adminExpirationDate'));
             if (expirationDate <= new Date()) {
-                dispatch(logout());
+                dispatch(adminLogout());
             } else {
-                const userId = localStorage.getItem('userId');
-                const username = localStorage.getItem('username');
+                const userId = localStorage.getItem('adminUserId');
+                const username = localStorage.getItem('adminUsername');
+                const authority = localStorage.getItem('authority');
                 
-                dispatch(authSuccess(token, userId, username));
+                dispatch(adminAuthSuccess(token, userId, username, authority));
                 dispatch(checkAuthTimeout((expirationDate.getTime() - new Date().getTime()) / 1000 ));
             }   
         }

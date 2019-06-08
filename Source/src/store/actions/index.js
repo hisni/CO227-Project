@@ -7,3 +7,11 @@ export {
     setAuth,
     loadSigninData
 } from './auth';
+
+export {
+    adminAuthSignIn,
+    adminLogout,
+    adminAuthCheckState,
+    setAdminAuth,
+    loadAdminSigninData
+} from './adminAuth';
