@@ -11,6 +11,9 @@ const Footer = () => {
         </div>
         <div className={classes.Right}>
             <h4>All Rights Reserved.</h4>
+
+
+            
         </div>
     </footer>
   )
