@@ -10,7 +10,8 @@
     border-radius: 4px;
     cursor: pointer;
     background-color: rgb(9, 187, 128);
-    color: rgb(4, 75, 31)
+    color: rgb(4, 75, 31);
+    font-size: 15px;
 }
 
 .Post:hover,

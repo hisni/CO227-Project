@@ -2,7 +2,7 @@
     display: block;
     flex-flow: row;
     justify-content: center;
-    min-height: 84vh;
+    min-height: 100vh;
 }
 
 .UserManagements {
@@ -43,7 +43,7 @@
     flex-flow: row;
     justify-content: center;
     width: 90%;
-    margin: 100px 60px;
+    margin: 100px 0;
 }
 
 @media (min-width: 520px) {

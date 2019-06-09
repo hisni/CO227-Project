@@ -54,7 +54,6 @@ class Profile extends Component {
                         <h2>{this.props.Name}</h2>
                         <h3>Public Health Inspector</h3>
                         <h3>{this.props.District} District</h3>
-
                     </div>
                     <div className={classes.Tiles}>
                         <Tile 
