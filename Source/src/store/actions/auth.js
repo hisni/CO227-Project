@@ -98,7 +98,8 @@ export const authSignUp = ( data ) => {
 
         const dbData = {
             Email: data.Email,
-            Username: data.Username
+            Username: data.Username,
+            District: data.District
         };
         
         const URL = 'https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key=AIzaSyD_U3qQekQqULtlVCv7A2GsysPnH2X96TI';

@@ -11,9 +11,10 @@ import Login from '../../containers/Auth/Login';
 import Signup from '../../containers/Auth/Signup';
 import HomePage from '../../containers/HomePage/HomePage';
 import Logout from '../../containers/Auth/Logout';
-// import UserPosts from '../../containers/PostSection/Posts/UserPosts';
 import Profile from '../../containers/Profile/Profile';
 import User from '../../containers/Profile/User';
+import Accounts from '../PHIControls/Accounts';
+import DistrictPosts from '../PHIControls/DistrictPosts';
 import * as actions from '../../store/actions/index';
 
 class Main extends Component {
@@ -44,7 +45,8 @@ class Main extends Component {
                     <Route path="/post-add" exact component={NewPost} />
                     <Route path="/profile" exact component={Profile} />                    
                     <Route path="/logout" exact component={Logout} />                 
-                    {/* <Route path="/user/posts" exact component={UserPosts} />       */}
+                    <Route path="/accounts" exact component={Accounts} />                 
+                    <Route path="/districtposts" exact component={DistrictPosts} />                 
                     <Route path="/posts/:district" exact component={Posts} />                        
                     <Route path="/post/user/:pid" exact component={User} />
                     <Route path="/profile/posts/:id" exact component={FullPost} />                                                 */}

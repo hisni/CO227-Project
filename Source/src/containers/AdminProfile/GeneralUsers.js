@@ -34,13 +34,13 @@ class Posts extends Component {
         var posts = null;
         if( this.state.posts ){
             posts = this.state.posts.map(post => {
-                if( post.Authority === "PHI" ){
+                if( !post.Authority ){
                     return (
                         <Table 
                             key={post.id} 
-                            email={post.email}
+                            email={post.Email}
                             name={post.Username}
-                            district={post.District} 
+                            district={post.Username}
                         />
                     );
                 }else{
@@ -52,7 +52,7 @@ class Posts extends Component {
         return(
             <div className={classes.Accounts}>
                 <div className={classes.Title}>
-                    <h3>PHI Accounts</h3>
+                    <h3>General Accounts</h3>
                 </div>
                 <div>
                     {posts}

@@ -16,6 +16,12 @@ class Profile extends Component {
             case "New":
                 this.props.history.push({pathname: '/post-add'});
                 break;
+            case "DA":
+                this.props.history.push({pathname: '/accounts'});
+                break;
+            case "DP":
+                this.props.history.push({pathname: '/districtposts'});
+                break;
             default: ;
         }
     }
@@ -45,7 +51,7 @@ class Profile extends Component {
             profile = (
                 <div className={classes.Profile}>
                     <div className={classes.Title}>
-                        <h2>{this.props.Name} Profile</h2>
+                        <h2>{this.props.Name}</h2>
                         <h3>Public Health Inspector</h3>
                         <h3>{this.props.District} District</h3>
 
@@ -53,10 +59,10 @@ class Profile extends Component {
                     <div className={classes.Tiles}>
                         <Tile 
                             title={'Distric Accounts'}
-                            clicked={() => this.postSelectedHandler('New')}/>
+                            clicked={() => this.postSelectedHandler('DA')}/>
                         <Tile 
                             title={'Distric Posts'}
-                            clicked={() => this.postSelectedHandler('New')}/> 
+                            clicked={() => this.postSelectedHandler('DP')}/> 
                     </div>
                 </div>
             )
@@ -66,26 +72,6 @@ class Profile extends Component {
             <AUX>
                 {profile}
             </AUX>
-            // <div className={classes.Profile}>
-            //     <div className={classes.Title}>
-            //         <h3>@{this.props.Name} Profile</h3>
-            //     </div>
-            //     <div>
-            //         <section className={classes.ProfileMangement}>
-            //             <div className={classes.Controls}>
-            //                 {/* <Tile 
-            //                     title={'Posts'}
-            //                     clicked={() => this.postSelectedHandler('Posts')}/>                 */}
-            //                 <Tile 
-            //                     title={'Add New'}
-            //                     clicked={() => this.postSelectedHandler('New')}/> 
-            //             </div>
-            //             <div className={classes.Posts}>
-            //                 <UserPosts {...this.props}/>
-            //             </div>
-            //         </section>
-            //     </div>
-            //</div>
         );
     }
 }

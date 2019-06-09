@@ -26,6 +26,37 @@ class Signup extends Component {
                 valid: false,
                 touched: false
             },
+            District: {
+                elementType: 'select',
+                elementConfig: {
+                    options: [
+                        {value: 'Matale', displayValue: 'Matale'},
+                        {value: 'Kandy', displayValue: 'Kandy'},
+                        {value: 'Nuwara Eliya', displayValue: 'Nuwara Eliya'},
+                        {value: 'Kurunegala', displayValue: 'Kurunegala'},
+                        {value: 'Puttalam', displayValue: 'Puttalam'},
+                        {value: 'Colombo', displayValue: 'Colombo'},
+                        {value: 'Kaluthara', displayValue: 'Kaluthara'},
+                        {value: 'Gampaha', displayValue: 'Gampaha'},
+                        {value: 'Badulla', displayValue: 'Badulla'},
+                        {value: 'Ampara', displayValue: 'Ampara'},
+                        {value: 'Batticaloa', displayValue: 'Batticaloa'},
+                        {value: 'Jaffna', displayValue: 'Jaffna'},
+                        {value: 'Kegalle', displayValue: 'Kegalle'},
+                        {value: 'Mannar', displayValue: 'Mannar'},
+                        {value: 'Monaragala', displayValue: 'Monaragala'},
+                        {value: 'Mullaitivu', displayValue: 'Mullaitivu'},
+                        {value: 'Trincomalee', displayValue: 'Trincomalee'},
+                        {value: 'Vavuniya', displayValue: 'Vavuniya'},
+                        {value: 'Galle', displayValue: 'Galle'},
+                        {value: 'Matara', displayValue: 'Matara'},
+                        {value: 'Hambantota', displayValue: 'Hambantota'},
+                    ]
+                },
+                value: '',
+                validation: {},
+                valid: true
+            },
             Email: {
                 elementType: 'input',
                 elementConfig: {
@@ -61,7 +92,6 @@ class Signup extends Component {
 
     componentDidMount() {
         if ( this.props.signUpSuccess || this.props.error ) {
-            console.log('didmount');
             this.props.setAuth();
         }
     }
@@ -89,6 +119,7 @@ class Signup extends Component {
             Email: this.state.controls.Email.value,
             Password: this.state.controls.Password.value,
             Username: this.state.controls.Username.value,
+            District: this.state.controls.District.value,
         }
         this.props.onAuth( data, this.state.isSignup );
     }

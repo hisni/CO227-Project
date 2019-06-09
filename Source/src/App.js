@@ -8,6 +8,9 @@ import AdminLogin from './containers/Auth/AdminLogin';
 import AdminProfile from './containers/AdminProfile/AdminProfile';
 import Main from './containers/Main/Main';
 import AdminLogout from './containers/Auth/AdminLogout';
+import PHIusers from './containers/AdminProfile/PHIusers';
+import GeneralUsers from './containers/AdminProfile/GeneralUsers';
+
 
 import * as actions from './store/actions/index';
 
@@ -35,12 +38,12 @@ class App extends Component {
                     <Route path="/admin" exact component={AdminLogin} />
                     <Route path="/adminProfile" exact component={AdminProfile} />
                     <Route path="/adminLogout" exact component={AdminLogout} />
+                    <Route path="/phiusers" exact component={PHIusers} />
+                    <Route path="/GeneralUsers" exact component={GeneralUsers} />
                     <Route path="/" component={Main} />
                 </Switch>
             );
         }
-
-        
 
         return (
             <IconContext.Provider value={{ color: "rgb(3, 78, 41)",style: { verticalAlign: 'middle' } , className: "global-class-name" }}>
