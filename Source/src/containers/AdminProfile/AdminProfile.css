@@ -1,0 +1,55 @@
+.Profile {
+    display: block;
+    flex-flow: row;
+    justify-content: center;
+    min-height: 84vh;
+}
+
+.UserManagements {
+    display: block;
+    flex-flow: row;
+    justify-content: center;
+    width: 90%;
+    margin: auto;
+}
+
+.Title {
+    height: 50px;
+    text-align: center;
+    padding: 0 25px;
+    margin: 15px 0;
+    color: rgb(2, 61, 32);
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.Users{
+    display: block;
+    flex-flow: row;
+    float: left;
+    width: 90%;
+}
+
+.CreateUsers{
+    float: right;
+    width: 90%;
+}
+
+@media (min-width: 520px) {
+    .UserManagements {
+        display: flex;
+        flex-flow: row wrap;
+    }
+
+    .Users{
+        display: block;
+        flex-flow: row;
+        float: left;
+        width: 35%;
+    }
+    
+    .CreateUsers{
+        float: right;
+        width: 65%;
+    }
+}

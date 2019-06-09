@@ -4,7 +4,7 @@ import classes from './Tile.css';
 
 const post = (props) => (
     <article className={classes.Tile} onClick={props.clicked}>
-        <h1>{props.title}</h1>
+        <p>{props.title}</p>
     </article>
 );
 

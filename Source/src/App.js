@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 
 import classes from './App.css';
 import AdminLogin from './containers/Auth/AdminLogin';
-import AdminProfile from './containers/Profile/AdminProfile';
+import AdminProfile from './containers/AdminProfile/AdminProfile';
 import Main from './containers/Main/Main';
 import AdminLogout from './containers/Auth/AdminLogout';
 
@@ -17,6 +17,7 @@ class App extends Component {
 
     componentDidMount(){
         this.props.onTryAutoSignup();
+        this.props.onTryAutoAdminSignup();
     }
 
     render() {
@@ -51,13 +52,14 @@ class App extends Component {
 
 const mapStateToProps = state => {
     return {
-        isAuthenticated: state.adminAuth.token !== null
+        isAuthenticated: state.adminAuth.adminToken !== null
     };
 };
 
 const mapDispatchToProps = dispatch => {
     return {
-        onTryAutoSignup: () => dispatch( actions.adminAuthCheckState() )
+        onTryAutoSignup: () => dispatch( actions.authCheckState() ),
+        onTryAutoAdminSignup: () => dispatch( actions.adminAuthCheckState() )
     };
 };
 

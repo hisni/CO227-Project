@@ -132,9 +132,9 @@ class Login extends Component {
 
 const mapStateToProps = state => {
     return {
-        loading: state.adminAuth.loading,
-        error: state.adminAuth.error,
-        isAuthenticated: state.adminAuth.token !== null,
+        loading: state.adminAuth.adminLoading,
+        error: state.adminAuth.adminError,
+        isAuthenticated: state.adminAuth.adminToken !== null,
     };
 };
 

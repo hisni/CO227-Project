@@ -1,0 +1,43 @@
+.Signup {
+    margin: 80px auto;
+    width: 90%;
+    height: 330px;
+    text-align: center;
+    box-shadow: 0 2px 3px #ccc;
+    border: 1px solid #eee;
+    /* border-radius: 10px; */
+    padding: 20px 10px;
+    box-sizing: border-box;
+    background-color: rgba(52, 168, 110, 0.726);
+}
+
+.Signup h3{
+    color: rgb(2, 61, 32)
+}
+
+.Signup p {
+    color: rgb(119, 8, 8);
+}
+
+.Extras{
+    margin-top: -24px;
+    margin-left: -15px;
+}
+
+@media (min-width: 600px) {
+    .Signup {
+        margin: 10px auto;
+        width: 80%;
+        height: 400px;
+        padding: 35px 8px;
+    }
+    
+    .Extras{
+        margin-top: -29px;
+        margin-left: -15px;
+    }
+
+    .Page{
+        min-height: 65vh;
+    }
+}

@@ -11,6 +11,8 @@ export {
 export {
     adminAuthSignIn,
     adminLogout,
+    adminAuthSignUp,
+    storeAdminSignupData,
     adminAuthCheckState,
     setAdminAuth,
     loadAdminSigninData

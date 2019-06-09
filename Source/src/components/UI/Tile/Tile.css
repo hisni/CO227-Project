@@ -1,18 +1,19 @@
 .Tile {
-    width: 90px;
+    width: 80%;
     height: 90px;
     padding: 12px 0;
-    margin: 15px 3px;
+    margin: 5% 15%;
     text-align: center;
     border: 1px solid #eee;
     box-shadow: 0 2px 3px #ccc;
     box-sizing: border-box;
     cursor: pointer;
     background-color: rgb(6, 156, 81);
-    font-size: 14px;
+    font-weight: bold;
+    font-size: 20px;
 }
 
-.Tile h1{
+.Tile p{
     color: #72f1b6
 }
 
@@ -24,20 +25,12 @@
 @media (min-width: 520px) {
     .Tile {
         width: 200px;
-        height: 200px;
-        padding: 45px 0;
-        text-align: center;
-        border: 1px solid #eee;
-        box-shadow: 0 2px 3px #ccc;
-        margin: 20px;
-        box-sizing: border-box;
-        cursor: pointer;
-        background-color: rgb(6, 156, 81);
-        font-weight: bold;
-        font-size: 25px;
+        height: 100px;
+        padding: 12px 0;
+        margin: 20px auto;
     }
     
-    .Tile h1{
+    .Tile p{
         color: #72f1b6
     }
     

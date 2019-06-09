@@ -19,7 +19,7 @@ import * as actions from '../../store/actions/index';
 class Main extends Component {
 
     componentDidMount(){
-        this.props.onTryAutoSignup();
+        // this.props.onTryAutoSignup();
     }
 
     render() {
@@ -72,7 +72,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        onTryAutoSignup: () => dispatch( actions.authCheckState() )
+        onTryAutoSignup: () => dispatch( actions.authCheckState() ),
+        onTryAutoAdminSignup: () => dispatch( actions.adminAuthCheckState() )
     };
 };
 

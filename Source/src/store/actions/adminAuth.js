@@ -4,13 +4,13 @@ import * as actionTypes from './actionTypes';
 
 export const adminAuthStart = () => {
     return {
-        type: actionTypes.AUTH_START
+        type: actionTypes.ADMIN_AUTH_START
     };
 };
 
 export const adminAuthSuccess = (token, userId, username, authority) => {
     return {
-        type: actionTypes.AUTH_SUCCESS,
+        type: actionTypes.ADMIN_AUTH_SUCCESS,
         idToken: token,
         userId: userId,
         name:username,
@@ -25,10 +25,16 @@ export const adminAuthFail = (error) => {
     localStorage.removeItem('adminUsername');
     localStorage.removeItem('authority');
     return {
-        type: actionTypes.AUTH_FAIL,
+        type: actionTypes.ADMIN_AUTH_FAIL,
         error: error
     };
 };
+
+export const signUpSuccess = () => {
+    return {
+        type: actionTypes.SIGNUP_SUCCESS,
+    };
+}
 
 export const adminLogout = () => {
     localStorage.removeItem('adminToken');
@@ -37,17 +43,58 @@ export const adminLogout = () => {
     localStorage.removeItem('adminUsername');
     localStorage.removeItem('authority');
     return {
-        type: actionTypes.AUTH_LOGOUT
+        type: actionTypes.ADMIN_AUTH_LOGOUT
     };
 };
 
-export const checkAuthTimeout = (expirationTime) => {
+export const checkAdminAuthTimeout = (expirationTime) => {
     return dispatch => {
         setTimeout(() => {
             dispatch(adminLogout());
         }, expirationTime * 1000);
     };
 };
+
+export const adminAuthSignUp = ( data ) => {
+    return dispatch => {
+        dispatch(adminAuthStart());
+        const authData = {
+            email: data.Email,
+            password: data.Password,
+            displayName: data.displayName,
+            returnSecureToken: true
+        };
+
+        const dbData = {
+            Username: data.displayName,
+            Authority: "PHI"
+        };
+        
+        const URL = 'https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key=AIzaSyD_U3qQekQqULtlVCv7A2GsysPnH2X96TI';
+        var dbURL = '';
+
+        axios.post(URL, authData)
+        .then(response => {
+            dbURL = 'https://co227-project.firebaseio.com/PHIusers/'+response.data.localId+'.json'; 
+            dispatch(storeAdminSignupData( dbURL, dbData ));
+        })
+        .catch(err => {
+            dispatch(adminAuthFail(err.response.data.error));
+        });
+    };
+};
+
+export const storeAdminSignupData = ( dbURL, dbData ) => {
+    return dispatch => {
+        axios.post(dbURL, dbData)
+        .then(response => {
+            dispatch(signUpSuccess());
+        })
+        .catch(err => {
+            dispatch(adminAuthFail(err.response.data.error));
+        });
+    }
+}
 
 export const adminAuthSignIn = (email, password) => {
     return dispatch => {
@@ -70,7 +117,7 @@ export const adminAuthSignIn = (email, password) => {
             localStorage.setItem('adminUsername', response.data.displayName);
             dbURL = 'https://co227-project.firebaseio.com/Users/'+response.data.localId+'.json?auth=' + response.data.idToken; 
             dispatch(loadAdminSigninData( dbURL, response.data.idToken, response.data.localId ));
-            dispatch(checkAuthTimeout(response.data.expiresIn));
+            dispatch(checkAdminAuthTimeout(response.data.expiresIn));
         })
         .catch(err => {
             dispatch(adminAuthFail(err.response.data.error));
@@ -123,7 +170,7 @@ export const adminAuthCheckState = () => {
                 const authority = localStorage.getItem('authority');
                 
                 dispatch(adminAuthSuccess(token, userId, username, authority));
-                dispatch(checkAuthTimeout((expirationDate.getTime() - new Date().getTime()) / 1000 ));
+                dispatch(checkAdminAuthTimeout((expirationDate.getTime() - new Date().getTime()) / 1000 ));
             }   
         }
     };

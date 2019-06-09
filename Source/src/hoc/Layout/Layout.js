@@ -23,6 +23,8 @@ class Layout extends Component {
     }
 
     render () {
+        console.log("General "+this.props.token);
+        console.log("ADMIN "+this.props.tokenadmin);
         return (
             <Aux>
                 <Toolbar 
@@ -43,7 +45,11 @@ class Layout extends Component {
 
 const mapStateToProps = state => {
     return {
-        isAuthenticated: state.auth.token !== null
+        isAuthenticated: state.auth.token !== null,
+        isAuth: state.adminAuth.adminToken !== null,
+        tokenadmin: state.adminAuth.adminToken,
+        token: state.auth.token
+
     }
 }
 
