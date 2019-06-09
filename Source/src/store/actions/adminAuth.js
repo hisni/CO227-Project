@@ -66,6 +66,7 @@ export const adminAuthSignUp = ( data ) => {
         };
 
         const dbData = {
+            email: data.Email,
             Username: data.displayName,
             Authority: "PHI"
         };

@@ -94,6 +94,7 @@ export const authSignUp = ( data ) => {
         };
 
         const dbData = {
+            Email: data.Email,
             Username: data.Username
         };
         

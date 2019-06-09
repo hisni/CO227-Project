@@ -40,6 +40,8 @@ class App extends Component {
             );
         }
 
+        
+
         return (
             <IconContext.Provider value={{ color: "rgb(3, 78, 41)",style: { verticalAlign: 'middle' } , className: "global-class-name" }}>
                 <div className={classes.App}>

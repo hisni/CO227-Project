@@ -119,6 +119,7 @@ class Signup extends Component {
             Email: this.state.controls.Email.value,
             Password: this.state.controls.Password.value,
             DisplayName: this.state.controls.DisplayName.value,
+            District: this.state.controls.DisplayName.value
         }
         this.props.onAuth( data, this.state.isSignup );
     }

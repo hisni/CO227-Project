@@ -2,7 +2,7 @@
     display: block;
     flex-flow: row;
     justify-content: center;
-    min-height: 84vh;
+    min-height: 91vh;
 }
 
 .UserManagements {
@@ -32,7 +32,7 @@
 
 .CreateUsers{
     float: right;
-    width: 90%;
+    width: 100%;
 }
 
 @media (min-width: 520px) {

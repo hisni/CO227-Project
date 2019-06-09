@@ -5,7 +5,7 @@ import { Redirect } from 'react-router-dom';
 import Input from '../../components/UI/Input/Input';
 import Button from '../../components/UI/Button/Button';
 import Spinner from '../../components/UI/Spinner/smallSpinner';
-import classes from './Auth.css';
+import classes from './AdminLogin.css';
 import * as actions from '../../store/actions/index';
 import { updateObject, checkValidity } from '../../shared/utility';
 
@@ -115,16 +115,21 @@ class Login extends Component {
         }
 
         return (
-            <div className={classes.Auth}>
-                {authRedirect}
-                <form onSubmit={this.submitHandler}>
-                    {form}
-                    <Button btnType="SuccessRe" disabled={!this.state.formIsValid} >Login</Button>
-                    <div className={classes.Extras}>
-                        {loadSpinner}
-                        {errorMessage}
-                    </div>
-                </form>
+            <div className={classes.Page}>
+                <div className={classes.Title}>
+                    <h3>Admin Login</h3>
+                </div>
+                <div className={classes.Auth}>
+                    {authRedirect}
+                    <form onSubmit={this.submitHandler}>
+                        {form}
+                        <Button btnType="SuccessRe" disabled={!this.state.formIsValid} >Login</Button>
+                        <div className={classes.Extras}>
+                            {loadSpinner}
+                            {errorMessage}
+                        </div>
+                    </form>
+                </div>
             </div>
         );
     }
