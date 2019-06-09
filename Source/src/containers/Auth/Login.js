@@ -111,6 +111,7 @@ class Login extends Component {
 
         let authRedirect = null;
         if (this.props.isAuthenticated) {
+
             authRedirect = <Redirect to={'/profile'}/>
         }
 
@@ -137,6 +138,7 @@ const mapStateToProps = state => {
         loading: state.auth.loading,
         error: state.auth.error,
         isAuthenticated: state.auth.token !== null,
+        isPHI: state.auth.authority !== null,
     };
 };
 

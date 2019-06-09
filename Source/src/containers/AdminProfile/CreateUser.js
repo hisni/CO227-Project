@@ -119,7 +119,7 @@ class Signup extends Component {
             Email: this.state.controls.Email.value,
             Password: this.state.controls.Password.value,
             DisplayName: this.state.controls.DisplayName.value,
-            District: this.state.controls.DisplayName.value
+            District: this.state.controls.District.value
         }
         this.props.onAuth( data, this.state.isSignup );
     }
@@ -162,7 +162,7 @@ class Signup extends Component {
 
         let redirect = null;
         if (this.props.signUpSuccess) {
-            redirect = <Redirect to={'/login'}/>
+            redirect = <Redirect to={'/phiusers'}/>
         }
 
         return (

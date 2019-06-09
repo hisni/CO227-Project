@@ -76,7 +76,7 @@ class FullPost extends Component {
             post = (
                 <div className={classes.FullPost}>
                     {linkUser}
-                    <p>{this.state.loadedPost.postData.Discription}</p>
+                    <p>{this.state.loadedPost.postData.Description}</p>
                     <p><FaPhone/> {this.state.loadedPost.postData.ContactNo}</p>
                     <p><FaMapMarkerAlt/> {this.state.loadedPost.postData.Address}</p>
                     {deleteButton}

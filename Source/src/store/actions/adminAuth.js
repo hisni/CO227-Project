@@ -32,7 +32,7 @@ export const adminAuthFail = (error) => {
 
 export const signUpSuccess = () => {
     return {
-        type: actionTypes.SIGNUP_SUCCESS,
+        type: actionTypes.ADMIN_SIGNUP_SUCCESS,
     };
 }
 
@@ -61,13 +61,14 @@ export const adminAuthSignUp = ( data ) => {
         const authData = {
             email: data.Email,
             password: data.Password,
-            displayName: data.displayName,
+            displayName: data.DisplayName,
             returnSecureToken: true
         };
 
         const dbData = {
             email: data.Email,
-            Username: data.displayName,
+            Username: data.DisplayName,
+            District:data.District,
             Authority: "PHI"
         };
         
@@ -76,6 +77,7 @@ export const adminAuthSignUp = ( data ) => {
 
         axios.post(URL, authData)
         .then(response => {
+            console.log(response);
             dbURL = 'https://co227-project.firebaseio.com/PHIusers/'+response.data.localId+'.json'; 
             dispatch(storeAdminSignupData( dbURL, dbData ));
         })
@@ -87,8 +89,10 @@ export const adminAuthSignUp = ( data ) => {
 
 export const storeAdminSignupData = ( dbURL, dbData ) => {
     return dispatch => {
+        console.log(dbData);
         axios.post(dbURL, dbData)
         .then(response => {
+            console.log(response);
             dispatch(signUpSuccess());
         })
         .catch(err => {

@@ -39,11 +39,11 @@ class NewPost extends Component {
                 valid: false,
                 touched: false
             },
-            Discription: {
+            Description: {
                 elementType: 'textarea',
                 elementConfig: {
                     type: 'text',
-                    placeholder: 'Discription'
+                    placeholder: 'Description'
                 },
                 value: '',
                 validation: {

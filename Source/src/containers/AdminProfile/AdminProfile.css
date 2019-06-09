@@ -48,4 +48,8 @@
     .CreateUsers{
         width: 65%;
     }
+
+    .Logout{
+        margin-top: 300px;
+    }
 }

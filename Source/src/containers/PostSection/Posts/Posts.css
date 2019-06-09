@@ -19,7 +19,7 @@
     display: block;
     flex-flow: row;
     margin-bottom: 20px;
-    min-height: 70vh;
+    min-height: 100vh;
 }
 
 @media (min-width: 520px) {

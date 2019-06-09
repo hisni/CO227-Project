@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import CreateUser from './CreateUser';
 import classes from './AdminProfile.css';
+import Button from '../../components/UI/Button/Button'
 import Tile from '../../components/UI/Tile/Tile';
 
 class Profile extends Component {
@@ -16,9 +17,10 @@ class Profile extends Component {
                 this.props.history.push({pathname: '/GeneralUsers'});
                 break;
             default: ;
-        }
-        
+        } 
     }
+
+    logoutSelectedHandler = () => this.props.history.push({pathname: '/adminLogout'});
 
     render() {
         return (
@@ -34,13 +36,16 @@ class Profile extends Component {
                                 clicked={() => this.postSelectedHandler('PHIUsers')}/>                
                             <Tile 
                                 title={'General Accounts'}
-                                clicked={() => this.postSelectedHandler('GeneralUsers')}/>      
+                                clicked={() => this.postSelectedHandler('GeneralUsers')}/>   
                         </div>
                         <div className={classes.CreateUsers}>
                             <CreateUser />
                         </div>                         
                     </section>
                 </div>
+                    <div className={classes.Logout}>
+                        <Button btnType="Logout" clicked={ () => this.logoutSelectedHandler() }>Logout</Button>
+                    </div>
             </div>
         );
     }
