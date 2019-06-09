@@ -8,12 +8,14 @@ export const authStart = () => {
     };
 };
 
-export const authSuccess = (token, userId, username) => {
+export const authSuccess = (token, userId, username, Authority, District ) => {
     return {
         type: actionTypes.AUTH_SUCCESS,
         idToken: token,
         userId: userId,
-        name:username
+        name:username,
+        authority:Authority,
+        district:District
     };
 };
 
@@ -22,6 +24,7 @@ export const authFail = (error) => {
     localStorage.removeItem('expirationDate');
     localStorage.removeItem('userId');
     localStorage.removeItem('username');
+    localStorage.removeItem('PHIauthority');
     return {
         type: actionTypes.AUTH_FAIL,
         error: error
@@ -39,6 +42,8 @@ export const logout = () => {
     localStorage.removeItem('expirationDate');
     localStorage.removeItem('userId');
     localStorage.removeItem('username');
+    localStorage.removeItem('PHIauthority');
+
     return {
         type: actionTypes.AUTH_LOGOUT
     };
@@ -128,17 +133,21 @@ export const loadSigninData = ( dbURL, idToken, localId ) => {
     return dispatch => {
         var username = '';
         var authority = '';
+        var district = '';
         axios.get(dbURL)
         .then(response => {
             for(let key in response.data){
                 username = response.data[key].Username;
                 authority = response.data[key].Authority;
+                district =  response.data[key].District;
             }
             localStorage.setItem('username', username);
+            localStorage.setItem('PHIauthority', authority);
+            localStorage.setItem('District', district);
             if( authority === "admin" ){
                 dispatch(authFail("Login Error"));
             }else{
-                dispatch(authSuccess(idToken, localId, username));
+                dispatch(authSuccess(idToken, localId, username, authority, district));
             }
         })
         .catch(err => {
@@ -165,8 +174,10 @@ export const authCheckState = () => {
             } else {
                 const userId = localStorage.getItem('userId');
                 const username = localStorage.getItem('username');
-                
-                dispatch(authSuccess(token, userId, username));
+                const authority = localStorage.getItem('PHIauthority');
+                const district = localStorage.getItem('District');
+
+                dispatch(authSuccess(token, userId, username, authority, district));
                 dispatch(checkAuthTimeout((expirationDate.getTime() - new Date().getTime()) / 1000 ));
             }   
         }

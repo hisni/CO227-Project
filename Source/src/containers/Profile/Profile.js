@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import classes from './Profile.css';
 import UserPosts from '../PostSection/Posts/UserPosts';
 import Tile from '../../components/UI/Tile/Tile';
+import AUX from '../../hoc/Auxiliary/Auxiliary';
 
 class Profile extends Component {
 
@@ -17,21 +18,17 @@ class Profile extends Component {
                 break;
             default: ;
         }
-        
     }
 
     render() {
-        return (
+        var profile = (
             <div className={classes.Profile}>
                 <div className={classes.Title}>
-                    <h3>@{this.props.Name} Profile</h3>
+                    <h1>@{this.props.Name} Profile</h1>
                 </div>
                 <div>
                     <section className={classes.ProfileMangement}>
                         <div className={classes.Controls}>
-                            {/* <Tile 
-                                title={'Posts'}
-                                clicked={() => this.postSelectedHandler('Posts')}/>                 */}
                             <Tile 
                                 title={'Add New'}
                                 clicked={() => this.postSelectedHandler('New')}/> 
@@ -43,6 +40,53 @@ class Profile extends Component {
                 </div>
             </div>
         );
+
+        if( this.props.Authority === "PHI"  ){
+            profile = (
+                <div className={classes.Profile}>
+                    <div className={classes.Title}>
+                        <h2>{this.props.Name} Profile</h2>
+                        <h3>Public Health Inspector</h3>
+                        <h3>{this.props.District} District</h3>
+
+                    </div>
+                    <div className={classes.Tiles}>
+                        <Tile 
+                            title={'Distric Accounts'}
+                            clicked={() => this.postSelectedHandler('New')}/>
+                        <Tile 
+                            title={'Distric Posts'}
+                            clicked={() => this.postSelectedHandler('New')}/> 
+                    </div>
+                </div>
+            )
+        }
+     
+        return (
+            <AUX>
+                {profile}
+            </AUX>
+            // <div className={classes.Profile}>
+            //     <div className={classes.Title}>
+            //         <h3>@{this.props.Name} Profile</h3>
+            //     </div>
+            //     <div>
+            //         <section className={classes.ProfileMangement}>
+            //             <div className={classes.Controls}>
+            //                 {/* <Tile 
+            //                     title={'Posts'}
+            //                     clicked={() => this.postSelectedHandler('Posts')}/>                 */}
+            //                 <Tile 
+            //                     title={'Add New'}
+            //                     clicked={() => this.postSelectedHandler('New')}/> 
+            //             </div>
+            //             <div className={classes.Posts}>
+            //                 <UserPosts {...this.props}/>
+            //             </div>
+            //         </section>
+            //     </div>
+            //</div>
+        );
     }
 }
 
@@ -50,7 +94,9 @@ const mapStateToProps = state => {
     return {
         isAuthenticated: state.auth.token !== null,
         UID: state.auth.userId,
-        Name: state.auth.username
+        Name: state.auth.username,
+        Authority: state.auth.Authority,
+        District: state.auth.District
     }
 }
 

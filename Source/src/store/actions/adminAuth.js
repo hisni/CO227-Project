@@ -78,7 +78,7 @@ export const adminAuthSignUp = ( data ) => {
         axios.post(URL, authData)
         .then(response => {
             console.log(response);
-            dbURL = 'https://co227-project.firebaseio.com/PHIusers/'+response.data.localId+'.json'; 
+            dbURL = 'https://co227-project.firebaseio.com/Users/'+response.data.localId+'.json'; 
             dispatch(storeAdminSignupData( dbURL, dbData ));
         })
         .catch(err => {
