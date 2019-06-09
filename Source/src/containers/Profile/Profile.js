@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import classes from './Profile.css';
+import UserPosts from '../PostSection/Posts/UserPosts';
 import Tile from '../../components/UI/Tile/Tile';
-
 
 class Profile extends Component {
 
@@ -15,9 +15,6 @@ class Profile extends Component {
             case "New":
                 this.props.history.push({pathname: '/post-add'});
                 break;
-            case "Messages":
-                this.props.history.push({pathname: '/messages'});
-                break;
             default: ;
         }
         
@@ -27,19 +24,21 @@ class Profile extends Component {
         return (
             <div className={classes.Profile}>
                 <div className={classes.Title}>
-                    <h3>@{this.props.Name}</h3>
+                    <h3>@{this.props.Name} Profile</h3>
                 </div>
                 <div>
-                    <section className={classes.Posts}>
-                        <Tile 
-                            title={'Posts'}
-                            clicked={() => this.postSelectedHandler('Posts')}/>                
-                        <Tile 
-                            title={'New'}
-                            clicked={() => this.postSelectedHandler('New')}/>                
-                        <Tile 
-                            title={'Messages'}
-                            clicked={() => this.postSelectedHandler('Messages')}/>                
+                    <section className={classes.ProfileMangement}>
+                        <div className={classes.Controls}>
+                            {/* <Tile 
+                                title={'Posts'}
+                                clicked={() => this.postSelectedHandler('Posts')}/>                 */}
+                            <Tile 
+                                title={'Add New'}
+                                clicked={() => this.postSelectedHandler('New')}/> 
+                        </div>
+                        <div className={classes.Posts}>
+                            <UserPosts {...this.props}/>
+                        </div>
                     </section>
                 </div>
             </div>
@@ -54,6 +53,5 @@ const mapStateToProps = state => {
         Name: state.auth.username
     }
 }
-
 
 export default connect(mapStateToProps)(Profile);

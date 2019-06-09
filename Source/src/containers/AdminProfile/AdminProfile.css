@@ -42,14 +42,10 @@
     }
 
     .Users{
-        display: block;
-        flex-flow: row;
-        float: left;
         width: 35%;
     }
     
     .CreateUsers{
-        float: right;
         width: 65%;
     }
 }

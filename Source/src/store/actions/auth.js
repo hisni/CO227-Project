@@ -66,12 +66,10 @@ export const authSignIn = (email, password) => {
 
         axios.post(url, authData)
         .then(response => {
-            console.log(response);
             const expirationDate = new Date(new Date().getTime() + response.data.expiresIn * 1000);
             localStorage.setItem('token', response.data.idToken);
             localStorage.setItem('expirationDate', expirationDate);
             localStorage.setItem('userId', response.data.localId);
-            localStorage.setItem('username', response.data.displayName);
             dbURL = 'https://co227-project.firebaseio.com/Users/'+response.data.localId+'.json?auth=' + response.data.idToken; 
             dispatch(loadSigninData( dbURL, response.data.idToken, response.data.localId ));
             dispatch(checkAuthTimeout(response.data.expiresIn));
@@ -136,7 +134,7 @@ export const loadSigninData = ( dbURL, idToken, localId ) => {
                 username = response.data[key].Username;
                 authority = response.data[key].Authority;
             }
-            console.log(response);
+            localStorage.setItem('username', username);
             if( authority === "admin" ){
                 dispatch(authFail("Login Error"));
             }else{

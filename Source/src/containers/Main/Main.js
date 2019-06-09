@@ -11,7 +11,7 @@ import Login from '../../containers/Auth/Login';
 import Signup from '../../containers/Auth/Signup';
 import HomePage from '../../containers/HomePage/HomePage';
 import Logout from '../../containers/Auth/Logout';
-import UserPosts from '../../containers/PostSection/Posts/UserPosts';
+// import UserPosts from '../../containers/PostSection/Posts/UserPosts';
 import Profile from '../../containers/Profile/Profile';
 import User from '../../containers/Profile/User';
 import * as actions from '../../store/actions/index';
@@ -44,10 +44,10 @@ class Main extends Component {
                     <Route path="/post-add" exact component={NewPost} />
                     <Route path="/profile" exact component={Profile} />                    
                     <Route path="/logout" exact component={Logout} />                 
-                    <Route path="/user/posts" exact component={UserPosts} />      
+                    {/* <Route path="/user/posts" exact component={UserPosts} />       */}
                     <Route path="/posts/:district" exact component={Posts} />                        
                     <Route path="/post/user/:pid" exact component={User} />
-                    <Route path="/user/posts/:id" exact component={FullPost} />                                                 */}
+                    <Route path="/profile/posts/:id" exact component={FullPost} />                                                 */}
                     <Route path="/posts/:district/:id" exact component={FullPost} />   
                     <Redirect to="/" />
                 </Switch>
