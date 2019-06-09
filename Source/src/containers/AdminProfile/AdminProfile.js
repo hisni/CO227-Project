@@ -6,7 +6,7 @@ import classes from './AdminProfile.css';
 import Button from '../../components/UI/Button/Button'
 import Tile from '../../components/UI/Tile/Tile';
 
-class Profile extends Component {
+class AdminProfile extends Component {
 
     postSelectedHandler = (id) => {
         switch ( id ) {
@@ -59,4 +59,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps)(Profile);
+export default connect(mapStateToProps)(AdminProfile);

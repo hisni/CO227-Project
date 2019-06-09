@@ -9,7 +9,7 @@ import classes from './CreateUser.css';
 import * as actions from '../../store/actions/index';
 import { updateObject, checkValidity } from '../../shared/utility';
 
-class Signup extends Component {
+class CreateUser extends Component {
     state = {
         controls: {
             DisplayName: {
@@ -199,4 +199,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default connect( mapStateToProps, mapDispatchToProps )( Signup );
+export default connect( mapStateToProps, mapDispatchToProps )( CreateUser );

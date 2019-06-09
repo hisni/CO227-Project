@@ -44,9 +44,8 @@ class FullPost extends Component {
         const token = this.props.tokenID;
         axios.delete( '/Posts/' + this.props.match.params.id + '.json?auth=' + token )
             .then( response => {
-                console.log(response);
+                this.setState( { deleteSuccess: true } );
             });
-        this.setState( { deleteSuccess: true } );
     }
 
     postSelectedHandler = () =>{
@@ -68,6 +67,10 @@ class FullPost extends Component {
                         <h1>{this.state.loadedPost.postData.Title}</h1>
                     </div>    
                 )
+            }
+            console.log(this.props.isAuthorized);
+
+            if( this.props.isAuthorized || (this.props.isAuthenticated && this.props.UID === this.state.loadedPost.UID) ){
                 deleteButton = (
                     <Button btnType={"DangerRe"} clicked={this.deletePostHandler} >Delete</Button>
                 )
@@ -109,7 +112,8 @@ const mapStateToProps = state => {
     return {
         isAuthenticated: state.auth.token !== null,
         tokenID: state.auth.token,
-        UID: state.auth.userId
+        UID: state.auth.userId,
+        isAuthorized: state.auth.Authority === "PHI"
     }
 }
 

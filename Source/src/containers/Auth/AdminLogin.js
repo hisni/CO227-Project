@@ -9,7 +9,7 @@ import classes from './AdminLogin.css';
 import * as actions from '../../store/actions/index';
 import { updateObject, checkValidity } from '../../shared/utility';
 
-class Login extends Component {
+class AdminLogin extends Component {
     state = {
         controls: {
             Email: {
@@ -150,4 +150,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default connect( mapStateToProps, mapDispatchToProps )( Login );
+export default connect( mapStateToProps, mapDispatchToProps )( AdminLogin );

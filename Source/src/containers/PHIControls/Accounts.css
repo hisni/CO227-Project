@@ -1,0 +1,15 @@
+.Accounts{
+    display: blockl;
+    flex-flow: row;
+    min-height: 90vh;
+}
+
+.Title {
+    height: 50px;
+    text-align: center;
+    padding: 0 25px;
+    margin: 15px 0;
+    color: rgb(2, 61, 32);
+    font-weight: bold;
+    font-size: 25px;
+}

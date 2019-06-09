@@ -1,7 +1,7 @@
 import React from 'react';
 import classes from './Table.css';
 
-const post = (props) => (
+const Table = (props) => (
     <div className={classes.Content}>
         <div className={classes.Email}>{props.email}</div>
         <div className={classes.Name}>{props.name}</div>  
@@ -9,4 +9,4 @@ const post = (props) => (
     </div>
 );
 
-export default post;
+export default Table;

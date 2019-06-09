@@ -5,15 +5,12 @@ import { connect } from 'react-redux';
 import Table from '../../components/UI/Table/Table';
 import classes from './PHIusers.css';
 
-class Posts extends Component {
+class PHIusers extends Component {
     state = {
         posts: null,
     }
 
     componentDidMount () {
-        if( this.props.match.params.district ){
-            this.setDistrictHandler( this.props.match.params.district );
-        }
         axios.get( '/Users.json?auth=' + this.props.token )
         .then( response => {
             const fetchedPosts = [];
@@ -69,4 +66,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps)(Posts);
+export default connect(mapStateToProps)(PHIusers);
