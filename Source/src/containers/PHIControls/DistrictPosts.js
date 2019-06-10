@@ -61,7 +61,7 @@ class Accounts extends Component {
         return(
             <div className={classes.Accounts}>
                 <div className={classes.Title}>
-                    <h3>Distict Posts</h3>
+                    <h3>{this.props.district} Distict Posts</h3>
                 </div>
                 <div className={classes.Posts}>
                     {posts}

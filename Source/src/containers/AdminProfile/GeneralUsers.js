@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 
 import Table from '../../components/UI/Table/Table';
 import classes from './PHIusers.css';
+import Spinner from '../../components/UI/Spinner/Spinner';
 
 class GeneralUsers extends Component {
     state = {
@@ -28,7 +29,7 @@ class GeneralUsers extends Component {
 
     render() {
         
-        var posts = null;
+        var posts = <Spinner />;
         if( this.state.posts ){
             posts = this.state.posts.map(post => {
                 if( !post.Authority ){
@@ -37,7 +38,7 @@ class GeneralUsers extends Component {
                             key={post.id} 
                             email={post.Email}
                             name={post.Username}
-                            district={post.Username}
+                            district={post.District}
                         />
                     );
                 }else{

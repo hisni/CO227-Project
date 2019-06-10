@@ -1,6 +1,7 @@
 .Accounts{
-    display: blockl;
+    display: block;
     flex-flow: row;
+    min-height: 100vh;
 }
 
 .Title {

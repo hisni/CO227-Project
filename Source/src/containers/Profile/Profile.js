@@ -57,10 +57,10 @@ class Profile extends Component {
                     </div>
                     <div className={classes.Tiles}>
                         <Tile 
-                            title={'Distric Accounts'}
+                            title={'District Accounts'}
                             clicked={() => this.postSelectedHandler('DA')}/>
                         <Tile 
-                            title={'Distric Posts'}
+                            title={'District Posts'}
                             clicked={() => this.postSelectedHandler('DP')}/> 
                     </div>
                 </div>

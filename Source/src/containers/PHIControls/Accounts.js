@@ -49,7 +49,7 @@ class Accounts extends Component {
         return(
             <div className={classes.Accounts}>
                 <div className={classes.Title}>
-                    <h3>General Accounts</h3>
+                    <h3>General Accounts in {this.props.district}</h3>
                 </div>
                 <div>
                     {posts}

@@ -101,7 +101,7 @@ export const authSignUp = ( data ) => {
             Username: data.Username,
             District: data.District
         };
-        
+        console.log(dbData);
         const URL = 'https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key=AIzaSyD_U3qQekQqULtlVCv7A2GsysPnH2X96TI';
         var dbURL = '';
 
@@ -121,6 +121,8 @@ export const storeSignupData = ( dbURL, dbData ) => {
     return dispatch => {
         axios.post(dbURL, dbData)
         .then(response => {
+            console.log(dbData);
+            console.log(response);
             dispatch(signUpSuccess());
         })
         .catch(err => {

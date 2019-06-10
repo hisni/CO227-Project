@@ -172,7 +172,7 @@ class CreateUser extends Component {
                     {redirect}
                     <form onSubmit={this.submitHandler}>
                         {form}
-                        <Button btnType="SuccessRe" disabled={!this.state.formIsValid} >Signup</Button>
+                        <Button btnType="SuccessRe" disabled={!this.state.formIsValid} >Create</Button>
                         <div className={classes.Extras}>
                             {loadSpinner}
                             {errorMessage}
