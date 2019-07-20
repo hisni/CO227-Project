@@ -89,7 +89,7 @@ class FullPost extends Component {
 
         let authRedirect = null;
         if (this.state.deleteSuccess) {
-            authRedirect = <Redirect to={'/user/posts'}/>
+            authRedirect = <Redirect to={'/profile'}/>
         }
         
         return(
